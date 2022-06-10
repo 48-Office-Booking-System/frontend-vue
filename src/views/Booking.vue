@@ -54,64 +54,6 @@
       <div class="heading-3-regular mb-10">Best Seller Ruangan Meeting</div>
     </div>
 
-    <div class="reason-content mt-16">
-      <v-row class="fill-height text-center" align="center" justify="center">
-        <v-col cols="5">
-          <div class="heading-1 px-16">Alasan menggunakan website ini</div>
-        </v-col>
-        <v-col cols="7">
-          <div class="heading-3-regular">
-            Keuntungan website ini <br />
-            Keuntungan website ini <br />
-            Keuntungan website ini <br />
-            Keuntungan website ini
-          </div>
-        </v-col>
-      </v-row>
-    </div>
-
-    <div class="testimoni py-16">
-      <div class="heading-1 text-center mb-8">Testimoni</div>
-      <v-sheet
-        class="mx-auto"
-        elevation="0"
-        max-width="100%"
-        color="#AFB2B7"
-        dark
-      >
-        <v-slide-group
-          v-model="testimoni"
-          class="pa-4"
-          center-active
-          show-arrows
-        >
-          <v-slide-item v-for="n in 9" :key="n" v-slot="{ active, toggle }">
-            <v-card
-              :color="active ? 'primary' : '#fff'"
-              class="ma-4"
-              height="263"
-              width="365"
-              @click="toggle"
-            >
-              <div class="heading3-regular text-center" style="color: #000">
-                Testimoni {{ n }}
-              </div>
-              <v-row class="fill-height" align="center" justify="center">
-                <v-scale-transition>
-                  <v-icon
-                    v-if="active"
-                    color="white"
-                    size="48"
-                    v-text="'mdi-close-circle-outline'"
-                  ></v-icon>
-                </v-scale-transition>
-              </v-row>
-            </v-card>
-          </v-slide-item>
-        </v-slide-group>
-      </v-sheet>
-    </div>
-
     <v-footer color="#AFB2B7" class="mt-5" padless>
       <v-col class="text-center py-16" cols="12">
         <div class="heading-1">Copyright</div>
