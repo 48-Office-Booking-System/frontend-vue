@@ -3,30 +3,35 @@
         <v-app-bar
             app height="70" 
             class="px-10"
-            color="primary"
+            color="#FCFDFF"
             flat
-            dark
         >
             <div class="logo">
-                <h2>Logo</h2>
+                <v-img src="../assets/kobaspace.png" />
             </div>
 
             <div class="nav mx-10">
                 <v-btn 
                     text
                     small
+                    color="#28304E"
+                    height="0"
                 >
                     Gedung
                 </v-btn>
                 <v-btn
                     text
                     small
+                    color="#28304E"
+                    height="0"
                 >
                     Pembayaran
                 </v-btn>
                 <v-btn 
                     text
                     small
+                    color="#28304E"
+                    height="0"
                 >
                     Tentang Kami
                 </v-btn>
@@ -40,18 +45,25 @@
             filled
             prepend-inner-icon="mdi-magnify"
             placeholder="Cari gedung yang kau mau"
+            color="#28304E"
             />
             
 
             <div>
                 <v-btn
                     class="ml-4"
+                    color="#455392"
+                    dark
+                    to="/"
                 >
                     Masuk
                 </v-btn>
 
                 <v-btn
                     class="ml-4"
+                    outlined
+                    color="#455392"
+                    to="/register"
                 >
                     Daftar
                 </v-btn>
@@ -61,51 +73,216 @@
 
         <div class="banner-iklan">
             <v-img src="../assets/home/banner.png" width="100%" alt="">
-                <v-row class="text-center ma-0 fill-height" align="center">
+                <v-row class="ma-0 fill-height" align="center">
                     <v-col>
-                        <div class="heading-1">
-                            Banner Iklan
+                        <div class="heading-1 white--text text-center">
+                            Sewa Ruangan yang Anda Inginkan <br> di KOBASpace
+                        </div>
+                        <div class="heading-3-regular white--text text-center mt-4">
+                            Terjangkau, Terjamin, Terbaik
                         </div>
                     </v-col>
+                    <v-col></v-col>
                 </v-row>
             </v-img>
             
         </div>
 
-        <div class="best-seller text-center mt-16">
-            <div class="heading-1">
-                BEST SELLER Ruangan Meeting
+        <div class="best-seller mt-16 px-16">
+            <div class="heading-1 text-center indigo--text text--darken-3">
+                Rekomendasi ruangan meeting
             </div>
-            <div class="heading-3-regular mb-10">
-                Best Seller Ruangan Meeting
+            <div class="heading-3-regular text-center indigo--text text--darken-3 mb-10">
+               Temukan, Booking, dan gunakan dengan instant
             </div>
-            <v-carousel 
-             v-model="model" 
-             hide-delimiters 
-             height="384"
-             class="px-16"
-            >
-                <v-carousel-item
-                v-for="(color, i) in colors"
-                :key="color"
-                >
-                <v-sheet
-                    :color="color"
-                    height="100%"
-                    tile
-                >
-                    <v-row
-                    class="fill-height"
-                    align="center"
-                    justify="center"
+
+
+            <v-row>
+                <v-col>        
+                    <v-card
+                        class="mx-auto"
+                        max-width="330"
                     >
-                    <div class="text-h2">
-                        Slide {{ i + 1 }}
-                    </div>
-                    </v-row>
-                </v-sheet>
-                </v-carousel-item>
-            </v-carousel>
+                        <v-carousel 
+                        v-model="model" 
+                        hide-delimiters 
+                        height="279"
+                        >
+                            <v-carousel-item
+                            v-for="(color, i) in colors"
+                            :key="color"
+                            >
+                            <v-sheet
+                                :color="color"
+                                height="100%"
+                                tile
+                            >
+                                <v-row
+                                class="fill-height"
+                                align="center"
+                                justify="center"
+                                >
+                                <div class="text-h2">
+                                    Slide {{ i + 1 }}
+                                </div>
+                                </v-row>
+                            </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>
+
+                        
+                        <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
+                            INFINITI OFFICE
+                        </div>
+
+
+
+                        <v-row class="text-left grey--text text--darken-2 px-4 pt-4">
+                            <v-col cols="4">
+                                <div class="body-regular-2 mb-2">
+                                    Kapasitas
+                                </div>                                
+                                <div class="body-regular-2 mb-2">
+                                    Harga
+                                </div>
+                            </v-col>
+                            <v-col cols="8">
+                                <div class="body-regular-2 mb-2">
+                                    : 10-15 Orang
+                                </div>
+                                <div class="body-regular-2 mb-2">
+                                    : Rp. 250.000/jam
+                                </div>
+                            </v-col>
+                        </v-row>
+
+
+                    </v-card>
+                </v-col>
+                <v-col>
+                    <v-card
+                        class="mx-auto"
+                        max-width="330"
+                    >
+                        <v-carousel 
+                        v-model="model" 
+                        hide-delimiters 
+                        height="279"
+                        >
+                            <v-carousel-item
+                            v-for="(color, i) in colors"
+                            :key="color"
+                            >
+                            <v-sheet
+                                :color="color"
+                                height="100%"
+                                tile
+                            >
+                                <v-row
+                                class="fill-height"
+                                align="center"
+                                justify="center"
+                                >
+                                <div class="text-h2">
+                                    Slide {{ i + 1 }}
+                                </div>
+                                </v-row>
+                            </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>
+
+                        
+                        <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
+                            INFINITI OFFICE
+                        </div>
+
+
+
+                        <v-row class="text-left grey--text text--darken-2 px-4 pt-4">
+                            <v-col cols="4">
+                                <div class="body-regular-2 mb-2">
+                                    Kapasitas
+                                </div>                                
+                                <div class="body-regular-2 mb-2">
+                                    Harga
+                                </div>
+                            </v-col>
+                            <v-col cols="8">
+                                <div class="body-regular-2 mb-2">
+                                    : 10-15 Orang
+                                </div>
+                                <div class="body-regular-2 mb-2">
+                                    : Rp. 250.000/jam
+                                </div>
+                            </v-col>
+                        </v-row>
+
+
+                    </v-card>
+                </v-col>        
+                    
+                <v-col>        
+                    <v-card
+                        class="mx-auto"
+                        max-width="330"
+                    >
+                        <v-carousel 
+                        v-model="model" 
+                        hide-delimiters 
+                        height="279"
+                        >
+                            <v-carousel-item
+                            v-for="(color, i) in colors"
+                            :key="color"
+                            >
+                            <v-sheet
+                                :color="color"
+                                height="100%"
+                                tile
+                            >
+                                <v-row
+                                class="fill-height"
+                                align="center"
+                                justify="center"
+                                >
+                                <div class="text-h2">
+                                    Slide {{ i + 1 }}
+                                </div>
+                                </v-row>
+                            </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>
+
+                        
+                        <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
+                            INFINITI OFFICE
+                        </div>
+
+
+
+                        <v-row class="text-left grey--text text--darken-2 px-4 pt-4">
+                            <v-col cols="4">
+                                <div class="body-regular-2 mb-2">
+                                    Kapasitas
+                                </div>                                
+                                <div class="body-regular-2 mb-2">
+                                    Harga
+                                </div>
+                            </v-col>
+                            <v-col cols="8">
+                                <div class="body-regular-2 mb-2">
+                                    : 10-15 Orang
+                                </div>
+                                <div class="body-regular-2 mb-2">
+                                    : Rp. 250.000/jam
+                                </div>
+                            </v-col>
+                        </v-row>
+
+
+                    </v-card>
+                </v-col>
+            </v-row>
         </div>
 
         <div class="reason-content mt-16">
@@ -114,32 +291,39 @@
              align="center"
              justify="center"
             >
-                <v-col cols="5">
-                    <div class="heading-1 px-16">
-                        Alasan menggunakan website ini
+                <v-col>
+                    <div class="heading-1 px-16 white--text">
+                        Mengapa memilih<br><span class="orange--text">KOBA</span>Space ?
                     </div>
                 </v-col>
-                <v-col cols="7">
-                    <div class="heading-3-regular">
-                        Keuntungan website ini <br>
-                        Keuntungan website ini <br>
-                        Keuntungan website ini <br>
-                        Keuntungan website ini
+                <v-col>
+                    <div class="heading-2-regular text-left white--text">
+                        <div class="py-2">
+                            <v-icon large left>mdi-credit-card-multiple</v-icon>
+                            Harga sewa terjangkau
+                        </div>
+                        <div class="py-2">
+                            <v-icon large left>mdi-domain</v-icon>
+                            Kualitas ruangan yang terjamin
+                        </div>
+                        <div class="py-2">
+                            <v-icon large left>mdi-thumb-up-outline</v-icon>
+                            Tersedia fasilitas yang terbaik
+                        </div>
                     </div>
                 </v-col>
             </v-row>
         </div>
 
         <div class="testimoni py-16">
-            <div class="heading-1 text-center mb-8">
+            <div class="heading-1 text-center indigo--text text--darken-3 mb-8">
                 Testimoni
             </div>
             <v-sheet
                 class="mx-auto"
                 elevation="0"
                 max-width="100%"
-                color="#AFB2B7"
-                dark
+                color="#fff"
             >
                 <v-slide-group
                 v-model="testimoni"
@@ -150,45 +334,69 @@
                 <v-slide-item
                     v-for="n in 9"
                     :key="n"
-                    v-slot="{ active, toggle }"
                 >
                     <v-card
-                    :color="active ? 'primary' : '#fff'"
-                    class="ma-4"
-                    height="263"
+                    :color="active ? 'primary' : '#606FAA'"
+                    class="ma-4 pa-4 text-center"
+                    height="280"
                     width="365"
-                    @click="toggle"
+                    dark
                     >
-                    <div class="heading3-regular text-center" style="color: #000;">
-                        Testimoni {{n}}
+                    <div class="lead-paragraph" >
+                        Mr. Lorem Ipsum {{n}}
                     </div>
-                    <v-row
-                        class="fill-height"
-                        align="center"
-                        justify="center"
+
+                    <div class="body-regular-2 mt-2">
+                        Back-end Dev at Glints
+                    </div>
+
+                    <v-avatar
+                     size="100"
+                     class="my-4"
                     >
-                        <v-scale-transition>
-                        <v-icon
-                            v-if="active"
-                            color="white"
-                            size="48"
-                            v-text="'mdi-close-circle-outline'"
-                        ></v-icon>
-                        </v-scale-transition>
-                    </v-row>
+                        <img
+                            src="https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803"
+                            alt="John"
+                        >
+                    </v-avatar>
+
+                    <v-rating
+                    :value="4"
+                    color="amber"
+                    dense
+                    half-increments
+                    readonly
+                    size="20"
+                    ></v-rating>
+
+                    <div class="body-2-regular">
+                        This platform so great, I found room instant for meeting !
+                    </div>
+
                     </v-card>
                 </v-slide-item>
                 </v-slide-group>
             </v-sheet>
         </div>
 
-        <v-footer color="#AFB2B7" class="mt-5" padless>
+        <v-footer color="#121950" class="mt-5" padless>
             <v-col
-            class="text-center py-16"
+            class="text-center py-10"
             cols="12"
             >
-            <div class="heading-1">
-                Copyright
+
+            <img src="../assets/logo only.png" alt="">
+
+            <div class="heading-1 white--text">
+                <span class="orange--text text--darken-3">KOBA</span>Space
+            </div>
+
+            <div class="lead-paragraph white--text max-width-footer">
+                <span class="orange--text text--darken-3">KOBA</span>Space merupakan platform berupa website dan aplikasi untuk melakukan pemesanan ruang kerja atau event lainnya.
+            </div>
+
+            <div class="body-regular-2 white--text mt-10">
+                Copyright Ⓒ 2022 KOBASpace. All Right Reserved.
             </div>
             </v-col>
         </v-footer>
@@ -219,9 +427,7 @@ export default {
     .banner-iklan {
         margin-top: 70px;
     }
-    .banner-iklan .heading-1 {
-        color: #fff !important;
-    }
+    
     .heading-1 {
         font-family: 'Nunito', sans-serif;
         font-weight: 700 !important;
@@ -234,30 +440,51 @@ export default {
         font-weight: 400;
         font-size: 20px;
         line-height: 27px;
-        text-align: center;
     }
+    .heading-3-bold {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .heading-2-regular {
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 33px;
+    }
+
     .body-regular-2 {
         font-family: 'Work Sans', sans-serif;
         font-weight: 400 !important;
         font-size: 14px !important;
-        color: #121950 !important;
+        font-style: normal !important;
+        line-height: 14px !important;
     }
     .body-regular-3 {
         font-family: 'Work Sans', sans-serif;
         font-weight: 400 !important;
         font-size: 12px !important;
-        color: #121950 !important;
-    }
-    .best-seller {
-        
     }
     .reason-content {
         height: 384px;
-        background-color: #AFB2B7;
+        background-color: #606FAA;
     }
-    .testimoni {
-        background-color: #AFB2B7;
+
+
+    .lead-paragraph{
+        font-family: 'Work Sans', sans-serif;
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        line-height: 23px !important;
     }
+
+    .max-width-footer {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
 
 
 </style>
