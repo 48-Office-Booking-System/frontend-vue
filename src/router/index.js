@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import LoginView from '../views/loginView.vue'
 import HomePage from '../views/HomeView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import PaymentView from '../views/PaymentView.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     name: 'register',
     component: RegisterView
   },
+  {
+    path: '/paymentpage',
+    name: 'payment',
+    component: PaymentView
+  }
 ]
 
 const router = new VueRouter({
