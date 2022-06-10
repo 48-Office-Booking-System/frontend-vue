@@ -1,6 +1,6 @@
 <template>
   <!-- Navbar -->
-    <v-app-bar app height="70" class="px-10" color="primary" flat dark>
+    <v-app-bar app height="70" class="px-10" color="#455392" flat dark>
       <div class="logo">
         <img src="../assets/booking/Logo.png" alt="" />
       </div>
