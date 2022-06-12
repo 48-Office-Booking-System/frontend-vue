@@ -70,26 +70,40 @@
             </div>
         </v-app-bar>
 
-        <div class="container">
-            <h1>Content</h1>
-        </div>
+      <v-main>
+        <v-list>
+            <v-list-group
+              v-model="testimoni"
+              no-action
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <img src="../assets/logo-bcapng-32694.png" alt="logo bank BCA">
+                             <div class="pa-4 text-end font-weight-black">
+                             <p>123456780000</p>
+                             </div>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+        >
+          <v-list-item-content>
+            <v-list-item-title>
+                <p>list item</p>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+      </v-main>
 
         <v-footer color="#121950" class="mt-5" padless>
             <v-col
             class="text-center py-10"
             cols="12"
             >
-
-            <img src="../assets/logo only.png" alt="">
-
-            <div class="heading-1 white--text">
-                <span class="orange--text text--darken-3">KOBA</span>Space
-            </div>
-
-            <div class="lead-paragraph white--text max-width-footer">
-                <span class="orange--text text--darken-3">KOBA</span>Space merupakan platform berupa website dan aplikasi untuk melakukan pemesanan ruang kerja atau event lainnya.
-            </div>
-
             <div class="body-regular-2 white--text mt-10">
                 Copyright Ⓒ 2022 KOBASpace. All Right Reserved.
             </div>
@@ -100,10 +114,29 @@
 
 <script>
 export default {
-    name:'paymentView'
+    name:'paymentView',
+    data() {
+        return {
+            model: 0,
+            testimoni: null,
+            colors: [
+                'primary',
+                'secondary',
+                'yellow darken-2',
+                'red',
+                'orange',
+            ],
+        }
+    }
 }
 </script>
 
 <style>
-
+.v-list-item {
+    padding: 0 25px;
+    margin: 0px 321px 0px 321px;
+}
+img {
+    width: 100px;
+}
 </style>
