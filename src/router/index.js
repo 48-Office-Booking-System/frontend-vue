@@ -4,6 +4,8 @@ import LoginView from '../views/Login.vue'
 import HomePage from '../views/HomePage.vue'
 import RegisterView from '../views/Register.vue'
 import BookingDetail from '../views/BookingDetail.vue'
+import BookingView from '../views/Booking.vue'
+import AboutUsView from '../views/AboutUs.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +30,16 @@ const routes = [
     name: 'Booking Detail',
     component: BookingDetail
   },
+  {
+    path: '/booking',
+    name: 'booking',
+    component: BookingView
+  },
+  {
+    path: '/aboutus',
+    name: 'aboutus',
+    component: AboutUsView
+  }
 ]
 
 const router = new VueRouter({
