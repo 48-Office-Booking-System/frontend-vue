@@ -8,7 +8,9 @@
             flat
         >
             <div class="logo">
-                <v-img src="../assets/kobaspace.png"/>
+                <a href="/homepage">
+                    <v-img src="../assets/kobaspace.png" />
+                </a>
             </div>
 
             <div class="nav mx-10">
@@ -17,6 +19,7 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/booking"
                 >
                     Gedung
                 </v-btn>
@@ -33,6 +36,7 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/aboutus"
                 >
                     Tentang Kami
                 </v-btn>
