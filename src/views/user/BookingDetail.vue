@@ -8,7 +8,7 @@
             
         >
             <div class="logo">
-                <v-img src="../assets/kobaspace.png" />
+                <v-img src="../../assets/kobaspace.png" />
             </div>
 
             <div class="nav mx-10">
