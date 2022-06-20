@@ -32,7 +32,6 @@ const routes = [
     component: BookingDetail
   },
 
-
   // Admin
   {
     path: '/admin/dataoffices',
