@@ -5,6 +5,9 @@ import RegisterView from '../views/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
 import DataOffice from '../views/admin/DataOffices.vue'
 import DataTransactions from '../views/admin/DataTransactions.vue'
+import BookingDetail from '../views/BookingDetail.vue'
+import BookingView from '../views/Booking.vue'
+import AboutUsView from '../views/AboutUs.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +39,21 @@ const routes = [
     name: 'Data Transactions',
     component: DataTransactions
   },
+  {
+    path: '/bookingdetail',
+    name: 'Booking Detail',
+    component: BookingDetail
+  },
+  {
+    path: '/booking',
+    name: 'booking',
+    component: BookingView
+  },
+  {
+    path: '/aboutus',
+    name: 'aboutus',
+    component: AboutUsView
+  }
 ]
 
 const router = new VueRouter({
