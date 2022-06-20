@@ -7,7 +7,7 @@ import DataOffice from '../views/admin/DataOffices.vue'
 import DataTransactions from '../views/admin/DataTransactions.vue'
 import BookingDetail from '../views/BookingDetail.vue'
 import BookingView from '../views/Booking.vue'
-import AboutUsView from '../views/AboutUs.vue'
+import AboutUsView from '../views/user/AboutUs.vue'
 
 Vue.use(VueRouter)
 
