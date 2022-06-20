@@ -34,7 +34,7 @@
           ></v-select>
         </v-col>
         <v-col>
-          <v-btn large color="primary" block class="py-6">
+          <v-btn large color="#121950" block class="py-6" solo dark>
             Cari
             <v-icon right dark> mdi-magnify </v-icon>
           </v-btn>
