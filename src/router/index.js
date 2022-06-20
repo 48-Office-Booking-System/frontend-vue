@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LoginView from '../views/Login.vue'
-import HomePage from '../views/HomePage.vue'
 import RegisterView from '../views/Register.vue'
-import BookingDetail from '../views/BookingDetail.vue'
+import HomePage from '../views/user/HomePage.vue'
+import BookingDetail from '../views/user/BookingDetail.vue'
+import DataOffice from '../views/admin/DataOffices.vue'
+import DataTransactions from '../views/admin/DataTransactions.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +29,19 @@ const routes = [
     path: '/bookingdetail',
     name: 'Booking Detail',
     component: BookingDetail
+  },
+
+
+  // Admin
+  {
+    path: '/admin/dataoffices',
+    name: 'Data Offices',
+    component: DataOffice
+  },
+  {
+    path: '/admin/datatransactions',
+    name: 'Data Transactions',
+    component: DataTransactions
   },
 ]
 
