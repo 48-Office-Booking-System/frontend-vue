@@ -7,8 +7,9 @@
             flat
         >
             <div class="logo">
-                <v-img src="../assets/kobaspace.png" />
+                <v-img src="../../assets/kobaspace.png" />
             </div>
+
 
             <div class="nav mx-10">
                 <v-btn 
@@ -72,7 +73,7 @@
         </v-app-bar>
 
         <div class="banner-iklan">
-            <v-img src="../assets/home/banner.png" width="100%" alt="">
+            <v-img src="../../assets/home/banner.png" width="100%" alt="">
                 <v-row class="ma-0 fill-height" align="center">
                     <v-col>
                         <div class="heading-1 white--text text-center">
@@ -98,7 +99,9 @@
 
 
             <v-row>
-                <v-col>        
+                <v-col v-for="office in officesRec"
+                 :key="office.id"
+                >     
                     <v-card
                         class="mx-auto"
                         max-width="330"
@@ -109,30 +112,13 @@
                         height="279"
                         >
                             <v-carousel-item
-                            v-for="(color, i) in colors"
-                            :key="color"
                             >
-                            <v-sheet
-                                :color="color"
-                                height="100%"
-                                tile
-                            >
-                                <v-row
-                                class="fill-height"
-                                align="center"
-                                justify="center"
-                                >
-                                <div class="text-h2">
-                                    Slide {{ i + 1 }}
-                                </div>
-                                </v-row>
-                            </v-sheet>
+                                <img :src="office.photo" height="100%" alt="">
                             </v-carousel-item>
                         </v-carousel>
 
-                        
                         <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
-                            INFINITI OFFICE
+                            {{ office.name }}
                         </div>
 
 
@@ -148,133 +134,10 @@
                             </v-col>
                             <v-col cols="8">
                                 <div class="body-regular-2 mb-2">
-                                    : 10-15 Orang
+                                    : {{ office.kursi_min }} - {{ office.kursi_max }} Orang
                                 </div>
                                 <div class="body-regular-2 mb-2">
-                                    : Rp. 250.000/jam
-                                </div>
-                            </v-col>
-                        </v-row>
-
-
-                    </v-card>
-                </v-col>
-                <v-col>
-                    <v-card
-                        class="mx-auto"
-                        max-width="330"
-                    >
-                        <v-carousel 
-                        v-model="model" 
-                        hide-delimiters 
-                        height="279"
-                        >
-                            <v-carousel-item
-                            v-for="(color, i) in colors"
-                            :key="color"
-                            >
-                            <v-sheet
-                                :color="color"
-                                height="100%"
-                                tile
-                            >
-                                <v-row
-                                class="fill-height"
-                                align="center"
-                                justify="center"
-                                >
-                                <div class="text-h2">
-                                    Slide {{ i + 1 }}
-                                </div>
-                                </v-row>
-                            </v-sheet>
-                            </v-carousel-item>
-                        </v-carousel>
-
-                        
-                        <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
-                            INFINITI OFFICE
-                        </div>
-
-
-
-                        <v-row class="text-left grey--text text--darken-2 px-4 pt-4">
-                            <v-col cols="4">
-                                <div class="body-regular-2 mb-2">
-                                    Kapasitas
-                                </div>                                
-                                <div class="body-regular-2 mb-2">
-                                    Harga
-                                </div>
-                            </v-col>
-                            <v-col cols="8">
-                                <div class="body-regular-2 mb-2">
-                                    : 10-15 Orang
-                                </div>
-                                <div class="body-regular-2 mb-2">
-                                    : Rp. 250.000/jam
-                                </div>
-                            </v-col>
-                        </v-row>
-
-
-                    </v-card>
-                </v-col>        
-                    
-                <v-col>        
-                    <v-card
-                        class="mx-auto"
-                        max-width="330"
-                    >
-                        <v-carousel 
-                        v-model="model" 
-                        hide-delimiters 
-                        height="279"
-                        >
-                            <v-carousel-item
-                            v-for="(color, i) in colors"
-                            :key="color"
-                            >
-                            <v-sheet
-                                :color="color"
-                                height="100%"
-                                tile
-                            >
-                                <v-row
-                                class="fill-height"
-                                align="center"
-                                justify="center"
-                                >
-                                <div class="text-h2">
-                                    Slide {{ i + 1 }}
-                                </div>
-                                </v-row>
-                            </v-sheet>
-                            </v-carousel-item>
-                        </v-carousel>
-
-                        
-                        <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
-                            INFINITI OFFICE
-                        </div>
-
-
-
-                        <v-row class="text-left grey--text text--darken-2 px-4 pt-4">
-                            <v-col cols="4">
-                                <div class="body-regular-2 mb-2">
-                                    Kapasitas
-                                </div>                                
-                                <div class="body-regular-2 mb-2">
-                                    Harga
-                                </div>
-                            </v-col>
-                            <v-col cols="8">
-                                <div class="body-regular-2 mb-2">
-                                    : 10-15 Orang
-                                </div>
-                                <div class="body-regular-2 mb-2">
-                                    : Rp. 250.000/jam
+                                    : Rp. {{ office.price }}/jam
                                 </div>
                             </v-col>
                         </v-row>
@@ -326,42 +189,24 @@
                 color="#fff"
             >
                 <v-slide-group
-                v-model="testimoni"
                 class="pa-4"
                 center-active
                 show-arrows
                 >
                 <v-slide-item
-                    v-for="n in 9"
-                    :key="n"
+                    v-for="review in reviews"
+                    :key="review.id"
                 >
                     <v-card
-                    :color="active ? 'primary' : '#606FAA'"
                     class="ma-4 pa-4 text-center"
-                    height="280"
+                    color="blue lighten-5"
                     width="365"
-                    dark
                     >
-                    <div class="lead-paragraph" >
-                        Mr. Lorem Ipsum {{n}}
-                    </div>
-
-                    <div class="body-regular-2 mt-2">
-                        Back-end Dev at Glints
-                    </div>
-
-                    <v-avatar
-                     size="100"
-                     class="my-4"
-                    >
-                        <img
-                            src="https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803"
-                            alt="John"
-                        >
-                    </v-avatar>
+                
+                    <img :src="offices[review.id_office-1].photo" width="100%" height="200" alt="">
 
                     <v-rating
-                    :value="4"
+                    :value="review.rating"
                     color="amber"
                     dense
                     half-increments
@@ -369,8 +214,12 @@
                     size="20"
                     ></v-rating>
 
-                    <div class="body-2-regular">
-                        This platform so great, I found room instant for meeting !
+                    <div class="heading-3-regular">
+                        {{ review.review }}
+                    </div>
+
+                    <div class="body-regular-3">
+                        - {{ review.name }} -
                     </div>
 
                     </v-card>
@@ -385,7 +234,7 @@
             cols="12"
             >
 
-            <img src="../assets/logo only.png" alt="">
+            <img src="../../assets/logo only.png" alt="">
 
             <div class="heading-1 white--text">
                 <span class="orange--text text--darken-3">KOBA</span>Space
@@ -405,21 +254,50 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'HomePage',
     data() {
         return {
+
+            // https://stackoverflow.com/questions/46775024/property-or-method-not-defined-in-vue-file
+            // n apa?
+            n: 0,
+
+
+
+            officesRec: [],
+            offices: [],
+            reviews: [],
             model: 0,
-            testimoni: null,
-            colors: [
-                'primary',
-                'secondary',
-                'yellow darken-2',
-                'red',
-                'orange',
-            ],
+        }
+    },
+
+    async mounted() {
+        this.initialize()
+    },
+
+    methods: {
+        async loadDataOffice() {
+            const response = await axios.get(`http://localhost:3000/offices`)
+            this.offices = response.data
+        },
+        async loadDataOfficeRec() {
+            const response = await axios.get(`http://localhost:3000/officesRec`)
+            this.officesRec = response.data
+        },
+        async loadDataReviews() {
+            const response = await axios.get(`http://localhost:3000/reviews`)
+            this.reviews = response.data
+        },
+        initialize() {
+            this.loadDataOffice()
+            this.loadDataOfficeRec()
+            this.loadDataReviews()
         }
     }
+    
+    
 }
 </script>
 
