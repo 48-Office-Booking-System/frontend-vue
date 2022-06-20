@@ -5,8 +5,8 @@ import RegisterView from '../views/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
 import DataOffice from '../views/admin/DataOffices.vue'
 import DataTransactions from '../views/admin/DataTransactions.vue'
-import BookingDetail from '../views/BookingDetail.vue'
-import BookingView from '../views/Booking.vue'
+import BookingDetail from '../views/user/BookingDetail.vue'
+import BookingView from '../views/user/Booking.vue'
 import AboutUsView from '../views/user/AboutUs.vue'
 
 Vue.use(VueRouter)
