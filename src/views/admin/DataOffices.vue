@@ -1,11 +1,93 @@
 <template>
   <v-app>
+    <!-- <SideBar/> -->
+
+    <v-navigation-drawer v-model="drawer" app permanent>
+
+    <v-list-item>
+        <v-list-item-content>
+        <div class="text-center mt-4">
+            <img src="../../assets/kobaspace.png" alt="">
+        </div>
+        </v-list-item-content>
+    </v-list-item>
+
+    <v-list-item>
+      <v-list-item-content>
+      <div class="title mt-4">
+          Menu
+      </div>
+      </v-list-item-content>
+    </v-list-item>
+
+
+    <v-list
+        nav
+    >
+        <v-list-item
+        v-for="item in itemsDrawer"
+        :key="item.title"
+        :to="item.to"
+        link
+        >
+        <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item-content>
+        </v-list-item>
+    </v-list>
+    <v-list-item class="mt-4">
+      <v-list-item-content>
+        <v-btn large outlined color="red">
+          <v-icon class="mr-4">
+            mdi-logout
+          </v-icon>
+          Logout
+        </v-btn>
+      </v-list-item-content>
+    </v-list-item>
+    </v-navigation-drawer>
+
+
+    
+    <v-card width="80%" class="ml-auto mb-4" flat>
+      <v-card-title class="headline font-weight-bold">
+          Manage Offices
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+            filled
+            rounded
+          ></v-text-field>
+          <v-divider
+          class="mx-4"
+          inset
+          vertical
+          ></v-divider>
+          <v-avatar color="orange darken-3">
+            <v-icon dark>
+              mdi-account
+            </v-icon>
+          </v-avatar>
+    
+        </v-card-title>
+    </v-card>
     <template>
-      <v-card width="90%" class="mx-auto mt-4">
+      <v-card width="80%" class="ml-auto pt-2">
         <v-data-table
             :headers="headers"
             :items="offices"
             :search="search"
+            :footer-props="{
+              'items-per-page-options': [10, 15, 20]
+            }"
             sort-by="id"
             class="elevation-0"
         >
@@ -13,28 +95,6 @@
             <v-toolbar
                 flat
             >
-                <v-toolbar-title>Manage Offices</v-toolbar-title>
-                <v-divider
-                class="mx-4"
-                inset
-                vertical
-                ></v-divider>
-                
-                <v-row>
-                  <v-col>
-                    <v-card-title>
-                      <v-text-field
-                        v-model="search"
-                        append-icon="mdi-magnify"
-                        label="Search"
-                        single-line
-                        hide-details
-                      ></v-text-field>
-                    </v-card-title>
-                  </v-col>
-                </v-row>
-
-                
                 <v-spacer></v-spacer>
                 <v-dialog
                 v-model="dialog"
@@ -47,8 +107,9 @@
                     class="mb-2"
                     v-bind="attrs"
                     v-on="on"
+                    large
                     >
-                    New Office
+                    Add Office
                     </v-btn>
                 </template>
                 <v-card>
@@ -199,11 +260,9 @@
                     <v-card-text>
                       Capacity : {{ editedItem.kursi_min }} - {{editedItem.kursi_max}}
                     </v-card-text>
+                    
                     <v-card-text>
-                      Created by: {{ users[editedItem.created_by-1] }}  (array users)
-                    </v-card-text>
-                    <v-card-text>
-                      Created by: {{ editedItem.created_by }}
+                      Created by: {{ createdBy }}
                     </v-card-text>
 
                     <v-card-actions>
@@ -248,8 +307,12 @@
 
 <script>
 import axios from 'axios'
+// import SideBar from "@/components/SideBar.vue"
   export default {
     name: 'DataOffices',
+    // components: {
+    //   SideBar
+    // },
     data: () => ({
       search: '',
       dialog: false,
@@ -267,13 +330,14 @@ import axios from 'axios'
         { text: 'Name', value: 'name' },
         { text: 'Location', value: 'location' },
         { text: 'Price', value: 'price' },
-        { text: 'kursi_min', value: 'kursi_min' },
-        { text: 'kursi_max', value: 'kursi_max' },
+        { text: 'Kursi Minimum', value: 'kursi_min' },
+        { text: 'Kursi Maximal', value: 'kursi_max' },
 
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       offices: [],
       users: [],
+      createdBy: null,
       editedIndex: -1,
       editedItem: {
         id: 0,
@@ -299,11 +363,23 @@ import axios from 'axios'
         photo: ''
       },
 
+      drawer: false,
+      itemsDrawer: [
+        { title: 'Offices', icon: 'mdi-city', to:'/admin/dataoffices' },
+        { title: 'Customers', icon: 'mdi-account-multiple', to:'/admin/datacustomers' },
+        { title: 'Reviews', icon: 'mdi-pencil', to:'/admin/datareviews' },
+        { title: 'Chat', icon: 'mdi-message-text', to:'/admin/chat' },
+        { title: 'Bookings', icon: 'mdi-calendar', to:'/admin/bookings' },
+        { title: 'Transactions', icon: 'mdi-swap-horizontal', to:'/admin/datatransactions' },
+      ],
+
+
+
     }),
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'New Office' : 'Edit Office'
       },
     },
 
@@ -343,12 +419,14 @@ import axios from 'axios'
         this.editedIndex = this.offices.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogView = true
+        this.createdBy =  this.users[item.created_by-1].name
       },
 
       editItem (item) {
         this.editedIndex = this.offices.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
+        
       },
 
       deleteItem (item) {

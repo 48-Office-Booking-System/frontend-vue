@@ -262,7 +262,7 @@ export default {
 
             // https://stackoverflow.com/questions/46775024/property-or-method-not-defined-in-vue-file
             // n apa?
-            n: 0,
+            
 
 
 
