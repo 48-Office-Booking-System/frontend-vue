@@ -4,7 +4,7 @@
             app height="70" 
             class="px-10"
             color="#FCFDFF"
-            flat
+            fixed
         >
             <div class="logo">
                 <v-img src="../assets/kobaspace.png" />
@@ -49,49 +49,318 @@
             />
             
 
-            <div>
-                <v-btn
-                    class="ml-4"
-                    color="#455392"
-                    dark
-                    to="/"
-                >
-                    Masuk
-                </v-btn>
-
-                <v-btn
-                    class="ml-4"
-                    outlined
-                    color="#455392"
-                    to="/register"
-                >
-                    Daftar
-                </v-btn>
-            </div>
+            <v-icon large color="#455392" class="ml-4">
+                mdi-account-circle
+            </v-icon>
         </v-app-bar>
 
       <v-main>
         <v-list>
             <v-list-group
-              v-model="testimoni"
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
               no-action
+              color="black"
             >
             <template v-slot:activator>
-                     <v-list-item-content class="pa-4 rounded-pill">
-                         <v-list-item-title>
-                             <img src="../assets/logo-bcapng-32694.png" alt="logo bank BCA">
-                             <div class="pa-4 text-end font-weight-black">
-                             <p>123456780000</p>
-                             </div>
+                     <v-list-item-content 
+                        class="pa-4 rounded-pill"
+                        >
+                         <v-list-item-title
+                         >
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                              <img src="../assets/logo-bcapng-32694.png" alt="logo bca">
+                              </v-col>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                                <p class="font-weight-black">1234567800000</p>
+                              </v-col>
+                              <v-col>
+                                <v-btn 
+                                   text
+                                   color="primary">
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
                          </v-list-item-title>
                      </v-list-item-content>
             </template>
 
         <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
         >
           <v-list-item-content>
-            <v-list-item-title>
-                <p>list item</p>
+            <v-list-item-title 
+               v-text="child.title">
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+       <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                              <img src="../assets/Bank BNI.png" alt="logo bni">
+                              </v-col>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                                <p class="font-weight-black">1234567800000</p>
+                              </v-col>
+                              <v-col>
+                                <v-btn 
+                                   text
+                                   color="primary">
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                              <img src="../assets/Bank-BRI.png" alt="logo bri">
+                              </v-col>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                                <p class="font-weight-black">1234567800000</p>
+                              </v-col>
+                              <v-col>
+                                <v-btn 
+                                   text
+                                   color="primary">
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                              <img src="../assets/Bank-Mandiri.png" alt="logo mandiri">
+                              </v-col>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                                <p class="font-weight-black">1234567800000</p>
+                              </v-col>
+                              <v-col>
+                                <v-btn 
+                                   text
+                                   color="primary">
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                              <img src="../assets/CIMB-NIAGA.png" alt="logo cimb niaga">
+                              </v-col>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                                <p class="font-weight-black">1234567800000</p>
+                              </v-col>
+                              <v-col>
+                                <v-btn 
+                                   text
+                                   color="primary">
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                              <img src="../assets/Logo Panin Bank.png" alt="logo panin bank">
+                              </v-col>
+                              <v-col
+                                 cols="4"
+                                 md="4"
+                              >
+                                <p class="font-weight-black">1234567800000</p>
+                              </v-col>
+                              <v-col>
+                                <v-btn 
+                                   text
+                                   color="primary">
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -115,19 +384,22 @@
 <script>
 export default {
     name:'paymentView',
-    data() {
-        return {
-            model: 0,
-            testimoni: null,
-            colors: [
-                'primary',
-                'secondary',
-                'yellow darken-2',
-                'red',
-                'orange',
-            ],
-        }
-    }
+    data: () => ({
+        items: [
+            {
+                items: [
+                  { title: '1.Masukkan kartu ATM Anda ke mesin' },
+                  { title: '2.Isi pin ATM' },
+                  { title: '3.Klik Menu Transaksi Lainnya' },
+                  { title: '4.Klik menu Transfer dan ke Rek BCA' },
+                  { title: '5.Masukkan nomor rekening BCA' },
+                  { title: '6.Masukkan nominal transfer BCA' },
+                  { title: '7.Klik ya saat konfirmasi' },
+                  { title: '8.Tunggu bukti transfer BCA muncul' },
+                 ] 
+            }
+        ]
+    })
 }
 </script>
 
