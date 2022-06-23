@@ -53,19 +53,19 @@
 
 <script>
 export default {
-    name: 'DataTransactions',
+    name: 'DataReviews',
     data() {
-      return {
-        drawer: false,
-        itemsDrawer: [
-          { title: 'Offices', icon: 'mdi-city', to:'/admin/dataoffices' },
-          { title: 'Customers', icon: 'mdi-account-multiple', to:'/admin/datacustomers' },
-          { title: 'Reviews', icon: 'mdi-pencil', to:'/admin/datareviews' },
-          { title: 'Chat', icon: 'mdi-message-text', to:'/admin/chat' },
-          { title: 'Bookings', icon: 'mdi-calendar', to:'/admin/bookings' },
-          { title: 'Transactions', icon: 'mdi-swap-horizontal', to:'/admin/datatransactions' },
-        ],
-      }
+        return {
+            drawer: false,
+            itemsDrawer: [
+                { title: 'Offices', icon: 'mdi-city', to:'/admin/dataoffices' },
+                { title: 'Customers', icon: 'mdi-account-multiple', to:'/admin/datacustomers' },
+                { title: 'Reviews', icon: 'mdi-pencil', to:'/admin/datareviews' },
+                { title: 'Chat', icon: 'mdi-message-text', to:'/admin/chat' },
+                { title: 'Bookings', icon: 'mdi-calendar', to:'/admin/bookings' },
+                { title: 'Transactions', icon: 'mdi-swap-horizontal', to:'/admin/datatransactions' },
+            ],
+        }
     }
 }
 </script>

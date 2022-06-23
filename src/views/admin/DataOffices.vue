@@ -53,6 +53,7 @@
 
 
     
+
     <v-card width="75%" class="ml-auto mr-10 mb-4" flat>
       <v-card-title class="headline font-weight-bold">
           Manage Offices
@@ -79,7 +80,6 @@
     
         </v-card-title>
     </v-card>
-    
     <template>
       <v-card width="75%" class="ml-auto mr-10 pt-2">
         <v-data-table

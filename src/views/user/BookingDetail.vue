@@ -8,7 +8,7 @@
             
         >
             <div class="logo">
-                <v-img src="../assets/kobaspace.png" />
+                <v-img src="../../assets/kobaspace.png" />
             </div>
 
             <div class="nav mx-10">
@@ -190,7 +190,7 @@ export default {
     name: 'BookingDetail',
     data () {
       return {
-        date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+        // x
         menu: false,
 
         itemsCarousel: [

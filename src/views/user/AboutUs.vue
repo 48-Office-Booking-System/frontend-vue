@@ -9,7 +9,7 @@
         >
             <div class="logo">
                 <a href="/homepage">
-                    <v-img src="../assets/kobaspace.png" />
+                    <v-img src="../../assets/kobaspace.png" />
                 </a>
             </div>
 
@@ -82,7 +82,7 @@
             cols="12"
             >
 
-            <img src="../assets/logo only.png" alt="">
+            <img src="../../assets/logo only.png" alt="">
 
             <div class="heading-1 indigo--text text--darken-4">
                 <span class="orange--text text--darken-3">KOBA</span>Space
