@@ -82,6 +82,9 @@
         :headers="headers"
         :items="customers"
         :search="search"
+        :footer-props="{
+          'items-per-page-options': [10, 15, 20]
+        }"
         sort-by="id"
         class="elevation-1"
       >
