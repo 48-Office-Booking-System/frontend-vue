@@ -84,8 +84,9 @@
                               </v-col>
                               <v-col>
                                 <v-btn 
+                                   class="text-decoration-underline"
                                    text
-                                   color="primary">
+                                >
                                    SALIN
                                 </v-btn>
                               </v-col>
@@ -135,8 +136,9 @@
                               </v-col>
                               <v-col>
                                 <v-btn 
+                                   class="text-decoration-underline"
                                    text
-                                   color="primary">
+                                 >
                                    SALIN
                                 </v-btn>
                               </v-col>
@@ -187,8 +189,9 @@
                               </v-col>
                               <v-col>
                                 <v-btn 
+                                   class="text-decoration-underline"
                                    text
-                                   color="primary">
+                                >
                                    SALIN
                                 </v-btn>
                               </v-col>
@@ -239,8 +242,9 @@
                               </v-col>
                               <v-col>
                                 <v-btn 
+                                   class="text-decoration-underline"
                                    text
-                                   color="primary">
+                                >
                                    SALIN
                                 </v-btn>
                               </v-col>
@@ -291,8 +295,9 @@
                               </v-col>
                               <v-col>
                                 <v-btn 
+                                   class="text-decoration-underline"
                                    text
-                                   color="primary">
+                                >
                                    SALIN
                                 </v-btn>
                               </v-col>
@@ -342,9 +347,10 @@
                                 <p class="font-weight-black">1234567800000</p>
                               </v-col>
                               <v-col>
-                                <v-btn 
+                                <v-btn
+                                   class="text-decoration-underline" 
                                    text
-                                   color="primary">
+                                >
                                    SALIN
                                 </v-btn>
                               </v-col>
