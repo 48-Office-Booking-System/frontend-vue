@@ -129,36 +129,27 @@
       "password": "12345",
       "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
       "number": "083833735915"
-    },
-    {
-      "id": 3,
-      "role_id": 2,
-      "name": "customer 1",
-      "email": "customer@gmail.com",
-      "password": "12345",
-      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
-      "number": "083833735915"
-    },
-    {
-      "id": 4,
-      "role_id": 2,
-      "name": "customer 2",
-      "email": "customer@gmail.com",
-      "password": "12345",
-      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
-      "number": "083833735915"
-    },
-    {
-      "id": 5,
-      "role_id": 2,
-      "name": "customer 3",
-      "email": "customer@gmail.com",
-      "password": "12345",
-      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
-      "number": "083833735915"
     }
-    
-
+  ],
+  "customers": [
+    {
+      "name": "customer 1",
+      "email": "customer1@gmail.com",
+      "number": "083833735915",
+      "id": 1
+    },
+    {
+      "name": "customer 2",
+      "email": "customer2@gmail.com",
+      "number": "083833735915",
+      "id": 2
+    },
+    {
+      "name": "customer 3",
+      "email": "customer3@gmail.com",
+      "number": "083833735915",
+      "id": 3
+    }
   ],
   "roles": [
     {
