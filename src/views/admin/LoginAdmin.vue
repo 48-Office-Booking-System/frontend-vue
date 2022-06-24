@@ -1,13 +1,13 @@
 <template>
-    <v-app>
-        <v-row>
+  <v-app>
+    <v-row>
             <v-col class="pr-0 pb-0">
-                <v-img height="100%" src="../assets/login/background.png"/>
+                <v-img height="100%" src="../../assets/Admin/login-bg.png"/>
             </v-col>
             <v-col class="pl-0">
                 <v-card class="mx-12 my-16" flat>
                     <v-card-text class="text-center heading-1">
-                        Masuk
+                        Hello Admin
                     </v-card-text>
 
                     <v-card-text class="pa-0 body-regular-2">
@@ -60,25 +60,16 @@
                             </v-btn>
                         </v-col>
                     </v-row>
-
-                    <v-card-text class="text-center body-regular-2">
-                        atau
-                    </v-card-text>
-
-                    <v-card-text class="text-center body-regular-2">
-                        Belum punya akun ? <a class="link text-decoration-none" href="/register">Daftar</a>
-                    </v-card-text>
-                    
                     
                 </v-card>
             </v-col>
         </v-row>
-    </v-app>
+  </v-app>
 </template>
 
 <script>
 export default {
-    name: 'LoginPage',
+    name: 'LoginAdmin',
     data() {
         return {
             showPassword: false
@@ -110,6 +101,3 @@ export default {
      color: #455392 !important;
  }
 </style>
-
-
-  
