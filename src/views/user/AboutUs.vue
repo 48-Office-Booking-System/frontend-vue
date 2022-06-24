@@ -99,14 +99,13 @@
             </v-col>
         </div>
 
-        <v-footer class="ftr" color="#121950" padless>
-            <v-col
-            class="text-center white--text"
-            cols="12"
-            >
-            <strong>Copyright Ⓒ 2022 KOBASpace. All Right Reserved.</strong>
+        <v-footer color="#121950" class="mt-auto py-3" padless>
+            <v-col class="text-center" cols="12">
+                <div class="body-regular-2 white--text">
+                Copyright Ⓒ 2022 KOBASpace. All Right Reserved.
+                </div>
             </v-col>
-        </v-footer>        
+        </v-footer>      
         
     </v-app>
 </template>
