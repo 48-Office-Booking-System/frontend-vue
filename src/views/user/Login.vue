@@ -55,6 +55,7 @@
                             color="#606FAA"
                             dark
                             class="px-10"
+                            to="/homepage"
                             >
                                 Masuk
                             </v-btn>
