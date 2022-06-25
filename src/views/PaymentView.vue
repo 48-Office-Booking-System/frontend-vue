@@ -64,25 +64,28 @@
               color="black"
             >
             <template v-slot:activator>
-                     <v-list-item-content 
-                        class="pa-4 rounded-pill"
+                     <v-list-item-content
+                        class="listItem pa-4 rounded-lg"
                         >
                          <v-list-item-title
                          >
                              <v-row no-gutters>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="2"
+                                 md="2"
                               >
-                              <img src="../assets/logo-bcapng-32694.png" alt="logo bca">
+                              <img src="../assets/logo-bcapng-32694.png" alt="logo bca" width="85px">
                               </v-col>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="8"
+                                 md="8"
                               >
-                                <p class="font-weight-black">1234567800000</p>
+                                <p class="font-weight-black text-end">1234567800000</p>
                               </v-col>
-                              <v-col>
+                              <v-col 
+                                 cols="2"
+                                 md="2"
+                              >
                                 <v-btn 
                                    class="text-decoration-underline"
                                    text
@@ -98,6 +101,7 @@
         <v-list-item
            v-for="child in item.items"
            :key="child.title"
+           class="listitemcontent"
         >
           <v-list-item-content>
             <v-list-item-title 
@@ -123,18 +127,21 @@
                          <v-list-item-title>
                              <v-row no-gutters>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="2"
+                                 md="2"
                               >
-                              <img src="../assets/Bank BNI.png" alt="logo bni">
+                              <img src="../assets/Bank BNI.png" alt="logo bni" width="100px">
                               </v-col>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="8"
+                                 md="8"
                               >
                                 <p class="font-weight-black text-end">1234567800000</p>
                               </v-col>
-                              <v-col>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
                                 <v-btn 
                                    class="text-decoration-underline"
                                    text
@@ -150,6 +157,7 @@
         <v-list-item
            v-for="child in item.items"
            :key="child.title"
+           class="listitemcontent"
         >
           <v-list-item-content>
             <v-list-item-title
@@ -176,18 +184,21 @@
                          <v-list-item-title>
                              <v-row no-gutters>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="2"
+                                 md="2"
                               >
-                              <img src="../assets/Bank-BRI.png" alt="logo bri">
+                              <img src="../assets/Bank-BRI.png" alt="logo bri" width="150px">
                               </v-col>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="8"
+                                 md="8"
                               >
-                                <p class="font-weight-black">1234567800000</p>
+                                <p class="font-weight-black text-end">1234567800000</p>
                               </v-col>
-                              <v-col>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
                                 <v-btn 
                                    class="text-decoration-underline"
                                    text
@@ -203,6 +214,7 @@
         <v-list-item
            v-for="child in item.items"
            :key="child.title"
+           class="listitemcontent"
         >
           <v-list-item-content>
             <v-list-item-title
@@ -229,18 +241,21 @@
                          <v-list-item-title>
                              <v-row no-gutters>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="2"
+                                 md="2"
                               >
-                              <img src="../assets/Bank-Mandiri.png" alt="logo mandiri">
+                              <img src="../assets/Bank-Mandiri.png" alt="logo mandiri" width="100px">
                               </v-col>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="8"
+                                 md="8"
                               >
-                                <p class="font-weight-black">1234567800000</p>
+                                <p class="font-weight-black text-end">1234567800000</p>
                               </v-col>
-                              <v-col>
+                              <v-col
+                                cols="2"
+                                md="2"
+                              >
                                 <v-btn 
                                    class="text-decoration-underline"
                                    text
@@ -256,6 +271,7 @@
         <v-list-item
            v-for="child in item.items"
            :key="child.title"
+           class="listitemcontent"
         >
           <v-list-item-content>
             <v-list-item-title
@@ -282,18 +298,21 @@
                          <v-list-item-title>
                              <v-row no-gutters>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="2"
+                                 md="2"
                               >
-                              <img src="../assets/CIMB-NIAGA.png" alt="logo cimb niaga">
+                              <img src="../assets/CIMB-NIAGA.png" alt="logo cimb niaga" width="200px">
                               </v-col>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="8"
+                                 md="8"
                               >
-                                <p class="font-weight-black">1234567800000</p>
+                                <p class="font-weight-black text-end">1234567800000</p>
                               </v-col>
-                              <v-col>
+                              <v-col
+                                cols="2"
+                                md="2"
+                              >
                                 <v-btn 
                                    class="text-decoration-underline"
                                    text
@@ -309,6 +328,7 @@
         <v-list-item
            v-for="child in item.items"
            :key="child.title"
+           class="listitemcontent"
         >
           <v-list-item-content>
             <v-list-item-title
@@ -335,18 +355,21 @@
                          <v-list-item-title>
                              <v-row no-gutters>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="2"
+                                 md="2"
                               >
-                              <img src="../assets/Logo Panin Bank.png" alt="logo panin bank">
+                              <img src="../assets/Logo Panin Bank.png" alt="logo panin bank" width="200px">
                               </v-col>
                               <v-col
-                                 cols="4"
-                                 md="4"
+                                 cols="8"
+                                 md="8"
                               >
-                                <p class="font-weight-black">1234567800000</p>
+                                <p class="font-weight-black text-end">1234567800000</p>
                               </v-col>
-                              <v-col>
+                              <v-col
+                                cols="2"
+                                md="2"
+                              >
                                 <v-btn
                                    class="text-decoration-underline" 
                                    text
@@ -362,6 +385,7 @@
         <v-list-item
            v-for="child in item.items"
            :key="child.title"
+           class="listitemcontent"
         >
           <v-list-item-content>
             <v-list-item-title
@@ -413,8 +437,13 @@ export default {
 .v-list-item {
     padding: 0 25px;
     margin: 0px 321px 0px 321px;
+    background-color: #B8C2DB;
+    border-radius: 8px;
 }
-img {
-    width: 100px;
+
+.listitemcontent {
+  background-color: #EDEFF3;
+  border-radius: 0px;
 }
+
 </style>
