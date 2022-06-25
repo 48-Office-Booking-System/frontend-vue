@@ -132,7 +132,7 @@
                                  cols="4"
                                  md="4"
                               >
-                                <p class="font-weight-black">1234567800000</p>
+                                <p class="font-weight-black text-end">1234567800000</p>
                               </v-col>
                               <v-col>
                                 <v-btn 
