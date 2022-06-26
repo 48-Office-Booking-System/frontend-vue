@@ -198,46 +198,39 @@
   ],
   "reviews": [
     {
-      "id": 1,
-      "name": "Adam Ipsum",
-      "review": "This platform so great, I found room instant for meeting !",
+      "name": "David A. Williams",
+      "id_office": 1,
       "rating": 4.5,
-      "id_office": 1
+      "review": "This platform so great, I found room instant for meeting !",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Ahmad Dhani",
-      "review": "Not bad for urgently meeting, they can handle, Good !",
+      "name": "Matthew F. Henderson",
+      "id_office": 2,
       "rating": 3,
-      "id_office": 2
-    },
-    {
-      "id": 3,
-      "name": "Rafi Ahmad",
       "review": "Brings new experience for us. Thanks helping our’s event",
-      "rating": 4,
-      "id_office": 3
+      "id": 3
     },
     {
       "id": 4,
-      "name": "Leon",
+      "name": "Nicholas C. Benson",
       "review": "This platform so great, I found room instant for meeting !",
       "rating": 4.5,
       "id_office": 4
     },
     {
-      "id": 5,
-      "name": "Angelina",
-      "review": "Not bad for urgently meeting, they can handle, Good !",
-      "rating": 4,
-      "id_office": 5
+      "name": "Jack Ripper",
+      "id_office": 3,
+      "rating": 3.5,
+      "review": "Brings new experience for us. Thanks helping our’s event",
+      "id": 6
     },
     {
-      "id": 6,
-      "name": "Jack Ripper",
-      "review": "Brings new experience for us. Thanks helping our’s event",
-      "rating": 3,
-      "id_office": 6
+      "id": 8,
+      "name": "Gigis Gisela",
+      "review": "Not bad for urgently meeting, they can handle, Good !",
+      "rating": 4,
+      "id_office": 2
     }
   ]
 }
