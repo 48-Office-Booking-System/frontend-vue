@@ -18,6 +18,7 @@ import Bookings from '../views/admin/Bookings.vue'
 import DataReviews from '../views/admin/DataReviews.vue'
 import Chat from '../views/admin/Chat.vue'
 import DataCustomers from '../views/admin/DataCustomers.vue'
+import LoginAdminTest from '../views/admin/LoginAdminTest.vue'
 
 
 Vue.use(VueRouter)
@@ -94,6 +95,11 @@ const routes = [
     path: '/admin/datatransactions',
     name: 'Data Transactions',
     component: DataTransactions
+  },
+  {
+    path: '/admin/loginadmintest',
+    name: 'Login Admin test',
+    component: LoginAdminTest
   }
   
 ]
