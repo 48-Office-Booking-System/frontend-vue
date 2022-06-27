@@ -63,7 +63,7 @@
       "price": "20000",
       "kursi_min": "5",
       "kursi_max": "10",
-      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603",
+      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"],
       "id": 6
     },
     {

@@ -276,7 +276,7 @@ export default {
     },
 
     methods: {
-        async loadDataOffice() {
+        async loadDataOffices() {
             const response = await axios.get(`http://localhost:3000/offices`)
             this.offices = response.data
         },
@@ -289,7 +289,7 @@ export default {
             this.reviews = response.data
         },
         initialize() {
-            this.loadDataOffice()
+            this.loadDataOffices()
             this.loadDataOfficeRec()
             this.loadDataReviews()
         }
