@@ -7,7 +7,9 @@
             flat
         >
             <div class="logo">
-                <v-img src="../../assets/kobaspace.png" />
+                <a href="/homepage">
+                    <v-img src="../../assets/kobaspace.png" />
+                </a>
             </div>
 
 
@@ -17,7 +19,7 @@
                     small
                     color="#28304E"
                     height="0"
-                    to="/booking"
+                    to="/offices"
                 >
                     Gedung
                 </v-btn>
@@ -26,8 +28,9 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/payment"
                 >
-                    Pembayaran
+                    Metode Pembayaran
                 </v-btn>
                 <v-btn 
                     text

@@ -5,9 +5,10 @@ import VueRouter from 'vue-router'
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
-import BookingDetail from '../views/user/BookingDetail.vue'
-import BookingView from '../views/user/Booking.vue'
-import AboutUsView from '../views/user/AboutUs.vue'
+import OfficeDetail from '../views/user/OfficeDetail.vue'
+import OfficesList from '../views/user/OfficesList.vue'
+import PaymentMethod from '../views/user/PaymentMethod.vue'
+import AboutUs from '../views/user/AboutUs.vue'
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
@@ -38,19 +39,24 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/bookingdetail',
-    name: 'Booking Detail',
-    component: BookingDetail
+    path: '/officedetail',
+    name: 'Office Detail',
+    component: OfficeDetail
   },
   {
-    path: '/booking',
-    name: 'booking',
-    component: BookingView
+    path: '/offices',
+    name: 'Offices List',
+    component: OfficesList
+  },
+  {
+    path: '/payment',
+    name: 'Payment Method',
+    component: PaymentMethod
   },
   {
     path: '/aboutus',
-    name: 'aboutus',
-    component: AboutUsView
+    name: 'About Us',
+    component: AboutUs
   },
 
   // Admin
