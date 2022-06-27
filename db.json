@@ -116,7 +116,7 @@
       "id": 1,
       "role_id": 1,
       "name": "M Yudha Pamungkas",
-      "email": "yudhapamungkas0300@gmail.com",
+      "email": "yudha@gmail.com",
       "password": "12345",
       "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
       "number": "083833735915"
@@ -125,8 +125,17 @@
       "id": 2,
       "role_id": 1,
       "name": "Syafiuddin",
-      "email": "syafiuddin@gmail.com",
+      "email": "syafik@gmail.com",
       "password": "12345",
+      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+      "number": "083833735915"
+    },
+    {
+      "id": 3,
+      "role_id": 0,
+      "name": "kobauser",
+      "email": "kobauser@gmail.com",
+      "password": "123",
       "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
       "number": "083833735915"
     }
