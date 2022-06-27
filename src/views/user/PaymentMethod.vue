@@ -78,28 +78,10 @@
 
         </v-app-bar>
 
-        <div class="content" padless>
-            <v-col
-            class="text-center py-10"
-            cols="12"
-            >
-
-            <img src="../../assets/logo only.png" alt="">
-
-            <div class="heading-1 indigo--text text--darken-4">
-                <span class="orange--text text--darken-3">KOBA</span>Space
-            </div>
-            <br>
-            <div class="lead-paragraph indigo--text text--darken-4">
-                <span class="orange--text text--darken-3">KOBA</span>Space merupakan platform berupa website dan 
-                <br>
-                aplikasi untuk melakukan pemesanan ruang kerja atau 
-                <br>
-                event lainnya.
-            </div>
-
-            </v-col>
+        <div class="content text-center">
+            <h1>Payment Method</h1>
         </div>
+        
 
         <v-footer color="#121950" class="mt-auto py-3" padless>
             <v-col class="text-center" cols="12">
@@ -122,7 +104,7 @@ export default {
 <style scoped>
 
     .content {
-        margin-top: 10%;
+        margin-top: 70px;
     }
     
     .heading-1 {

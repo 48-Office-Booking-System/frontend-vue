@@ -7,7 +7,9 @@
             flat
         >
             <div class="logo">
-                <v-img src="../../assets/kobaspace.png" />
+                <a href="/homepage">
+                    <v-img src="../../assets/kobaspace.png" />
+                </a>
             </div>
 
 
@@ -17,6 +19,7 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/offices"
                 >
                     Gedung
                 </v-btn>
@@ -25,14 +28,16 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/payment"
                 >
-                    Pembayaran
+                    Metode Pembayaran
                 </v-btn>
                 <v-btn 
                     text
                     small
                     color="#28304E"
                     height="0"
+                    to="/aboutus"
                 >
                     Tentang Kami
                 </v-btn>
@@ -107,13 +112,13 @@
                         max-width="330"
                     >
                         <v-carousel 
-                        v-model="model" 
                         hide-delimiters 
                         height="279"
                         >
                             <v-carousel-item
+                             v-for="item in office.photo" :key="item"
                             >
-                                <img :src="office.photo" height="100%" alt="">
+                                <img :src="item" height="100%" alt="">
                             </v-carousel-item>
                         </v-carousel>
 
@@ -203,7 +208,7 @@
                     width="365"
                     >
                 
-                    <img :src="offices[review.id_office-1].photo" width="100%" height="200" alt="">
+                    <img :src="offices[review.id_office-1].photo[0]" width="100%" height="200" alt="">
 
                     <v-rating
                     :value="review.rating"
@@ -259,17 +264,10 @@ export default {
     name: 'HomePage',
     data() {
         return {
-
-            // https://stackoverflow.com/questions/46775024/property-or-method-not-defined-in-vue-file
-            // n apa?
-            
-
-
-
             officesRec: [],
             offices: [],
             reviews: [],
-            model: 0,
+            
         }
     },
 
@@ -278,7 +276,7 @@ export default {
     },
 
     methods: {
-        async loadDataOffice() {
+        async loadDataOffices() {
             const response = await axios.get(`http://localhost:3000/offices`)
             this.offices = response.data
         },
@@ -291,7 +289,7 @@ export default {
             this.reviews = response.data
         },
         initialize() {
-            this.loadDataOffice()
+            this.loadDataOffices()
             this.loadDataOfficeRec()
             this.loadDataReviews()
         }

@@ -1,15 +1,18 @@
 <template>
   <v-app>
+
     <v-app-bar
             app height="70" 
             class="px-10"
             color="#FCFDFF"
-            fixed
-            
+            flat
         >
             <div class="logo">
-                <v-img src="../../assets/kobaspace.png" />
+                <a href="/homepage">
+                    <v-img src="../../assets/kobaspace.png" />
+                </a>
             </div>
+
 
             <div class="nav mx-10">
                 <v-btn 
@@ -17,6 +20,7 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/offices"
                 >
                     Gedung
                 </v-btn>
@@ -25,14 +29,16 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/payment"
                 >
-                    Pembayaran
+                    Metode Pembayaran
                 </v-btn>
                 <v-btn 
                     text
                     small
                     color="#28304E"
                     height="0"
+                    to="/aboutus"
                 >
                     Tentang Kami
                 </v-btn>
@@ -48,10 +54,28 @@
             placeholder="Cari gedung yang kau mau"
             color="#28304E"
             />
+            
 
-            <v-icon large color="#455392" class="ml-4">
-                mdi-account-circle
-            </v-icon>
+            <div>
+                <v-btn
+                    class="ml-4"
+                    color="#455392"
+                    dark
+                    to="/"
+                >
+                    Masuk
+                </v-btn>
+
+                <v-btn
+                    class="ml-4"
+                    outlined
+                    color="#455392"
+                    to="/register"
+                >
+                    Daftar
+                </v-btn>
+            </div>
+
         </v-app-bar>
 
     <div class="content-1 px-16">
