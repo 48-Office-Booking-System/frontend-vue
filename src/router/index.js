@@ -40,7 +40,7 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/officedetail',
+    path: '/officedetail/:id',
     name: 'Office Detail',
     component: OfficeDetail
   },
