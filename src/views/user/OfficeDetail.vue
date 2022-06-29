@@ -247,11 +247,13 @@
 
                     <div class="text-center mt-10">
                         <v-btn
-                         class="px-10 mb-4"
+                         class="mb-2"
                          color="#28304E"
                          dark
+                         large
+                         block
                         > 
-                            Pesan
+                            Pesan Sekarang
                         </v-btn>
                     </div>
                 </v-card>

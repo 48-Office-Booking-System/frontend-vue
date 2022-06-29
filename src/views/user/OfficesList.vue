@@ -78,7 +78,7 @@
     </v-app-bar>
 
     <v-card
-     color="primary darken-4"
+     flat
     >
       
       <div class="filter px-16 pt-6">
@@ -112,7 +112,7 @@
           ></v-select>
         </v-col>
         <v-col>
-          <v-btn large color="primary" block class="py-6" solo dark>
+          <v-btn large color="primary darken-4" block class="py-6" solo dark>
             Cari
           </v-btn>
         </v-col>

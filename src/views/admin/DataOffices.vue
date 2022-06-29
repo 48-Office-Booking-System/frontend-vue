@@ -58,20 +58,6 @@
       <v-card-title class="headline font-weight-bold">
           Manage Offices
           <v-spacer></v-spacer>
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
-            filled
-            rounded
-          ></v-text-field>
-          <v-divider
-          class="mx-4"
-          inset
-          vertical
-          ></v-divider>
           <v-avatar color="orange darken-3">
             <v-icon dark>
               mdi-account
@@ -96,10 +82,20 @@
             <v-toolbar
                 flat
             >
+                <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search Office"
+                single-line
+                hide-details
+                dense
+                filled
+                ></v-text-field>
+                <v-spacer></v-spacer>
                 <v-spacer></v-spacer>
                 <v-dialog
                 v-model="dialog"
-                max-width="1000px"
+                max-width="700px"
                 >
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn
@@ -113,9 +109,9 @@
                     Add Office
                     </v-btn>
                 </template>
-                <v-card>
+                <v-card class="pa-4">
                     <v-card-title>
-                    <span class="text-h5">{{ formTitle }}</span>
+                    <span class="text-h5 font-weight-bold">{{ formTitle }}</span>
                     
                     </v-card-title>
 
@@ -124,8 +120,7 @@
                         <v-row>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.name"
@@ -134,8 +129,7 @@
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.location"
@@ -144,8 +138,7 @@
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.price"
@@ -154,22 +147,20 @@
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.kursi_min"
-                            label="Min capacity"
+                            label="Kursi Minimum"
                             ></v-text-field>
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.kursi_max"
-                            label="Max capacity"
+                            label="Kursi Maximal"
                             ></v-text-field>
                         </v-col>
                         <v-col
@@ -188,19 +179,23 @@
                     <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                        color="blue darken-1"
-                        text
-                        @click="close"
+                      color="#121950"
+                      outlined
+                      @click="close"
+                      width="150"
+                      class="mr-4"
                     >
-                        Cancel
+                    Cancel
                     </v-btn>
                     <v-btn
-                        color="blue darken-1"
-                        text
-                        @click="save"
+                      color="#121950"
+                      dark
+                      @click="save"
+                      width="150"
                     >
-                        Save
+                      Save
                     </v-btn>
+                    <v-spacer></v-spacer>
                     </v-card-actions>
                 </v-card>
                 </v-dialog>
@@ -288,17 +283,20 @@
             <template v-slot:[`item.actions`]="{ item }">
               <v-icon
                @click="viewDetail(item)"
+               color="#E59B3A"
               >
                 mdi-information
               </v-icon>
               <v-icon
                class="mx-2"
                @click="editItem(item)"
+               color="primary"
               >
                   mdi-pencil-circle
               </v-icon>
               <v-icon
                @click="deleteItem(item)"
+               color="red"
               >
                   mdi-delete-circle
               </v-icon>
@@ -386,7 +384,7 @@ import axios from 'axios'
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Office' : 'Edit Office'
+        return this.editedIndex === -1 ? 'Add Office' : 'Edit Office'
       },
     },
 

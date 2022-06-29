@@ -53,20 +53,7 @@
       <v-card-title class="headline font-weight-bold">
           Manage Reviews
           <v-spacer></v-spacer>
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
-            filled
-            rounded
-          ></v-text-field>
-          <v-divider
-          class="mx-4"
-          inset
-          vertical
-          ></v-divider>
+          
           <v-avatar color="orange darken-3">
             <v-icon dark>
               mdi-account
@@ -86,12 +73,23 @@
           'items-per-page-options': [10, 15, 20]
         }"
         sort-by="id"
-        class="elevation-1"
       >
         <template v-slot:top>
           <v-toolbar
             flat
           >
+            <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search Office"
+            single-line
+            hide-details
+            dense
+            filled
+            ></v-text-field>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
             
             <v-dialog
               v-model="dialog"
@@ -160,24 +158,24 @@
 
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn
-                    color="red"
-                    outlined
-                    @click="close"
-                    width="150"
-                    class="mr-4"
-                  >
+                    <v-btn
+                      color="#121950"
+                      outlined
+                      @click="close"
+                      width="150"
+                      class="mr-4"
+                    >
                     Cancel
-                  </v-btn>
-                  <v-btn
-                    color="green"
-                    dark
-                    @click="save"
-                    width="150"
-                  >
-                    Save
-                  </v-btn>
-                  <v-spacer></v-spacer>
+                    </v-btn>
+                    <v-btn
+                      color="#121950"
+                      dark
+                      @click="save"
+                      width="150"
+                    >
+                      Save
+                    </v-btn>
+                    <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -233,13 +231,8 @@
 
         <template v-slot:[`item.id_office`]="{ item }">
           
-          <v-avatar
-           size="36"
-           class="mr-2"
-          >
-            <img :src="offices[item.id_office-1].photo" width="100%" alt="">
-          </v-avatar>
           {{ offices[item.id_office-1].name }}
+          
           
         </template>
 
@@ -266,17 +259,17 @@
 
         <template v-slot:[`item.actions`]="{ item }">
           <v-icon
-            small
-            class="mr-2"
+            class="mx-2"
             @click="editItem(item)"
+            color="primary"
           >
-            mdi-pencil
+              mdi-pencil-circle
           </v-icon>
           <v-icon
-            small
             @click="deleteItem(item)"
+            color="red"
           >
-            mdi-delete
+              mdi-delete-circle
           </v-icon>
         </template>
       </v-data-table>
