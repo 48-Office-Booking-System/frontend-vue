@@ -111,16 +111,10 @@
                         class="mx-auto"
                         max-width="330"
                     >
-                        <v-carousel 
-                        hide-delimiters 
-                        height="279"
-                        >
-                            <v-carousel-item
-                             v-for="item in office.photo" :key="item"
-                            >
-                                <img :src="item" height="100%" alt="">
-                            </v-carousel-item>
-                        </v-carousel>
+                        <v-img
+                        :src="office.photo"
+                        height="300px"
+                        ></v-img>
 
                         <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
                             {{ office.name }}
@@ -208,7 +202,7 @@
                     width="365"
                     >
                 
-                    <img :src="offices[review.id_office-1].photo[0]" width="100%" height="200" alt="">
+                    <img :src="offices[review.id_office-1].photo" width="100%" height="200" alt="">
 
                     <v-rating
                     :value="review.rating"

@@ -9,7 +9,7 @@
       "price": "1000000",
       "kursi_min": 10,
       "kursi_max": 30,
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029", "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967", "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"]
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "price": "1000000",
       "kursi_min": 10,
       "kursi_max": 30,
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"]
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "price": "1000000",
       "kursi_min": 10,
       "kursi_max": 30,
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380", "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787"]
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380"
     },
     {
       "name": "Barista Office",
@@ -42,7 +42,7 @@
       "id": 4,
       "created_by": 1,
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029", "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967", "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"]
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
     },
     {
       "created_by": 1,
@@ -52,7 +52,7 @@
       "price": "2000000",
       "kursi_min": "20",
       "kursi_max": "50",
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380", "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967"],
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787",
       "id": 5
     },
     {
@@ -63,7 +63,7 @@
       "price": "20000",
       "kursi_min": "5",
       "kursi_max": "10",
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"],
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296",
       "id": 6
     },
     {
@@ -74,7 +74,7 @@
       "kursi_max": "35",
       "id": 7,
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"],
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296",
       "created_by": 2
     },
     {
@@ -85,7 +85,7 @@
       "kursi_max": "70",
       "id": 8,
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380", "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967"],
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787",
       "created_by": 1
     },
     {
@@ -96,7 +96,7 @@
       "kursi_max": "35",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.\n",
       "created_by": 1,
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"],
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296",
       "id": 9
     }
   ],
@@ -166,10 +166,10 @@
       "name": "Infinite Office",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
       "location": "Bandung",
-      "price": "1.500.000",
-      "kursi_min": 20,
+      "price": "1000000",
+      "kursi_min": 10,
       "kursi_max": 30,
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029", "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967", "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"]
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
     },
     {
       "id": 2,
@@ -177,10 +177,10 @@
       "name": "Eduaction Office",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
       "location": "Bandung",
-      "price": "1.000.000",
+      "price": "1000000",
       "kursi_min": 10,
-      "kursi_max": 20,
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787", "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"]
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296"
     },
     {
       "id": 3,
@@ -188,10 +188,10 @@
       "name": "Desapa Office",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
       "location": "Bandung",
-      "price": "750.000",
-      "kursi_min": 7,
-      "kursi_max": 15,
-      "photo": ["https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380", "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967", "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787"]
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380"
     }
   ],
   "reviews": [

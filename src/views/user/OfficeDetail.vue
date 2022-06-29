@@ -85,7 +85,7 @@
                     <v-row>
                         <v-col>
                             <v-card-title class="px-0">
-                                Vintage Office
+                                {{ office.name }}
                             </v-card-title>
                             <v-card-text class="px-0">
                             <v-row
@@ -106,11 +106,11 @@
                         </v-col>
                         <v-col>
                             <v-card-text class="pb-0 px-0">
-                                Rp. 500.000 / Jam
+                                <s>Rp. 2000000 / Jam</s>
                             </v-card-text>
                             
                             <v-card-title class="ma-0 py-0 px-0">
-                                Rp. 200.000 / Jam
+                                Rp. {{ office.price }} / Jam
                             </v-card-title>
                         </v-col>
                     </v-row>
@@ -168,19 +168,82 @@
                         </v-col>
                     </v-row>
                     
-                    <v-card-text>
+                    <div class="subtitle green--text">
                         Jadwal Tersedia
-                    </v-card-text>
+                    </div>
                     
-                    <v-card-subtitle>
-                        <div>
-                            Total Pembayaran
-                        </div>
-                        
-                        <div>
-                            1 x Rp 200.000
-                        </div>
-                    </v-card-subtitle>
+                    <div class="body-2 my-2">
+                        1 Jam x Rp. {{ office.price }}
+                    </div>
+
+                    <v-divider></v-divider>
+
+                    <div class="subtitle font-weight-bold my-4">
+                        Pilih Metode Pembayaran
+                    </div>
+
+                    <v-radio-group v-model="paymentMethod">
+                        <v-radio
+                            value="BCA"
+                            class="mt-2"
+                        >
+                            <template v-slot:label>
+                                <v-btn elevation="0" outlined block x-large>
+                                    <img src="../../assets/pembayaran/BCA.png" alt="">
+                                    <v-spacer></v-spacer>
+                                    1234567800000
+                                </v-btn>
+                            </template>
+                        </v-radio>
+                        <v-radio
+                            value="BNI"
+                            class="mt-2"
+                        >
+                            <template v-slot:label>
+                                <v-btn elevation="0" outlined block x-large>
+                                    <img src="../../assets/pembayaran/BNI.png" alt="">
+                                    <v-spacer></v-spacer>
+                                    1234567800000
+                                </v-btn>
+                            </template>
+                        </v-radio>
+                        <v-radio
+                            value="BRI"
+                            class="mt-2"
+                        >
+                            <template v-slot:label>
+                                <v-btn elevation="0" outlined block x-large>
+                                    <img src="../../assets/pembayaran/BRI.png" alt="">
+                                    <v-spacer></v-spacer>
+                                    1234567800000
+                                </v-btn>
+                            </template>
+                        </v-radio>
+                        <v-radio
+                            value="CIMB"
+                            class="mt-2"
+                        >
+                            <template v-slot:label>
+                                <v-btn elevation="0" outlined block x-large>
+                                    <img src="../../assets/pembayaran/Cimb Niaga.png" alt="">
+                                    <v-spacer></v-spacer>
+                                    1234567800000
+                                </v-btn>
+                            </template>
+                        </v-radio>
+                        <v-radio
+                            value="Panin"
+                            class="mt-2"
+                        >
+                            <template v-slot:label>
+                                <v-btn elevation="0" outlined block x-large>
+                                    <img src="../../assets/pembayaran/panin.png" alt="">
+                                    <v-spacer></v-spacer>
+                                    1234567800000
+                                </v-btn>
+                            </template>
+                        </v-radio>
+                    </v-radio-group>
 
                     <div class="text-center mt-10">
                         <v-btn
@@ -195,45 +258,64 @@
             </v-col>
 
             <v-col cols="7">
-                <v-carousel hide-delimiters height="435">
-                    <v-carousel-item
-                    v-for="(item,i) in itemsCarousel"
-                    :key="i"
-                    :src="item.src"
-                    ></v-carousel-item>
-                </v-carousel>    
+                
+                <img :src="office.photo" height="435" width="100%" alt="">
+
+                <div class="title mt-4">
+                    Deskripsi
+                </div>
+                <div class="body-2">
+                    {{ office.description }}
+                </div>
+
+                <div class="title mt-4">
+                    Alamat
+                </div>
+                <div class="body-2">
+                    {{ office.location }}
+                </div>
+
             </v-col>
         </v-row>
+
     </div>
+
+    <v-footer color="#121950" class="mt-10 py-3" padless>
+      <v-col class="text-center" cols="12">
+        <div class="body-regular-2 white--text">
+          Copyright Ⓒ 2022 KOBASpace. All Right Reserved.
+        </div>
+      </v-col>
+    </v-footer>
     
   </v-app>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-    name: 'BookingDetail',
+    name: 'OfficeDetail',
     data () {
       return {
         // x
         menu: false,
-
-        itemsCarousel: [
-          {
-            src: 'https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603',
-          },
-          {
-            src: 'https://ik.imagekit.io/yudha/elstore/Laptop_-HwoBx1gQ?ik-sdk-version=javascript-1.4.3&updatedAt=1652867751387',
-          },
-          {
-            src: 'https://ik.imagekit.io/yudha/restoProduct/French_fries.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1652529804615',
-          },
-          {
-            src: 'https://ik.imagekit.io/yudha/elstore/Computer_FE_BwYyKo?ik-sdk-version=javascript-1.4.3&updatedAt=1652867878583', 
-          },
-        ],
+        office: []
     
       }
     },
+    async mounted() {
+    this.initialize()
+    },
+    methods: {
+        async loadDataOffices() {
+        const response = await axios.get(`http://localhost:3000/offices/${this.$route.params.id}`)
+        this.office = response.data
+        console.log(this.office)
+        },
+        initialize() {
+        this.loadDataOffices()
+        }
+    }
 
 
 }

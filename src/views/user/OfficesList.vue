@@ -77,43 +77,6 @@
 
     </v-app-bar>
 
-    <!-- <div class="dropdown px-16">
-      <v-row>
-        <v-col>
-          <v-select
-            :items="tipeRuangan"
-            label="Tipe Ruangan"
-            solo
-            dark
-            background-color="#F37524"
-          ></v-select>
-        </v-col>
-        <v-col>
-          <v-select
-            :items="jenisRuangan"
-            label="Jenis Ruangan"
-            solo
-            dark
-            background-color="#F37524"
-          ></v-select>
-        </v-col>
-        <v-col>
-          <v-select
-            :items="kapasitasOrang"
-            label="Kapasitas Ruangan"
-            solo
-            dark
-            background-color="#F37524"
-          ></v-select>
-        </v-col>
-        <v-col>
-          <v-btn large color="#121950" block class="py-6" solo dark>
-            Cari
-          </v-btn>
-        </v-col>
-      </v-row>
-    </div> -->
-
     <v-card
      color="primary darken-4"
     >
@@ -162,7 +125,7 @@
         <v-col v-for="office in offices" :key="office.id">
           <v-card class="mx-auto" max-width="280">
             <v-img
-              :src="office.photo[0]"
+              :src="office.photo"
               height="200px"
             ></v-img>
 
@@ -190,6 +153,7 @@
                block
                large
                color="primary"
+               :to="'officedetail/'+office.id"
               >
                 Lihat Detail
               </v-btn>
@@ -213,7 +177,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: "BookingPage",
+  name: "OfficesList",
   data: () => ({
     tipeRuangan: ["Indoor", "Outdoor"],
     jenisRuangan: ["Event", "Meeting"],
