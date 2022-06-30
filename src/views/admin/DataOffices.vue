@@ -150,7 +150,7 @@
                             
                         >
                             <v-text-field
-                            v-model="editedItem.kursi_min"
+                            v-model="editedItem.chair_min"
                             label="Kursi Minimum"
                             ></v-text-field>
                         </v-col>
@@ -159,7 +159,7 @@
                             
                         >
                             <v-text-field
-                            v-model="editedItem.kursi_max"
+                            v-model="editedItem.chair_max"
                             label="Kursi Maximal"
                             ></v-text-field>
                         </v-col>
@@ -222,10 +222,19 @@
                 <v-dialog v-model="dialogView" max-width="800px">
                 
                   <v-card>
-                    <v-img
-                      height="350"
-                      :src="editedItem.photo"
-                    ></v-img>
+
+                    <v-carousel
+                     hide-delimiters
+                     height="350"
+                    >
+                      <v-carousel-item
+                        v-for="photo in editedItem.photo_urls"
+                        :key="photo.id"
+                        :src="photo.url"
+                      >
+                        
+                      </v-carousel-item>
+                    </v-carousel>
 
                     <v-card-title>{{ editedItem.name }}</v-card-title>
 
@@ -257,14 +266,14 @@
 
                     <v-divider class="mx-4"></v-divider>
 
-                    <v-card-title>Rp. {{ editedItem.price }},-</v-card-title>
+                    <v-card-title>Rp. {{ editedItem.price }},- / Jam</v-card-title>
 
                     <v-card-text>
-                      Capacity : {{ editedItem.kursi_min }} - {{editedItem.kursi_max}}
+                      Capacity : {{ editedItem.chair_min }} - {{editedItem.chair_max}}
                     </v-card-text>
                     
                     <v-card-text>
-                      Created by: {{ createdBy }}
+                      Created by: {{ editedItem.created_by.name }}
                     </v-card-text>
 
                     <v-card-actions>
@@ -335,37 +344,38 @@ import axios from 'axios'
         { text: 'Name', value: 'name' },
         { text: 'Location', value: 'location' },
         { text: 'Price', value: 'price' },
-        { text: 'Kursi Minimum', value: 'kursi_min' },
-        { text: 'Kursi Maximal', value: 'kursi_max' },
+        { text: 'Kursi Minimum', value: 'chair_min' },
+        { text: 'Kursi Maximal', value: 'chair_max' },
 
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       offices: [],
-      users: [],
-      createdBy: null,
       editedIndex: -1,
       editedItem: {
         id: 0,
-        created_by: 0,
-        name: '',
-        description: '',
-        location: '',
+        created_by: 1,
+        name: "",
+        description: "",
+        location: "",
+        view_count: 0,
         price: 0,
-        kursi_min: 0,
-        kursi_max: 0,
-        photo: ''
-
+        chair_min: 0,
+        chair_max: 0,
+        number: "",
+        photo_url: ""
       },
       defaultItem: {
         id: 0,
-        created_by: 0,
-        name: '',
-        description: '',
-        location: '',
+        created_by: 1,
+        name: "",
+        description: "",
+        location: "",
+        view_count: 0,
         price: 0,
-        kursi_min: 0,
-        kursi_max: 0,
-        photo: ''
+        chair_min: 0,
+        chair_max: 0,
+        number: "",
+        photo_url: ""
       },
 
       drawer: false,
@@ -408,14 +418,10 @@ import axios from 'axios'
         async loadDataOffices() {
             const response = await axios.get(`http://localhost:3000/offices`)
             this.offices = response.data
+            console.log(this.offices)
         },
-        async loadDataUsers() {
-              const response = await axios.get(`http://localhost:3000/users`)
-              this.users = response.data
-        },
-
+       
       initialize () {
-        this.loadDataUsers()
         this.loadDataOffices()
         
       },
@@ -424,7 +430,6 @@ import axios from 'axios'
         this.editedIndex = this.offices.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogView = true
-        this.createdBy =  this.users[item.created_by-1].name
       },
 
       editItem (item) {
@@ -481,14 +486,14 @@ import axios from 'axios'
                 name: this.editedItem.name,
                 location:this.editedItem.location,
                 price: this.editedItem.price,
-                kursi_min: this.editedItem.kursi_min,
-                kursi_max: this.editedItem.kursi_max,
+                chair_min: this.editedItem.chair_min,
+                chair_max: this.editedItem.chair_max,
                 description: this.editedItem.description,
-
                 created_by: 1,
-                photo: 'https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603'
+                view_count: 0,
+                number: "083333333",
+                photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271624_B_-tK4ECP.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437151"
                 
-
             }).then(response=>{
                 console.log(response)
             })
@@ -499,14 +504,14 @@ import axios from 'axios'
                 name: this.editedItem.name,
                 location:this.editedItem.location,
                 price: this.editedItem.price,
-                kursi_min: this.editedItem.kursi_min,
-                kursi_max: this.editedItem.kursi_max,
+                chair_min: this.editedItem.chair_min,
+                chair_max: this.editedItem.chair_max,
                 description: this.editedItem.description,
-
-
                 created_by: 1,
-                photo: 'https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603'
-                
+                view_count: 0,
+                number: "083333333",
+                photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271624_B_-tK4ECP.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437151"                
+
             }).then(response=>{
                 console.log(response)
             })

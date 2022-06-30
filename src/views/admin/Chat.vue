@@ -48,6 +48,14 @@
       </v-list-item-content>
     </v-list-item>
     </v-navigation-drawer>
+
+    <div class="content">
+      <v-app-bar app color="#8898CC" dark flat>
+        <div class="title">
+          CS Live Chat
+        </div>
+      </v-app-bar>
+    </div>
   </v-app>
 </template>
 
@@ -70,6 +78,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  .content-1{
+    margin-top: 100px;
+    
+  }
 </style>
