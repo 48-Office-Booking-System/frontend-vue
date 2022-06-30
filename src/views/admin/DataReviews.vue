@@ -229,12 +229,7 @@
           </v-toolbar>
         </template>
 
-        <template v-slot:[`item.id_office`]="{ item }">
-          
-          {{ offices[item.id_office-1].name }}
-          
-          
-        </template>
+       
 
         <template v-slot:[`item.rating`]="{ item }">
           <v-rating
@@ -318,14 +313,14 @@ export default {
             editedItem: {
               id: 0,
               name: '',
-              id_office: 0,
+              id_office: "",
               rating: 0,
               review: '',
             },
             defaultItem: {
               id: 0,
               name: '',
-              id_office: 0,
+              id_office: "",
               rating: 0,
               review: '',
             },
