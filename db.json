@@ -1,0 +1,242 @@
+{
+  "offices": [
+    {
+      "id": 1,
+      "created_by": 1,
+      "name": "Infinite Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
+    },
+    {
+      "id": 2,
+      "created_by": 2,
+      "name": "Eduaction Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296"
+    },
+    {
+      "id": 3,
+      "created_by": 2,
+      "name": "Desapa Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380"
+    },
+    {
+      "name": "Barista Office",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "id": 4,
+      "created_by": 1,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
+    },
+    {
+      "created_by": 1,
+      "name": "Big Boss Office",
+      "description": "Lorem ipsum dolor sit amet",
+      "location": "Surabaya",
+      "price": "2000000",
+      "kursi_min": "20",
+      "kursi_max": "50",
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787",
+      "id": 5
+    },
+    {
+      "created_by": 1,
+      "name": "Small office",
+      "description": "lorem ipsum dolor sit amet",
+      "location": "kepanjen",
+      "price": "20000",
+      "kursi_min": "5",
+      "kursi_max": "10",
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296",
+      "id": 6
+    },
+    {
+      "name": "Large Office",
+      "location": "Jaksel",
+      "price": "2000000",
+      "kursi_min": "20",
+      "kursi_max": "35",
+      "id": 7,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296",
+      "created_by": 2
+    },
+    {
+      "name": "Shutter Office",
+      "location": "Yogyakarta",
+      "price": "5000000",
+      "kursi_min": "50",
+      "kursi_max": "70",
+      "id": 8,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-vecislavas-popa-1643383_GfA_5DycO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304518787",
+      "created_by": 1
+    },
+    {
+      "name": "Classic Office",
+      "location": "Surabaya",
+      "price": "700000",
+      "kursi_min": "25",
+      "kursi_max": "35",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.\n",
+      "created_by": 1,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "role_id": 1,
+      "name": "M Yudha Pamungkas",
+      "email": "yudha@gmail.com",
+      "password": "12345",
+      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+      "number": "083833735915"
+    },
+    {
+      "id": 2,
+      "role_id": 1,
+      "name": "Syafiuddin",
+      "email": "syafik@gmail.com",
+      "password": "12345",
+      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+      "number": "083833735915"
+    },
+    {
+      "id": 3,
+      "role_id": 0,
+      "name": "kobauser",
+      "email": "kobauser@gmail.com",
+      "password": "123",
+      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+      "number": "083833735915"
+    }
+  ],
+  "customers": [
+    {
+      "name": "customer 1",
+      "email": "customer1@gmail.com",
+      "number": "083833735915",
+      "id": 1
+    },
+    {
+      "name": "customer 2",
+      "email": "customer2@gmail.com",
+      "number": "083833735915",
+      "id": 2
+    },
+    {
+      "name": "customer 3",
+      "email": "customer3@gmail.com",
+      "number": "083833735915",
+      "id": 3
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "User"
+    }
+  ],
+  "officesRec": [
+    {
+      "id": 1,
+      "created_by": 1,
+      "name": "Infinite Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
+    },
+    {
+      "id": 2,
+      "created_by": 2,
+      "name": "Eduaction Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296"
+    },
+    {
+      "id": 3,
+      "created_by": 2,
+      "name": "Desapa Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "David A. Williams",
+      "id_office": 1,
+      "rating": 4.5,
+      "review": "This platform so great, I found room instant for meeting !",
+      "id": 1
+    },
+    {
+      "name": "Matthew F. Henderson",
+      "id_office": 2,
+      "rating": 3,
+      "review": "Brings new experience for us. Thanks helping our’s event",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Nicholas C. Benson",
+      "review": "This platform so great, I found room instant for meeting !",
+      "rating": 4.5,
+      "id_office": 2
+    },
+    {
+      "id": 5,
+      "name": "Angelina",
+      "review": "Not bad for urgently meeting, they can handle, Good !",
+      "rating": 4,
+      "id_office": 1
+    },
+    {
+      "id": 6,
+      "name": "Jack Ripper",
+      "id_office": 3,
+      "rating": 3.5,
+      "review": "Brings new experience for us. Thanks helping our’s event"
+
+    },
+    {
+      "id": 8,
+      "name": "Gigis Gisela",
+      "review": "Not bad for urgently meeting, they can handle, Good !",
+      "rating": 4,
+      "id_office": 2
+    }
+  ]
+}
