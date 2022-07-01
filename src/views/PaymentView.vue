@@ -437,13 +437,20 @@ export default {
 .v-list-item {
     padding: 0 25px;
     margin: 0px 321px 0px 321px;
-    background-color: #B8C2DB;
+    border: 2px solid #121950;
     border-radius: 8px;
 }
 
 .listitemcontent {
+  border: #EDEFF3;
   background-color: #EDEFF3;
   border-radius: 0px;
+}
+
+p {
+  padding-top: 10px;
+  font-size: 25px;
+  color: #121950;
 }
 
 </style>
