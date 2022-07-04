@@ -5,10 +5,17 @@ import VueRouter from 'vue-router'
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
+<<<<<<< HEAD
+import BookingDetail from '../views/user/BookingDetail.vue'
+import BookingView from '../views/user/Booking.vue'
+import AboutUsView from '../views/user/AboutUs.vue'
+import SlipPayment from '../views/user/SlipPayment.vue'
+=======
 import OfficeDetail from '../views/user/OfficeDetail.vue'
 import OfficesList from '../views/user/OfficesList.vue'
 import PaymentMethod from '../views/user/PaymentMethod.vue'
 import AboutUs from '../views/user/AboutUs.vue'
+>>>>>>> develop
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
@@ -54,6 +61,11 @@ const routes = [
     path: '/payment',
     name: 'Payment Method',
     component: PaymentMethod
+  },
+  {
+    path: '/slippayment',
+    name: 'Slip Payment',
+    component: SlipPayment
   },
   {
     path: '/aboutus',
