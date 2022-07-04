@@ -8,6 +8,7 @@ import HomePage from '../views/user/HomePage.vue'
 import BookingDetail from '../views/user/BookingDetail.vue'
 import BookingView from '../views/user/Booking.vue'
 import AboutUsView from '../views/user/AboutUs.vue'
+import SlipPayment from '../views/user/SlipPayment.vue'
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
@@ -46,6 +47,11 @@ const routes = [
     path: '/booking',
     name: 'booking',
     component: BookingView
+  },
+  {
+    path: '/slippayment',
+    name: 'Slip Payment',
+    component: SlipPayment
   },
   {
     path: '/aboutus',
