@@ -347,44 +347,38 @@
   ],
   "transactions": [
     {
-      "id": 1,
-      "name": "Customer 1",
-      "price": 100000,
+      "name": "The Rock",
+      "price": "100000",
       "method": "BRI",
-      "date": "12-12-2022",
-      "status": "Pending"
-    },
-    {
-      "id": 2,
-      "name": "Customer 2",
-      "price": 80000,
-      "method": "BCA",
-      "date": "13-12-2022",
-      "status": "Success"
-    },
-    {
-      "id": 3,
-      "name": "Customer 3",
-      "price": 100000,
-      "method": "Mandiri",
-      "date": "14-12-2022",
-      "status": "Failed"
-    },
-    {
-      "id": 4,
-      "name": "Customer 4",
-      "price": 150000,
-      "method": "BRI",
-      "date": "15-12-2022",
-      "status": "Failed"
-    },
-    {
-      "name": "Customer 5",
-      "price": 250000,
-      "method": "Mandiri",
-      "date": "16-12-2022",
+      "date": "2022-07-07",
       "status": "Success",
-      "id": 5
+      "id": 1
+    },
+    {
+      "name": "Synyster Gates",
+      "id_office": 2,
+      "price": 100000,
+      "method": "CIMB",
+      "date": "2022-07-05",
+      "status": "Pending",
+      "id": 2
+    },
+    {
+      "name": "Bon Jovi",
+      "price": "100000",
+      "method": "CIMB",
+      "date": "2022-07-27",
+      "status": "Failed",
+      "id": 3
+    },
+    {
+      "name": "M Yudha Pamungkas",
+      "id_office": 1,
+      "price": 80000,
+      "method": "BRI",
+      "date": "2022-07-06",
+      "status": "Pending",
+      "id": 4
     }
   ]
 }

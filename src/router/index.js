@@ -1,21 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import TestApi from '../views/TestApi.vue'
+
 // User
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
-<<<<<<< HEAD
-import BookingDetail from '../views/user/BookingDetail.vue'
-import BookingView from '../views/user/Booking.vue'
-import AboutUsView from '../views/user/AboutUs.vue'
 import SlipPayment from '../views/user/SlipPayment.vue'
-=======
 import OfficeDetail from '../views/user/OfficeDetail.vue'
 import OfficesList from '../views/user/OfficesList.vue'
 import PaymentMethod from '../views/user/PaymentMethod.vue'
 import AboutUs from '../views/user/AboutUs.vue'
->>>>>>> develop
+import BillsPage from '../views/user/BillsPage.vue'
+import Invoice from '../views/user/Invoice.vue'
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
@@ -32,6 +30,11 @@ Vue.use(VueRouter)
 
 const routes = [
 
+  {
+    path: '/testapi',
+    name: 'Test Api',
+    component: TestApi
+  },
   {
     path: '/',
     name: 'login',
@@ -71,6 +74,16 @@ const routes = [
     path: '/aboutus',
     name: 'About Us',
     component: AboutUs
+  },
+  {
+    path: '/bills',
+    name: 'Bills Page',
+    component: BillsPage
+  },
+  {
+    path: '/invoice',
+    name: 'Invoice',
+    component: Invoice
   },
 
   // Admin
