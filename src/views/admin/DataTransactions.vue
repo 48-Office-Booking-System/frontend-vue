@@ -133,13 +133,19 @@
                           
                         ></v-text-field>
                       </v-col>
+                      
                       <v-col
                         cols="12"
                       >
-                        <v-text-field
+                        <v-select
                           v-model="editedItem.method"
-                          label="Metode Pembayaran"
-                        ></v-text-field>
+                          :items="itemMethod"
+                          :label="editedItem.method"
+                          solo
+                          dark
+                          background-color="primary"
+                        >
+                        </v-select>
                       </v-col>
                       <v-col
                         cols="12"
@@ -150,12 +156,17 @@
                         ></v-text-field>
                       </v-col>
                       <v-col
-                        cols="12"
+                        cols="6"
                       >
-                        <v-text-field
+                        <v-select
                           v-model="editedItem.status"
-                          label="Status"
-                        ></v-text-field>
+                          :items="itemStatus"
+                          :label="editedItem.status"
+                          solo
+                          dark
+                          background-color="primary"
+                        >
+                        </v-select>
                       </v-col>
                       
                       
@@ -290,6 +301,8 @@ export default {
               { text: 'Actions', value: 'actions', sortable: false },
             ],
             transactions: [],
+            itemStatus: ['Pending', 'Success', 'Failed'],
+            itemMethod: ['BCA', 'BNI', 'BRI', 'CIMB', 'Panin'],
             editedIndex: -1,
             editedItem: {
               id: 0,
