@@ -163,6 +163,8 @@
                          class="px-10 mb-4"
                          color="#28304E"
                          dark
+                         @click="order"
+                         to="/slippayment"
                         > 
                             Pesan
                         </v-btn>
