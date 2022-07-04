@@ -7,6 +7,7 @@ import TestApi from '../views/TestApi.vue'
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
+import SlipPayment from '../views/user/SlipPayment.vue'
 import OfficeDetail from '../views/user/OfficeDetail.vue'
 import OfficesList from '../views/user/OfficesList.vue'
 import PaymentMethod from '../views/user/PaymentMethod.vue'
@@ -63,6 +64,11 @@ const routes = [
     path: '/payment',
     name: 'Payment Method',
     component: PaymentMethod
+  },
+  {
+    path: '/slippayment',
+    name: 'Slip Payment',
+    component: SlipPayment
   },
   {
     path: '/aboutus',
