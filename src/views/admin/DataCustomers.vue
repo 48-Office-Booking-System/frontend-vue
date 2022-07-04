@@ -53,20 +53,6 @@
       <v-card-title class="headline font-weight-bold">
           Manage Customers
           <v-spacer></v-spacer>
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
-            filled
-            rounded
-          ></v-text-field>
-          <v-divider
-          class="mx-4"
-          inset
-          vertical
-          ></v-divider>
           <v-avatar color="orange darken-3">
             <v-icon dark>
               mdi-account
@@ -86,13 +72,24 @@
           'items-per-page-options': [10, 15, 20]
         }"
         sort-by="id"
-        class="elevation-1"
       >
         <template v-slot:top>
           <v-toolbar
             flat
           >
-            
+
+            <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search Customer"
+            single-line
+            hide-details
+            dense
+            filled
+            ></v-text-field>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
             <v-dialog
               v-model="dialog"
               max-width="500px"
@@ -149,7 +146,7 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
-                    color="red"
+                    color="#121950"
                     outlined
                     @click="close"
                     width="150"
@@ -158,7 +155,7 @@
                     Cancel
                   </v-btn>
                   <v-btn
-                    color="green"
+                    color="#121950"
                     dark
                     @click="save"
                     width="150"
@@ -191,17 +188,19 @@
         </template>
         <template v-slot:[`item.actions`]="{ item }">
           <v-icon
-            small
+           
             class="mr-2"
             @click="editItem(item)"
+            color="primary"
           >
-            mdi-pencil
+            mdi-pencil-circle
           </v-icon>
           <v-icon
-            small
+            
             @click="deleteItem(item)"
+            color="red"
           >
-            mdi-delete
+            mdi-delete-circle
           </v-icon>
         </template>
       </v-data-table>

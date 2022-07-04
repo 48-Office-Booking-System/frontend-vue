@@ -49,11 +49,10 @@
     </v-list-item>
     </v-navigation-drawer>
 
-        <v-card width="75%" class="ml-auto mr-10 mb-4" flat>
+    <v-card width="75%" class="ml-auto mr-10 mb-4" flat>
       <v-card-title class="headline font-weight-bold">
-          Manage Transactions
+          Manage Bookings
           <v-spacer></v-spacer>
-          
           <v-avatar color="orange darken-3">
             <v-icon dark>
               mdi-account
@@ -67,7 +66,7 @@
     <v-card width="75%" class="ml-auto mr-10 pt-2">
       <v-data-table
         :headers="headers"
-        :items="transactions"
+        :items="bookings"
         :search="search"
         :footer-props="{
           'items-per-page-options': [10, 15, 20]
@@ -78,10 +77,11 @@
           <v-toolbar
             flat
           >
+
             <v-text-field
             v-model="search"
             append-icon="mdi-magnify"
-            label="Search Transaction"
+            label="Search Booking"
             single-line
             hide-details
             dense
@@ -90,10 +90,9 @@
             <v-spacer></v-spacer>
             <v-spacer></v-spacer>
             <v-spacer></v-spacer>
-            
             <v-dialog
               v-model="dialog"
-              max-width="600px"
+              max-width="700px"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
@@ -104,7 +103,7 @@
                   hidden
                   disabled
                 >
-                  New Transactions
+                  New Booking
                 </v-btn>
               </template>
               <v-card class="pa-4">
@@ -120,8 +119,7 @@
                       >
                         <v-text-field
                           v-model="editedItem.name"
-                          label="Customer name"
-                          
+                          label="Name"
                         ></v-text-field>
                       </v-col>
                       <v-col
@@ -130,15 +128,14 @@
                         <v-text-field
                           v-model="editedItem.price"
                           label="Price"
-                          
                         ></v-text-field>
                       </v-col>
                       <v-col
                         cols="12"
                       >
                         <v-text-field
-                          v-model="editedItem.method"
-                          label="Metode Pembayaran"
+                          v-model="editedItem.office"
+                          label="Office Name"
                         ></v-text-field>
                       </v-col>
                       <v-col
@@ -153,11 +150,10 @@
                         cols="12"
                       >
                         <v-text-field
-                          v-model="editedItem.status"
-                          label="Status"
+                          v-model="editedItem.time"
+                          label="Time"
                         ></v-text-field>
                       </v-col>
-                      
                       
                     </v-row>
                   </v-container>
@@ -165,38 +161,36 @@
 
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                    <v-btn
-                      color="#121950"
-                      outlined
-                      @click="close"
-                      width="150"
-                      class="mr-4"
-                    >
+                  <v-btn
+                    color="#121950"
+                    outlined
+                    @click="close"
+                    width="150"
+                    class="mr-4"
+                  >
                     Cancel
-                    </v-btn>
-                    <v-btn
-                      color="#121950"
-                      dark
-                      @click="save"
-                      width="150"
-                    >
-                      Save
-                    </v-btn>
-                    <v-spacer></v-spacer>
+                  </v-btn>
+                  <v-btn
+                    color="#121950"
+                    dark
+                    @click="save"
+                    width="150"
+                  >
+                    Save
+                  </v-btn>
+                  <v-spacer></v-spacer>
                 </v-card-actions>
               </v-card>
             </v-dialog>
-
-
             <v-dialog v-model="dialogDelete" max-width="500px">
               <v-card
                class="pa-4"
               >
                 <v-card-title>
-                  Delete Transaction
+                  Delete Booking
                 </v-card-title>
                 <v-card-text class="subtitle-2 mt-4">
-                  Are you sure to delete this transaction ?
+                  Are you sure to delete this booking ?
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -208,47 +202,22 @@
             </v-dialog>
           </v-toolbar>
         </template>
-
-       
-        <template v-slot:[`item.status`]="{ item }">
-          <div v-if="item.status == 'Pending'">
-            <div class="statusPending text-center">
-              {{ item.status }}
-            </div>
-          </div>
-          <div v-else-if="item.status == 'Success'">
-            <div class="statusSuccess text-center">
-              {{ item.status }}
-            </div>
-          </div>
-          <div v-if="item.status == 'Failed'">
-            <div class="statusFailed text-center">
-              {{ item.status }}
-            </div>
-          </div>
-        </template>
-
         <template v-slot:[`item.actions`]="{ item }">
           <v-icon
-            @click="SendItem(item)"
-            color="green"
-          >
-              mdi-send-circle
-          </v-icon>
-          <v-icon
-            class="mx-2"
+           
+            class="mr-2"
             @click="editItem(item)"
             color="primary"
           >
-              mdi-pencil-circle
+            mdi-pencil-circle
           </v-icon>
           <v-icon
+            
             @click="deleteItem(item)"
             color="red"
           >
-              mdi-delete-circle
+            mdi-delete-circle
           </v-icon>
-          
         </template>
       </v-data-table>
     </v-card>  
@@ -259,59 +228,59 @@
 <script>
 import axios from 'axios'
 export default {
-    name: 'DataTransactions',
+    name: 'Bookings',
     data() {
         return {
-            drawer: false,
-            itemsDrawer: [
-                { title: 'Offices', icon: 'mdi-city', to:'/admin/dataoffices' },
-                { title: 'Customers', icon: 'mdi-account-multiple', to:'/admin/datacustomers' },
-                { title: 'Reviews', icon: 'mdi-pencil', to:'/admin/datareviews' },
-                { title: 'Chat', icon: 'mdi-message-text', to:'/admin/chat' },
-                { title: 'Bookings', icon: 'mdi-calendar', to:'/admin/bookings' },
-                { title: 'Transactions', icon: 'mdi-swap-horizontal', to:'/admin/datatransactions' },
-            ],
-            search: '',
-            dialog: false,
-            dialogDelete: false,
-            
-            headers: [
-              {
-                text: 'Id',
-                align: 'start',
-                filterable: false,
-                value: 'id',
-              },
-              { text: 'Name', value: 'name', sortable: false },
-              { text: 'Price', value: 'price', sortable: false },
-              { text: 'Method', value: 'method' },
-              { text: 'Date', value: 'date', sortable: false },
-              { text: 'Status', value: 'status', sortable: false },
-              { text: 'Actions', value: 'actions', sortable: false },
-            ],
-            transactions: [],
-            editedIndex: -1,
-            editedItem: {
-              id: 0,
-              name: '',
-              price: 0,
-              method: '',
-              date: '',
-              status: ''
+          drawer: false,
+          itemsDrawer: [
+              { title: 'Offices', icon: 'mdi-city', to:'/admin/dataoffices' },
+              { title: 'Customers', icon: 'mdi-account-multiple', to:'/admin/datacustomers' },
+              { title: 'Reviews', icon: 'mdi-pencil', to:'/admin/datareviews' },
+              { title: 'Chat', icon: 'mdi-message-text', to:'/admin/chat' },
+              { title: 'Bookings', icon: 'mdi-calendar', to:'/admin/bookings' },
+              { title: 'Transactions', icon: 'mdi-swap-horizontal', to:'/admin/datatransactions' },
+          ],
+          search: '',
+          dialog: false,
+          dialogDelete: false,
+          headers: [
+            {
+              text: 'ID',
+              align: 'start',
+              sortable: false,
+              filterable: false,
+              value: 'id',
             },
-            defaultItem: {
-              id: 0,
-              name: '',
-              price: 0,
-              method: '',
-              date: '',
-              status: ''
-            },
-        }
+            { text: 'Name', value: 'user.name' },
+            { text: 'Price', value: 'office.price' },
+            { text: 'Office', value: 'office.name' },
+            { text: 'Date Time Start', value: 'start' },
+            { text: 'Date Time End', value: 'end' },
+            { text: 'Actions', value: 'actions', sortable: false },
+          ],
+          bookings: [],
+          editedIndex: -1,
+          editedItem: {
+            id: 0,
+            name: '',
+            price: 0,
+            office: '',
+            date: '',
+            time: ''
+          },
+          defaultItem: {
+            id: 0,
+            name: '',
+            price: 0,
+            office: '',
+            date: '',
+            time: ''
+          },
+        }     
     },
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Transaction'
+        return this.editedIndex === -1 ? 'New Item' : 'Edit Booking'
       },
     },
 
@@ -322,39 +291,36 @@ export default {
       dialogDelete (val) {
         val || this.closeDelete()
       },
-      dialogReview (val) {
-        val || this.close()
-      },
     },
 
     async mounted() {
       this.initialize()
     },
     methods: {
-      async loadDataTransactions() {
-        const response = await axios.get(`http://localhost:3000/transactions`)
-        this.transactions = response.data
+      async loadDataCustomers() {
+        const response = await axios.get(`http://localhost:3000/bookings`)
+        this.bookings = response.data
+        console.log(this.bookings)
       },
       initialize () {
-        this.loadDataTransactions()
-        
+        this.loadDataCustomers()
       },
 
       editItem (item) {
-        this.editedIndex = this.transactions.indexOf(item)
+        this.editedIndex = this.bookings.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
-      
+
       deleteItem (item) {
-        this.editedIndex = this.transactions.indexOf(item)
+        this.editedIndex = this.bookings.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
 
       deleteItemConfirm () {
-        this.transactions.splice(this.editedIndex, 1)
-        axios.delete(`http://localhost:3000/transactions/`+this.editedItem.id
+        this.bookings.splice(this.editedIndex, 1)
+        axios.delete(`http://localhost:3000/bookings/`+this.editedItem.id
         ).then(response=>{
           console.log(response)
         })
@@ -376,41 +342,32 @@ export default {
           this.editedItem = Object.assign({}, this.defaultItem)
           this.editedIndex = -1
         })
-        this.initialize()
       },
-      closeDetailReview () {
-        this.dialogReview = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-
 
       save () {
         if (this.editedIndex > -1) {
-          axios.put(`http://localhost:3000/transactions/`+this.editedItem.id, {
+          axios.put(`http://localhost:3000/bookings/`+this.editedItem.id, {
             name: this.editedItem.name,
             price: this.editedItem.price,
-            method: this.editedItem.method,
+            office: this.editedItem.office,
             date: this.editedItem.date,
-            status: this.editedItem.status
+            time: this.editedItem.time
 
           }).then(response=>{
             console.log(response)
           })
-          Object.assign(this.transactions[this.editedIndex], this.editedItem)
+          Object.assign(this.bookings[this.editedIndex], this.editedItem)
         } else {
-          axios.post(`http://localhost:3000/transactions`, {
+          axios.post(`http://localhost:3000/bookings`, {
             name: this.editedItem.name,
             price: this.editedItem.price,
-            method: this.editedItem.method,
+            office: this.editedItem.office,
             date: this.editedItem.date,
-            status: this.editedItem.status
+            time: this.editedItem.time
           }).then(response=>{
             console.log(response)
           })
-          this.transactions.push(this.editedItem)
+          this.bookings.push(this.editedItem)
         }
         this.close()
       },
@@ -418,23 +375,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .statusPending {
-    padding: 5px 0px;
-    border: solid 1px;
-    border-radius: 5px;
-    color: #E59B3A;
-  }
-  .statusSuccess {
-    padding: 5px 0px;
-    border: solid 1px;
-    border-radius: 5px;
-    color: #37AF67;
-  }
-  .statusFailed {
-    padding: 5px 0px;
-    border: solid 1px;
-    border-radius: 5px;
-    color: #FF4956;
-  }
+<style>
+
 </style>

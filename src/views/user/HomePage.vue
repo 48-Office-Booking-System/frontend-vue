@@ -7,7 +7,9 @@
             flat
         >
             <div class="logo">
-                <v-img src="../../assets/kobaspace.png" />
+                <a href="/homepage">
+                    <v-img src="../../assets/kobaspace.png" />
+                </a>
             </div>
 
 
@@ -17,6 +19,7 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/offices"
                 >
                     Gedung
                 </v-btn>
@@ -25,14 +28,16 @@
                     small
                     color="#28304E"
                     height="0"
+                    to="/payment"
                 >
-                    Pembayaran
+                    Metode Pembayaran
                 </v-btn>
                 <v-btn 
                     text
                     small
                     color="#28304E"
                     height="0"
+                    to="/aboutus"
                 >
                     Tentang Kami
                 </v-btn>
@@ -106,16 +111,10 @@
                         class="mx-auto"
                         max-width="330"
                     >
-                        <v-carousel 
-                        v-model="model" 
-                        hide-delimiters 
-                        height="279"
-                        >
-                            <v-carousel-item
-                            >
-                                <img :src="office.photo" height="100%" alt="">
-                            </v-carousel-item>
-                        </v-carousel>
+                        <v-img
+                        :src="office.photo"
+                        height="300px"
+                        ></v-img>
 
                         <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
                             {{ office.name }}
@@ -259,17 +258,10 @@ export default {
     name: 'HomePage',
     data() {
         return {
-
-            // https://stackoverflow.com/questions/46775024/property-or-method-not-defined-in-vue-file
-            // n apa?
-            
-
-
-
             officesRec: [],
             offices: [],
             reviews: [],
-            model: 0,
+            
         }
     },
 
@@ -278,7 +270,7 @@ export default {
     },
 
     methods: {
-        async loadDataOffice() {
+        async loadDataOffices() {
             const response = await axios.get(`http://localhost:3000/offices`)
             this.offices = response.data
         },
@@ -291,7 +283,7 @@ export default {
             this.reviews = response.data
         },
         initialize() {
-            this.loadDataOffice()
+            this.loadDataOffices()
             this.loadDataOfficeRec()
             this.loadDataReviews()
         }
