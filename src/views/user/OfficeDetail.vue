@@ -117,7 +117,7 @@
 
                     <v-row class="px-0">
                         <!-- Tanggal -->
-                        <v-col>
+                        <v-col cols="6">
                             <v-menu
                                 ref="menu"
                                 v-model="menu"
@@ -163,8 +163,75 @@
                                 </v-date-picker>
                             </v-menu>
                         </v-col>
-                        <v-col>
-                            
+                        <v-col cols="3">
+                            <v-menu
+                                ref="menuStart"
+                                v-model="menuStart"
+                                :close-on-content-click="false"
+                                :nudge-right="40"
+                                :return-value.sync="start"
+                                transition="scale-transition"
+                                offset-y
+                                max-width="290px"
+                                min-width="290px"
+                            >
+                                <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="start"
+                                    label="Start"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    solo
+                                    dark
+                                    background-color="#28304E"
+                                ></v-text-field>
+                                </template>
+                                <v-time-picker
+                                v-if="menuStart"
+                                v-model="start"
+                                :max="end"
+                                format="24hr"
+                                full-width
+                                @click:minute="$refs.menuStart.save(start)"
+                                ></v-time-picker>
+                                
+                            </v-menu>
+                        </v-col>
+                        <v-col cols="3">
+                            <v-menu
+                                ref="menuEnd"
+                                v-model="menuEnd"
+                                :close-on-content-click="false"
+                                :nudge-right="40"
+                                :return-value.sync="end"
+                                transition="scale-transition"
+                                offset-y
+                                max-width="290px"
+                                min-width="290px"
+                            >
+                                <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="end"
+                                    label="End"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    solo
+                                    dark
+                                    background-color="#28304E"
+                                ></v-text-field>
+                                </template>
+                                <v-time-picker
+                                v-if="menuEnd"
+                                v-model="end"
+                                :min="start"
+                                format="24hr"
+                                full-width
+                                @click:minute="$refs.menuEnd.save(end)"
+                                ></v-time-picker>
+                                
+                            </v-menu>
                         </v-col>
                     </v-row>
                     
@@ -247,11 +314,14 @@
 
                     <div class="text-center mt-10">
                         <v-btn
-                         class="px-10 mb-4"
+                         class="mb-2"
                          color="#28304E"
                          dark
+                         large
+                         block
+                         @click="makeTransaction(office.id, office.price)"
                         > 
-                            Pesan
+                            Pesan Sekarang
                         </v-btn>
                     </div>
                 </v-card>
@@ -297,8 +367,19 @@ export default {
     name: 'OfficeDetail',
     data () {
       return {
-        // x
+        // Tanggal
+        date: '',
+
+        paymentMethod: '',
+
+        // Jam
+        start: null,
+        end: null,
+        menuStart: false,
+        menuEnd: false,
         menu: false,
+        
+        customerName: "M Yudha Pamungkas",
         office: []
     
       }
@@ -312,8 +393,23 @@ export default {
         this.office = response.data
         console.log(this.office)
         },
+
         initialize() {
         this.loadDataOffices()
+        },
+
+        makeTransaction(id, price) {
+            axios.post(`http://localhost:3000/transactions`, {
+                name: this.customerName,
+                id_office: id,
+                price: price,
+                method: this.paymentMethod,
+                date: this.date,
+                status: "Pending"
+            }).then(response=>{
+                console.log(response)
+            })
+            this.$router.push({name:"Bills Page"})
         }
     }
 

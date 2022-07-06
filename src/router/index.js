@@ -1,34 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import PaymentView from '../views/PaymentView.vue'
+import TestApi from '../views/TestApi.vue'
 
 // User
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
+import SlipPayment from '../views/user/SlipPayment.vue'
 import OfficeDetail from '../views/user/OfficeDetail.vue'
 import OfficesList from '../views/user/OfficesList.vue'
 import PaymentMethod from '../views/user/PaymentMethod.vue'
 import AboutUs from '../views/user/AboutUs.vue'
+import BillsPage from '../views/user/BillsPage.vue'
+import Invoice from '../views/user/Invoice.vue'
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
 import DataOffice from '../views/admin/DataOffices.vue'
 import DataTransactions from '../views/admin/DataTransactions.vue'
-import Bookings from '../views/admin/Bookings.vue'
+import Bookings from '../views/admin/DataBookings.vue'
 import DataReviews from '../views/admin/DataReviews.vue'
 import Chat from '../views/admin/Chat.vue'
 import DataCustomers from '../views/admin/DataCustomers.vue'
-import LoginAdminTest from '../views/admin/LoginAdminTest.vue'
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/paymentpage',
-    name: 'payment',
-    component: PaymentView
+    path: '/testapi',
+    name: 'Test Api',
+    component: TestApi
   },
   {
     path: '/',
@@ -61,9 +63,24 @@ const routes = [
     component: PaymentMethod
   },
   {
+    path: '/slippayment',
+    name: 'Slip Payment',
+    component: SlipPayment
+  },
+  {
     path: '/aboutus',
     name: 'About Us',
     component: AboutUs
+  },
+  {
+    path: '/bills',
+    name: 'Bills Page',
+    component: BillsPage
+  },
+  {
+    path: '/invoice',
+    name: 'Invoice',
+    component: Invoice
   },
 
   // Admin
@@ -102,12 +119,11 @@ const routes = [
     name: 'Data Transactions',
     component: DataTransactions
   },
-  {
-    path: '/admin/loginadmintest',
-    name: 'Login Admin test',
-    component: LoginAdminTest
-  }
-  
+  // {
+  //   path: '/admin/loginadmintest',
+  //   name: 'Login Admin test',
+  //   component: LoginAdminTest
+  // }
 ]
 
 const router = new VueRouter({
