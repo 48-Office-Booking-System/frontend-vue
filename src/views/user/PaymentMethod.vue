@@ -78,9 +78,349 @@
 
         </v-app-bar>
 
-        <div class="content text-center">
-            <h1>Payment Method</h1>
-        </div>
+<v-main>
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content
+                        class="listItem pa-4 rounded-lg"
+                        >
+                         <v-list-item-title
+                         >
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                              <img src="../assets/pembayaran/BCA.png" alt="logo bca" width="85px">
+                              </v-col>
+                              <v-col
+                                 cols="8"
+                                 md="8"
+                              >
+                                <p class="font-weight-black text-end">1234567800000</p>
+                              </v-col>
+                              <v-col 
+                                 cols="2"
+                                 md="2"
+                              >
+                                <v-btn 
+                                   class="text-decoration-underline"
+                                   text
+                                >
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+           class="listitemcontent"
+        >
+          <v-list-item-content>
+            <v-list-item-title 
+               v-text="child.title">
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+       <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                              <img src="../assets/pembayaran/BNI.png" alt="logo bni" width="100px">
+                              </v-col>
+                              <v-col
+                                 cols="8"
+                                 md="8"
+                              >
+                                <p class="font-weight-black text-end">1234567800000</p>
+                              </v-col>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                                <v-btn 
+                                   class="text-decoration-underline"
+                                   text
+                                 >
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+           class="listitemcontent"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                              <img src="../assets/pembayaran/BRI.png" alt="logo bri" width="150px">
+                              </v-col>
+                              <v-col
+                                 cols="8"
+                                 md="8"
+                              >
+                                <p class="font-weight-black text-end">1234567800000</p>
+                              </v-col>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                                <v-btn 
+                                   class="text-decoration-underline"
+                                   text
+                                >
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+           class="listitemcontent"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                              <img src="../assets/Bank-Mandiri.png" alt="logo mandiri" width="100px">
+                              </v-col>
+                              <v-col
+                                 cols="8"
+                                 md="8"
+                              >
+                                <p class="font-weight-black text-end">1234567800000</p>
+                              </v-col>
+                              <v-col
+                                cols="2"
+                                md="2"
+                              >
+                                <v-btn 
+                                   class="text-decoration-underline"
+                                   text
+                                >
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+           class="listitemcontent"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                              <img src="../assets/pembayaran/Cimb Niaga.png" alt="logo cimb niaga" width="200px">
+                              </v-col>
+                              <v-col
+                                 cols="8"
+                                 md="8"
+                              >
+                                <p class="font-weight-black text-end">1234567800000</p>
+                              </v-col>
+                              <v-col
+                                cols="2"
+                                md="2"
+                              >
+                                <v-btn 
+                                   class="text-decoration-underline"
+                                   text
+                                >
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+           class="listitemcontent"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+
+        <v-spacer></v-spacer>
+
+        <v-list>
+            <v-list-group
+              v-for="item in items"
+              :key="item.title"
+              v-model="item.active"
+              no-action
+              color="black"
+            >
+            <template v-slot:activator>
+                     <v-list-item-content class="pa-4 rounded-pill">
+                         <v-list-item-title>
+                             <v-row no-gutters>
+                              <v-col
+                                 cols="2"
+                                 md="2"
+                              >
+                              <img src="../assets/pembayaran/Panin.png" alt="logo panin bank" width="200px">
+                              </v-col>
+                              <v-col
+                                 cols="8"
+                                 md="8"
+                              >
+                                <p class="font-weight-black text-end">1234567800000</p>
+                              </v-col>
+                              <v-col
+                                cols="2"
+                                md="2"
+                              >
+                                <v-btn
+                                   class="text-decoration-underline" 
+                                   text
+                                >
+                                   SALIN
+                                </v-btn>
+                              </v-col>
+                             </v-row>
+                         </v-list-item-title>
+                     </v-list-item-content>
+            </template>
+
+        <v-list-item
+           v-for="child in item.items"
+           :key="child.title"
+           class="listitemcontent"
+        >
+          <v-list-item-content>
+            <v-list-item-title
+                v-text="child.title"
+            >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+            </v-list-group>
+        </v-list>
+      </v-main>
         
 
         <v-footer color="#121950" class="mt-auto py-3" padless>
@@ -168,4 +508,22 @@ export default {
         margin-top: 138px;
     }
 
+    .v-list-item {
+    padding: 0 25px;
+    margin: 0px 321px 0px 321px;
+    border: 2px solid #121950;
+    border-radius: 8px;
+    }
+
+   .listitemcontent {
+    border: #EDEFF3;
+    background-color: #EDEFF3;
+    border-radius: 0px;
+    }
+
+    p {
+    padding-top: 10px;
+    font-size: 25px;
+    color: #121950;
+    }    
 </style>

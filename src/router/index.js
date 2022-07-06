@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-<<<<<<< HEAD
 import PaymentView from '../views/PaymentView.vue'
-=======
 
 // User
 import LoginView from '../views/user/Login.vue'
@@ -23,17 +21,15 @@ import Chat from '../views/admin/Chat.vue'
 import DataCustomers from '../views/admin/DataCustomers.vue'
 import LoginAdminTest from '../views/admin/LoginAdminTest.vue'
 
->>>>>>> d1827b118ef9463698bafdea5bf09fe60daed11b
 
 Vue.use(VueRouter)
 
 const routes = [
-<<<<<<< HEAD
-    {
+  {
     path: '/paymentpage',
     name: 'payment',
     component: PaymentView
-=======
+  },
   {
     path: '/',
     name: 'login',
@@ -110,7 +106,6 @@ const routes = [
     path: '/admin/loginadmintest',
     name: 'Login Admin test',
     component: LoginAdminTest
->>>>>>> d1827b118ef9463698bafdea5bf09fe60daed11b
   }
   
 ]
