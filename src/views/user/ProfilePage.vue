@@ -78,8 +78,35 @@
 
         </v-app-bar>
 
-        <div class="content" padless>
-            <h1>PROFILE</h1>
+        <div 
+          class="content"
+          padless
+        >
+             <v-card
+                 class="mx-auto"
+                 color="#121950"
+                 max-width="120"
+                 max-height="152"
+            >
+              <div 
+                 class="text-center"     
+            >
+                <v-img
+                  src="../../assets/no-account.png"
+                  max-width="90"
+                  max-height="90"
+                ></v-img>
+              </div>
+             <v-card-actions>
+                 <v-btn
+                     text
+                     block
+                     color="Black"
+                     >
+                    Ubah
+                </v-btn>
+            </v-card-actions>
+          </v-card>
         </div>
 
         <v-footer color="#121950" class="mt-auto py-3" padless>
@@ -100,71 +127,74 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
-    .content {
-        margin-top: 10%;
-    }
+.content {
+    margin-top: 10%;
+}
     
-    .heading-1 {
-        font-family: 'Nunito', sans-serif;
-        font-weight: 700 !important;
-        font-size: 32px !important;
-        
-    }
-    .heading-3-regular {
-        font-family: 'Nunito', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 27px;
-    }
-    .heading-3-bold {
-        font-family: 'Nunito', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-    }
-    .heading-2-regular {
-        font-family: 'Nunito', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 33px;
-    }
+.heading-1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700 !important;
+    font-size: 32px !important;    
+}
+.heading-3-regular {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+}
+.heading-3-bold {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+}
+.heading-2-regular {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+}
 
-    .body-regular-2 {
-        font-family: 'Work Sans', sans-serif;
-        font-weight: 400 !important;
-        font-size: 14px !important;
-        font-style: normal !important;
-        line-height: 14px !important;
-    }
-    .body-regular-3 {
-        font-family: 'Work Sans', sans-serif;
-        font-weight: 400 !important;
-        font-size: 12px !important;
-    }
-    .reason-content {
-        height: 384px;
-        background-color: #606FAA;
-    }
+.body-regular-2 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    line-height: 14px !important;
+}
+.body-regular-3 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+}
+.reason-content {
+    height: 384px;
+    background-color: #606FAA;
+}
 
-    .lead-paragraph{
-        font-family: 'Work Sans', sans-serif;
-        font-style: bold;
-        font-size: 20px !important;
-        font-weight: 700 !important;
-        line-height: 23px !important;
-    }
+.lead-paragraph{
+    font-family: 'Work Sans', sans-serif;
+    font-style: bold;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 23px !important;
+}
 
-    .max-width-footer {
-        max-width: 50%;
-        margin: 0 auto;
-    }
+.max-width-footer {
+    max-width: 50%;
+    margin: 0 auto;
+}
 
-    .ftr {
-        margin-top: 138px;
-    }
-
+.ftr {
+    margin-top: 138px;
+}
+.v-btn {
+    background-color: #edeff3;
+    margin: 0px;
+    padding: 0px;
+}
 </style>
