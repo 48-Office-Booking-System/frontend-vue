@@ -13,6 +13,7 @@ import PaymentMethod from '../views/user/PaymentMethod.vue'
 import AboutUs from '../views/user/AboutUs.vue'
 import BillsPage from '../views/user/BillsPage.vue'
 import Invoice from '../views/user/Invoice.vue'
+import ProfilePage from '../views/user/ProfilePage.vue'
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
@@ -81,6 +82,11 @@ const routes = [
     path: '/invoice',
     name: 'Invoice',
     component: Invoice
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfilePage
   },
 
   // Admin
