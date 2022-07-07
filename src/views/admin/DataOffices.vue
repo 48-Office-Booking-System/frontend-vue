@@ -125,17 +125,10 @@
                             <v-text-field
                             v-model="editedItem.name"
                             label="Office name"
+                            type="text"
                             ></v-text-field>
                         </v-col>
-                        <v-col
-                            cols="12"
-                            
-                        >
-                            <v-text-field
-                            v-model="editedItem.location"
-                            label="Location"
-                            ></v-text-field>
-                        </v-col>
+                        
                         <v-col
                             cols="12"
                             
@@ -143,6 +136,7 @@
                             <v-text-field
                             v-model="editedItem.price"
                             label="Price"
+                            type="number"
                             ></v-text-field>
                         </v-col>
                         <v-col
@@ -152,6 +146,7 @@
                             <v-text-field
                             v-model="editedItem.chair_min"
                             label="Kursi Minimum"
+                            type="number"
                             ></v-text-field>
                         </v-col>
                         <v-col
@@ -161,6 +156,7 @@
                             <v-text-field
                             v-model="editedItem.chair_max"
                             label="Kursi Maximal"
+                            type="number"
                             ></v-text-field>
                         </v-col>
                         <v-col
@@ -223,7 +219,7 @@
                 
                   <v-card>
 
-                    <v-carousel
+                    <!-- <v-carousel
                      hide-delimiters
                      height="350"
                     >
@@ -234,7 +230,7 @@
                       >
                         
                       </v-carousel-item>
-                    </v-carousel>
+                    </v-carousel> -->
 
                     <v-card-title>{{ editedItem.name }}</v-card-title>
 
@@ -273,7 +269,7 @@
                     </v-card-text>
                     
                     <v-card-text>
-                      Created by: {{ editedItem.created_by.name }}
+                      Created by: {{ editedItem.created_by }}
                     </v-card-text>
 
                     <v-card-actions>
@@ -312,8 +308,15 @@
             </template>
             
         </v-data-table>
+
+        <div class="mx-10 mb-6" v-for="item in offices" :key="item.id">
+            {{ item }}
+        </div>
       </v-card>
+      
         </template>
+
+        
         
   </v-app>
 </template>
@@ -353,29 +356,45 @@ import axios from 'axios'
       editedIndex: -1,
       editedItem: {
         id: 0,
-        created_by: 1,
+        type_id: null,
         name: "",
         description: "",
-        location: "",
-        view_count: 0,
+        latitude:"",
+        longitude: "",
         price: 0,
         chair_min: 0,
         chair_max: 0,
         number: "",
-        photo_url: ""
+        photo_urls: [{
+          url: "",
+        }],
+        facilitations: [{
+          id: 1
+        }],
+        tags: [{
+          id: 1
+        }]
       },
       defaultItem: {
         id: 0,
-        created_by: 1,
+        type_id: null,
         name: "",
         description: "",
-        location: "",
-        view_count: 0,
+        latitude:"",
+        longitude: "",
         price: 0,
         chair_min: 0,
         chair_max: 0,
         number: "",
-        photo_url: ""
+        photo_urls: [{
+          url: "",
+        }],
+        facilitations: [{
+          id: 1
+        }],
+        tags: [{
+          id: 1
+        }]
       },
 
       drawer: false,
@@ -416,8 +435,8 @@ import axios from 'axios'
 
     methods: {
         async loadDataOffices() {
-            const response = await axios.get(`http://localhost:3000/offices`)
-            this.offices = response.data
+            const response = await axios.get(`http://34.207.166.213/office/all`)
+            this.offices = response.data.data
             console.log(this.offices)
         },
        
@@ -447,7 +466,7 @@ import axios from 'axios'
 
       deleteItemConfirm () {
         this.offices.splice(this.editedIndex, 1)
-        axios.delete(`http://localhost:3000/offices/`+this.editedItem.id
+        axios.delete(`http://34.207.166.213/office/`+this.editedItem.id
         ).then(response=>{
             console.log(response)
         })
@@ -482,17 +501,7 @@ import axios from 'axios'
 
       save () {
         if (this.editedIndex > -1) {
-            axios.put(`http://localhost:3000/offices/`+this.editedItem.id, {
-                name: this.editedItem.name,
-                location:this.editedItem.location,
-                price: this.editedItem.price,
-                chair_min: this.editedItem.chair_min,
-                chair_max: this.editedItem.chair_max,
-                description: this.editedItem.description,
-                created_by: 1,
-                view_count: 0,
-                number: "083333333",
-                photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271624_B_-tK4ECP.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437151"
+            axios.put(`http://34.207.166.213/office/`+this.editedItem.id, {
                 
             }).then(response=>{
                 console.log(response)
@@ -500,18 +509,25 @@ import axios from 'axios'
 
           Object.assign(this.offices[this.editedIndex], this.editedItem)
         } else {
-            axios.post(`http://localhost:3000/offices`, {
+            axios.post(`http://34.207.166.213/office`, {
+                type_id: 1,
                 name: this.editedItem.name,
-                location:this.editedItem.location,
-                price: this.editedItem.price,
-                chair_min: this.editedItem.chair_min,
-                chair_max: this.editedItem.chair_max,
                 description: this.editedItem.description,
-                created_by: 1,
-                view_count: 0,
-                number: "083333333",
-                photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271624_B_-tK4ECP.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437151"                
-
+                latitude:"-6.193125",
+                longitude: "106.821810",
+                price: this.editedItem.price,
+                chair_min: 1,
+                chair_max: 10,
+                number: "083123456789",
+                photo_urls: [{
+                  url: "link foto",
+                }],
+                facilitations: [{
+                  id: 1
+                }],
+                tags: [{
+                  id: 1
+                }]
             }).then(response=>{
                 console.log(response)
             })

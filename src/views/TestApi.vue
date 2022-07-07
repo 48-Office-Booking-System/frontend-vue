@@ -1,10 +1,71 @@
-<!-- <template>
+<template>
   <v-app>
-    Test Api
+    <div class="ma-16">
+        <!-- <v-form
+         @submit.prevent="submit"
 
-    <div v-for="item in test" :key="item">
-        item
+        >
+            <v-text-field
+            v-model="officeName"
+            type="text"
+            label="Office Name"
+            />
+            <v-text-field
+            v-model="price"
+            type="number"
+            label="Price"
+            />
+            <v-text-field
+            v-model="chair_min"
+            type="number"
+            label="Chair Minimum"
+            />
+            <v-text-field
+            v-model="chair_max"
+            type="number"
+            label="Chair Maximal"
+            />
+
+            <v-btn
+            type="submit"
+            >
+                Submit
+            </v-btn>    
+        </v-form> -->
+
+        <v-text-field
+            v-model="officeName"
+            type="text"
+            label="Office Name"
+            />
+            <v-text-field
+            v-model="price"
+            type="number"
+            label="Price"
+            />
+            <v-text-field
+            v-model="chair_min"
+            type="number"
+            label="Chair Minimum"
+            />
+            <v-text-field
+            v-model="chair_max"
+            type="number"
+            label="Chair Maximal"
+            />
+
+            <v-btn
+            @click="submit"
+            >
+                Submit
+            </v-btn>
+        
     </div>
+    
+    <div class="mx-16 mb-10" v-for="item in offices" :key="item.id">
+        {{item}}
+    </div>
+
   </v-app>
 </template>
 
@@ -14,7 +75,11 @@ export default {
     name: 'TestApi',
     data() {
         return{
-            test: []
+            offices: [],
+            officeName: '',
+            price: null,
+            chair_min: null,
+            chair_max: null,
         }
     },
     async mounted() {
@@ -23,57 +88,41 @@ export default {
     methods: {
         async loadDataOffices() {
             const response = await axios.get(`http://34.207.166.213/office/all`)
-            // this.test = response.data
-            console.log(response)
+            this.offices = response.data.data
+            console.log(this.offices)
         },
         initialize () {
         this.loadDataOffices()
         
         },
-    }
+        submit() {
+            axios.post(`http://34.207.166.213/office`, {
+                type_id: 1,
+                name: this.officeName,
+                description: "Ini adalah deskripsi",
+                latitude:"-6.193125",
+                longitude: "106.821810",
+                price: 10000,
+                chair_min: 5,
+                chair_max: 7,
+                number: "083123456789",
+                photo_urls: [{
+                  url: "link foto",
+                }],
+                facilitations: [{
+                  id: 1
+                }],
+                tags: [{
+                  id: 1
+                }]
+            }).then(response=>{
+                console.log(response)
+            })
+        }
+
+    },
 
     
-}
-</script>
-
-<style>
-
-</style> -->
-
-<template>
-    <v-app>
-        <div class="ma-10">
-            <h1>Upload Photo</h1>
-            <img :src="previewImage" alt="" width="200" v-if="previewImage">
-
-            <div>
-                <input type="file" @change="upload">
-                <!-- <v-btn
-                 color="primary"
-                >
-                    Upload
-                </v-btn> -->
-            </div>
-        </div>
-        
-    </v-app>
-</template>
-
-<script>
-export default {
-    name: 'TestApi',
-    data(){
-        return {
-            previewImage: null,
-        }
-    },
-    methods: {
-        upload(e) {
-            let files = e.target.files[0]
-            this.previewImage = URL.createObjectURL(files)
-        }
-    }
-
 }
 </script>
 

@@ -379,6 +379,23 @@
       "date": "2022-07-06",
       "status": "Pending",
       "id": 4
+    },
+    {
+      "name": "M Yudha Pamungkas",
+      "price": 80000,
+      "method": "BCA",
+      "date": "2022-07-05",
+      "status": "Success",
+      "id": 5
+    },
+    {
+      "name": "M Yudha Pamungkas",
+      "id_office": 2,
+      "price": 100000,
+      "method": "BNI",
+      "date": "2022-07-06",
+      "status": "Pending",
+      "id": 6
     }
   ]
 }

@@ -107,41 +107,41 @@
                 <v-col v-for="office in officesRec"
                  :key="office.id"
                 >     
-                    <v-card
-                        class="mx-auto"
-                        max-width="330"
-                    >
+                    <v-card class="mx-auto" max-width="280">
                         <v-img
-                        :src="office.photo"
-                        height="300px"
+                        :src="office.photo_urls[0].url"
+                        height="200px"
                         ></v-img>
+                        
+                        <v-card-title> {{ office.name }} </v-card-title>
 
-                        <div class="lead-paragraph grey--text text--darken-3 px-4 pt-2">
-                            {{ office.name }}
-                        </div>
+                        <v-card-text>
+                        <v-row align="center" class="mx-0">
+                            <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            ></v-rating>
 
-
-
-                        <v-row class="text-left grey--text text--darken-2 px-4 pt-4">
-                            <v-col cols="4">
-                                <div class="body-regular-2 mb-2">
-                                    Kapasitas
-                                </div>                                
-                                <div class="body-regular-2 mb-2">
-                                    Harga
-                                </div>
-                            </v-col>
-                            <v-col cols="8">
-                                <div class="body-regular-2 mb-2">
-                                    : {{ office.kursi_min }} - {{ office.kursi_max }} Orang
-                                </div>
-                                <div class="body-regular-2 mb-2">
-                                    : Rp. {{ office.price }}/jam
-                                </div>
-                            </v-col>
+                            <div class="grey--text ms-4">4</div>
                         </v-row>
+                        <div class="mt-4 text-subtitle-1">Harga : Rp. {{ office.price }} / Jam</div>
+                        </v-card-text>
 
-
+                        <v-divider class="mx-2"></v-divider>
+                        <v-card-actions>
+                        <v-btn
+                        block
+                        large
+                        color="primary"
+                        :to="'officedetail/'+office.id"
+                        >
+                            Lihat Detail
+                        </v-btn>
+                        </v-card-actions>
                     </v-card>
                 </v-col>
             </v-row>
@@ -202,7 +202,7 @@
                     width="365"
                     >
                 
-                    <img :src="offices[review.id_office-1].photo" width="100%" height="200" alt="">
+                    
 
                     <v-rating
                     :value="review.rating"
@@ -259,7 +259,6 @@ export default {
     data() {
         return {
             officesRec: [],
-            offices: [],
             reviews: [],
             
         }
@@ -270,20 +269,18 @@ export default {
     },
 
     methods: {
-        async loadDataOffices() {
-            const response = await axios.get(`http://localhost:3000/offices`)
-            this.offices = response.data
-        },
+        
         async loadDataOfficeRec() {
-            const response = await axios.get(`http://localhost:3000/officesRec`)
-            this.officesRec = response.data
+            const response = await axios.get(`http://34.207.166.213/office/all`)
+            this.officesRec = response.data.data
         },
         async loadDataReviews() {
-            const response = await axios.get(`http://localhost:3000/reviews`)
-            this.reviews = response.data
+            const response = await axios.get(`http://34.207.166.213/review/all`)
+            this.reviews = response.data.data
+            console.log(this.reviews)
         },
         initialize() {
-            this.loadDataOffices()
+            
             this.loadDataOfficeRec()
             this.loadDataReviews()
         }

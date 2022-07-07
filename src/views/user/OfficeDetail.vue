@@ -105,11 +105,7 @@
                             </v-card-text>
                         </v-col>
                         <v-col>
-                            <v-card-text class="pb-0 px-0">
-                                <s>Rp. 2000000 / Jam</s>
-                            </v-card-text>
-                            
-                            <v-card-title class="ma-0 py-0 px-0">
+                            <v-card-title class="px-0">
                                 Rp. {{ office.price }} / Jam
                             </v-card-title>
                         </v-col>
@@ -389,8 +385,8 @@ export default {
     },
     methods: {
         async loadDataOffices() {
-        const response = await axios.get(`http://localhost:3000/offices/${this.$route.params.id}`)
-        this.office = response.data
+        const response = await axios.get(`http://34.207.166.213/office/${this.$route.params.id}`)
+        this.office = response.data.data
         console.log(this.office)
         },
 

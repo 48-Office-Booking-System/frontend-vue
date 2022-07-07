@@ -125,7 +125,7 @@
         <v-col v-for="office in offices" :key="office.id">
           <v-card class="mx-auto" max-width="280">
             <v-img
-              :src="office.photo"
+              :src="office.photo_urls[0].url"
               height="200px"
             ></v-img>
 
@@ -199,8 +199,8 @@ export default {
   },
   methods: {
     async loadDataOffices() {
-      const response = await axios.get(`http://localhost:3000/offices`)
-      this.offices = response.data
+      const response = await axios.get(`http://34.207.166.213/office/all`)
+      this.offices = response.data.data
     },
     initialize() {
       this.loadDataOffices()
