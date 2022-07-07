@@ -276,8 +276,9 @@ export default {
     },
     methods: {
       async loadDataCustomers() {
-        const response = await axios.get(`http://localhost:3000/customers`)
-        this.customers = response.data
+        const response = await axios.get(`http://34.207.166.213/user/all`)
+        this.customers = response.data.data
+        // console.log(response.data.data)
       },
       initialize () {
         this.loadDataCustomers()

@@ -298,9 +298,9 @@ export default {
     },
     methods: {
       async loadDataCustomers() {
-        const response = await axios.get(`http://localhost:3000/bookings`)
-        this.bookings = response.data
-        console.log(this.bookings)
+        const response = await axios.get(`http://34.207.166.213/booking/all`)
+        this.bookings = response.data.data
+        console.log(response.data.data)
       },
       initialize () {
         this.loadDataCustomers()

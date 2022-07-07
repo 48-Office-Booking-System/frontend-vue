@@ -119,7 +119,7 @@
                         cols="12"
                       >
                         <v-text-field
-                          v-model="editedItem.name"
+                          v-model="customerName"
                           label="Customer name"
                           disabled
                         ></v-text-field>
@@ -128,7 +128,7 @@
                         cols="12"
                       >
                         <v-text-field
-                          v-model="editedItem.id_office"
+                          v-model="officeName"
                           label="Building"
                           disabled
                         ></v-text-field>
@@ -137,7 +137,7 @@
                         cols="12"
                       >
                         <v-text-field
-                          v-model="editedItem.rating"
+                          v-model="editedItem.star"
                           label="Rating"
                         ></v-text-field>
                       </v-col>
@@ -148,7 +148,7 @@
                           outlined
                           height="120"
                           label="Review"
-                          v-model="editedItem.review"
+                          v-model="editedItem.text"
                         ></v-textarea>
                       </v-col>
                       
@@ -189,7 +189,7 @@
                 </v-card-title>
                 <v-card-text>
                   <v-rating
-                    :value="detailRating"
+                    :value="detailStar"
                     color="amber"
                     dense
                     half-increments
@@ -198,7 +198,7 @@
                   ></v-rating>
                 </v-card-text>
                 <v-card-text class="subtitle-2 mt-0">
-                  {{ detailReview }}
+                  {{ detailText }}
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -231,9 +231,9 @@
 
        
 
-        <template v-slot:[`item.rating`]="{ item }">
+        <template v-slot:[`item.star`]="{ item }">
           <v-rating
-            :value="item.rating"
+            :value="item.star"
             color="amber"
             dense
             half-increments
@@ -242,7 +242,7 @@
           ></v-rating>
         </template>
 
-        <template v-slot:[`item.review`]="{ item }">
+        <template v-slot:[`item.text`]="{ item }">
           <v-btn
            small
            color="primary lighten-2"
@@ -292,8 +292,10 @@ export default {
             dialog: false,
             dialogDelete: false,
             dialogReview: false,
-            detailReview: '',
-            detailRating: 0,
+            detailText: '',
+            detailStar: 0,
+            customerName: '',
+            officeName: '',
             headers: [
               {
                 text: 'Id',
@@ -301,10 +303,10 @@ export default {
                 filterable: false,
                 value: 'id',
               },
-              { text: 'Name', value: 'name', sortable: false },
-              { text: 'Building', value: 'id_office', sortable: false },
-              { text: 'Rating', value: 'rating' },
-              { text: 'Review', value: 'review', sortable: false },
+              { text: 'Name', value: 'user.name', sortable: false },
+              { text: 'Building', value: 'office.name', sortable: false },
+              { text: 'Rating', value: 'star' },
+              { text: 'Review', value: 'text', sortable: false },
               { text: 'Actions', value: 'actions', sortable: false },
             ],
             reviews: [],
@@ -312,15 +314,11 @@ export default {
             editedIndex: -1,
             editedItem: {
               id: 0,
-              name: '',
-              id_office: "",
-              rating: 0,
-              review: '',
+              star: 0,
+              text: '',
             },
             defaultItem: {
               id: 0,
-              name: '',
-              id_office: "",
               rating: 0,
               review: '',
             },
@@ -349,28 +347,26 @@ export default {
     },
     methods: {
       async loadDataReviews() {
-        const response = await axios.get(`http://localhost:3000/reviews`)
-        this.reviews = response.data
-      },
-      async loadDataOffices() {
-        const response = await axios.get(`http://localhost:3000/offices`)
-        this.offices = response.data
+        const response = await axios.get(`http://34.207.166.213/review/all`)
+        this.reviews = response.data.data
+        console.log(response.data.data)
       },
       initialize () {
         this.loadDataReviews()
-        this.loadDataOffices()
       },
 
       editItem (item) {
         this.editedIndex = this.reviews.indexOf(item)
         this.editedItem = Object.assign({}, item)
+        this.customerName = item.user.name
+        this.officeName = item.office.name
         this.dialog = true
       },
       viewDetailReview (item) {
         this.editedIndex = this.reviews.indexOf(item)
         this.editedItem = Object.assign({}, item)
-        this.detailReview = item.review
-        this.detailRating = item.rating
+        this.detailText = item.text
+        this.detailStar = item.star
         this.dialogReview = true
       },
       deleteItem (item) {
@@ -381,7 +377,7 @@ export default {
 
       deleteItemConfirm () {
         this.reviews.splice(this.editedIndex, 1)
-        axios.delete(`http://localhost:3000/reviews/`+this.editedItem.id
+        axios.delete(`http://34.207.166.213/review/`+this.editedItem.id
         ).then(response=>{
           console.log(response)
         })
@@ -415,22 +411,18 @@ export default {
 
       save () {
         if (this.editedIndex > -1) {
-          axios.put(`http://localhost:3000/reviews/`+this.editedItem.id, {
-            name: this.editedItem.name,
-            id_office: this.editedItem.id_office,
-            rating: this.editedItem.rating,
-            review: this.editedItem.review
+          axios.put(`http://34.207.166.213/review/`+this.editedItem.id, {
+            star: this.editedItem.star,
+            text: this.editedItem.text
 
           }).then(response=>{
             console.log(response)
           })
           Object.assign(this.reviews[this.editedIndex], this.editedItem)
         } else {
-          axios.post(`http://localhost:3000/reviews`, {
-            name: this.editedItem.name,
-            id_office: this.editedItem.id_office,
-            rating: this.editedItem.rating,
-            review: this.editedItem.review
+          axios.post(`http://34.207.166.213/review`, {
+            star: this.editedItem.star,
+            text: this.editedItem.text
           }).then(response=>{
             console.log(response)
           })
