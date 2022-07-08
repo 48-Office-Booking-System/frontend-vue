@@ -109,7 +109,7 @@
                 >     
                     <v-card class="mx-auto" max-width="280">
                         <v-img
-                        :src="office.photo_urls[0].url"
+                        :src="office.photo_urls.url"
                         height="200px"
                         ></v-img>
                         
@@ -202,10 +202,10 @@
                     width="365"
                     >
                 
-                    
+                    <img :src="review.office.photo_urls" height="200" alt="">
 
                     <v-rating
-                    :value="review.rating"
+                    :value="review.star"
                     color="amber"
                     dense
                     half-increments
@@ -214,11 +214,11 @@
                     ></v-rating>
 
                     <div class="heading-3-regular">
-                        {{ review.review }}
+                        {{ review.text }}
                     </div>
 
                     <div class="body-regular-3">
-                        - {{ review.name }} -
+                        - {{ review.user.name }} -
                     </div>
 
                     </v-card>

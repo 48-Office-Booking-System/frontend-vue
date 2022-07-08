@@ -122,13 +122,21 @@
 
     <div class="officeList mt-10 px-16">
       <v-row>
-        <v-col v-for="office in offices" :key="office.id">
+        <v-col cols="3" v-for="office in offices" :key="office.id">
           <v-card class="mx-auto" max-width="280">
             <v-img
-              :src="office.photo_urls[0].url"
+              :src="office.photo_urls.url"
               height="200px"
             ></v-img>
-
+            <!-- <v-carousel hide-delimiters>
+              <v-carousel-item
+                v-for="item in photo_urls"
+                :key="item"
+                :src="item.url"
+              ></v-carousel-item>
+            </v-carousel> -->
+            
+            <v-card-title> {{ office.photo_urls }} </v-card-title>
             <v-card-title> {{ office.name }} </v-card-title>
 
             <v-card-text>
@@ -201,6 +209,7 @@ export default {
     async loadDataOffices() {
       const response = await axios.get(`http://34.207.166.213/office/all`)
       this.offices = response.data.data
+      console.log(this.offices)
     },
     initialize() {
       this.loadDataOffices()

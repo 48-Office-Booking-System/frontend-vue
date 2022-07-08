@@ -502,7 +502,23 @@ import axios from 'axios'
       save () {
         if (this.editedIndex > -1) {
             axios.put(`http://34.207.166.213/office/`+this.editedItem.id, {
-                
+                type_id: 1,
+                name: this.editedItem.name,
+                description: this.editedItem.description,
+                latitude: this.editedItem.latitude,
+                longitude: this.editedItem.longitude,
+                price: Number(this.editedItem.price),
+                chair_min: Number(this.editedItem.chair_min),
+                chair_max: Number(this.editedItem.chair_max),
+                photo_urls: [{
+                  url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380",
+                }],
+                facilitations: [{
+                  id: 1
+                }],
+                tags: [{
+                  id: 1
+                }]
             }).then(response=>{
                 console.log(response)
             })
@@ -513,14 +529,13 @@ import axios from 'axios'
                 type_id: 1,
                 name: this.editedItem.name,
                 description: this.editedItem.description,
-                latitude:"-6.193125",
-                longitude: "106.821810",
-                price: this.editedItem.price,
-                chair_min: 1,
-                chair_max: 10,
-                number: "083123456789",
+                latitude: this.editedItem.latitude,
+                longitude: this.editedItem.longitude,
+                price: Number(this.editedItem.price),
+                chair_min: Number(this.editedItem.chair_min),
+                chair_max: Number(this.editedItem.chair_max),
                 photo_urls: [{
-                  url: "link foto",
+                  url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380",
                 }],
                 facilitations: [{
                   id: 1

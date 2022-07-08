@@ -341,6 +341,12 @@
                     {{ office.location }}
                 </div>
 
+                <GmapMap
+                    :center="{lat: Number(office.latitude), lng: Number(office.longitude)}"
+                    :zoom="19"
+                    style="width: 640px; height: 360px; margin: 32px auto;"
+                ></GmapMap>
+
             </v-col>
         </v-row>
 
@@ -376,7 +382,12 @@ export default {
         menu: false,
         
         customerName: "M Yudha Pamungkas",
-        office: []
+        office: [],
+
+        coordinates: {
+            lat: -6.299336138688708,
+            lng: 106.83188294341933,
+        },
     
       }
     },
