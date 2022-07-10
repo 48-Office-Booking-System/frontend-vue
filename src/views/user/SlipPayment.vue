@@ -1,28 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app height="70" class="px-10" color="#FCFDFF" flat>
-      <div class="logo">
-        <v-img src="../../assets/kobaspace.png" />
-      </div>
-
-      <div class="nav mx-10">
-        <v-btn text small color="#28304E" height="0"> Gedung </v-btn>
-        <v-btn text small color="#28304E" height="0"> Pembayaran </v-btn>
-        <v-btn text small color="#28304E" height="0"> Tentang Kami </v-btn>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-text-field
-        hide-details
-        dense
-        filled
-        prepend-inner-icon="mdi-magnify"
-        placeholder="Cari gedung yang kau mau"
-        color="#28304E"
-      />
-    </v-app-bar>
-
+    
+    <Navbar/>
     <div class="table-1 px-16">
       <!-- <v-row>
         <v-col> -->
@@ -61,9 +40,13 @@
 </template>
 
 <script>
+import Navbar from '@/components/NavBarUser.vue'
 export default {
   name: "SlipPayment",
-   data() {
+  components: {
+      Navbar
+  },
+  data() {
     return {
       offices: [],
     };

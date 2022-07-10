@@ -1,82 +1,7 @@
 <template>
   <v-app>
 
-    <v-app-bar
-            app height="70" 
-            class="px-10"
-            color="#FCFDFF"
-            flat
-        >
-            <div class="logo">
-                <a href="/homepage">
-                    <v-img src="../../assets/kobaspace.png" />
-                </a>
-            </div>
-
-
-            <div class="nav mx-10">
-                <v-btn 
-                    text
-                    small
-                    color="#28304E"
-                    height="0"
-                    to="/offices"
-                >
-                    Gedung
-                </v-btn>
-                <v-btn
-                    text
-                    small
-                    color="#28304E"
-                    height="0"
-                    to="/payment"
-                >
-                    Metode Pembayaran
-                </v-btn>
-                <v-btn 
-                    text
-                    small
-                    color="#28304E"
-                    height="0"
-                    to="/aboutus"
-                >
-                    Tentang Kami
-                </v-btn>
-            </div>
-
-        <v-spacer></v-spacer>
-
-            <v-text-field
-            hide-details
-            dense
-            filled
-            prepend-inner-icon="mdi-magnify"
-            placeholder="Cari gedung yang kau mau"
-            color="#28304E"
-            />
-            
-
-            <div>
-                <v-btn
-                    class="ml-4"
-                    color="#455392"
-                    dark
-                    to="/"
-                >
-                    Masuk
-                </v-btn>
-
-                <v-btn
-                    class="ml-4"
-                    outlined
-                    color="#455392"
-                    to="/register"
-                >
-                    Daftar
-                </v-btn>
-            </div>
-
-        </v-app-bar>
+    <Navbar/>
 
     <div class="content-1 px-16">
         <v-row>
@@ -315,7 +240,7 @@
                          dark
                          large
                          block
-                         @click="makeTransaction(office.id, office.price)"
+                         @click="makeTransaction(office.id)"
                         > 
                             Pesan Sekarang
                         </v-btn>
@@ -325,7 +250,19 @@
 
             <v-col cols="7">
                 
-                <img :src="office.photo" height="435" width="100%" alt="">
+                <v-carousel
+                hide-delimiter-background
+                delimiter-icon="mdi-minus"
+                height="435"
+                >
+                    <v-carousel-item
+                        v-for="photo in office.photo_urls"
+                        :key="photo.id"
+                        :src="photo.url"
+                    >
+                        
+                    </v-carousel-item>
+                </v-carousel>
 
                 <div class="title mt-4">
                     Deskripsi
@@ -338,14 +275,20 @@
                     Alamat
                 </div>
                 <div class="body-2">
-                    {{ office.location }}
+                   <b>Ini adalah alamat lengkap . . . </b>
                 </div>
 
-                <GmapMap
+                <!-- <GmapMap
                     :center="{lat: Number(office.latitude), lng: Number(office.longitude)}"
                     :zoom="19"
                     style="width: 640px; height: 360px; margin: 32px auto;"
-                ></GmapMap>
+                ></GmapMap> -->
+                
+                <l-map style="height: 300px" :zoom="zoom" :center="[-7.9599877452, 112.608745374]">
+                    <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+                    <l-marker :lat-lng="[-7.9599877452, 112.608745374]"></l-marker>
+                </l-map>
+
 
             </v-col>
         </v-row>
@@ -364,9 +307,17 @@
 </template>
 
 <script>
+import Navbar from "@/components/NavBarUser.vue"
 import axios from 'axios'
+import {LMap, LTileLayer, LMarker} from 'vue2-leaflet'
 export default {
     name: 'OfficeDetail',
+    components: {
+        LMap,
+        LTileLayer,
+        LMarker,
+        Navbar
+    },
     data () {
       return {
         // Tanggal
@@ -381,14 +332,13 @@ export default {
         menuEnd: false,
         menu: false,
         
-        customerName: "M Yudha Pamungkas",
+        user_id: 1,
         office: [],
 
-        coordinates: {
-            lat: -6.299336138688708,
-            lng: 106.83188294341933,
-        },
-    
+        // Maps
+        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        attribution: '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        zoom: 17,
       }
     },
     async mounted() {
@@ -401,22 +351,27 @@ export default {
         console.log(this.office)
         },
 
-        initialize() {
-        this.loadDataOffices()
+        async loadDataBookings() {
+            const response = await axios.get(`http://34.207.166.213/booking/all`)
+            console.log(response.data.data)
         },
 
-        makeTransaction(id, price) {
-            axios.post(`http://localhost:3000/transactions`, {
-                name: this.customerName,
-                id_office: id,
-                price: price,
+        initialize() {
+        this.loadDataOffices()
+        this.loadDataBookings()
+        },
+
+        makeTransaction(id) {
+            axios.post(`ttp://34.207.166.213/booking`, {
+                office_id: id,
+                user_id: Number(this.user_id),
                 method: this.paymentMethod,
                 date: this.date,
-                status: "Pending"
+                status_id: 12
             }).then(response=>{
                 console.log(response)
             })
-            this.$router.push({name:"Bills Page"})
+            // this.$router.push({name:"Bills Page"})
         }
     }
 

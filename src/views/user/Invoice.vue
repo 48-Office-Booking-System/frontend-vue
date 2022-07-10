@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Navbar/>
     <div class="text-center mt-16">
         <h1>Invoice</h1>
     </div>
@@ -7,8 +8,12 @@
 </template>
 
 <script>
+import Navbar from "@/components/NavBarUser.vue"
 export default {
-    name: 'Invoice'
+    name: 'Invoice',
+    components: {
+        Navbar
+    }
 
 }
 </script>

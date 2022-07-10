@@ -1,81 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar
-            app height="70" 
-            class="px-10"
-            color="#FCFDFF"
-            flat
-        >
-            <div class="logo">
-                <a href="/homepage">
-                    <v-img src="../../assets/kobaspace.png" />
-                </a>
-            </div>
-
-
-            <div class="nav mx-10">
-                <v-btn 
-                    text
-                    small
-                    color="#28304E"
-                    height="0"
-                    to="/offices"
-                >
-                    Gedung
-                </v-btn>
-                <v-btn
-                    text
-                    small
-                    color="#28304E"
-                    height="0"
-                    to="/payment"
-                >
-                    Metode Pembayaran
-                </v-btn>
-                <v-btn 
-                    text
-                    small
-                    color="#28304E"
-                    height="0"
-                    to="/aboutus"
-                >
-                    Tentang Kami
-                </v-btn>
-            </div>
-
-        <v-spacer></v-spacer>
-
-            <v-text-field
-            hide-details
-            dense
-            filled
-            prepend-inner-icon="mdi-magnify"
-            placeholder="Cari gedung yang kau mau"
-            color="#28304E"
-            />
-            
-
-            <div>
-                <v-btn
-                    class="ml-4"
-                    color="#455392"
-                    dark
-                    to="/"
-                >
-                    Masuk
-                </v-btn>
-
-                <v-btn
-                    class="ml-4"
-                    outlined
-                    color="#455392"
-                    to="/register"
-                >
-                    Daftar
-                </v-btn>
-            </div>
-
-        </v-app-bar>
+        <Navbar/>
 
         <div class="banner-iklan">
             <v-img src="../../assets/home/banner.png" width="100%" alt="">
@@ -102,16 +27,24 @@
                Temukan, Booking, dan gunakan dengan instant
             </div>
 
-
             <v-row>
-                <v-col v-for="office in officesRec"
+                <v-col cols="4" v-for="office in officesRec"
                  :key="office.id"
                 >     
-                    <v-card class="mx-auto" max-width="280">
-                        <v-img
-                        :src="office.photo_urls.url"
-                        height="200px"
-                        ></v-img>
+                    <v-card class="mx-auto" max-width="320">
+                        <v-carousel
+                        hide-delimiters
+                        :show-arrows="false"
+                        height="200"
+                        >
+                            <v-carousel-item
+                                v-for="photo in office.photo_urls"
+                                :key="photo.id"
+                                :src="photo.url"
+                            >
+                                
+                            </v-carousel-item>
+                        </v-carousel>
                         
                         <v-card-title> {{ office.name }} </v-card-title>
 
@@ -253,9 +186,13 @@
 </template>
 
 <script>
+import Navbar from "@/components/NavBarUser.vue"
 import axios from 'axios'
 export default {
     name: 'HomePage',
+    components: {
+        Navbar
+    },
     data() {
         return {
             officesRec: [],

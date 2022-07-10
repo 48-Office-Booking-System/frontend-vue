@@ -1,82 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-        app height="70" 
-        class="px-10"
-        color="#FCFDFF"
-        flat
-    >
-        <div class="logo">
-            <a href="/homepage">
-                <v-img src="../../assets/kobaspace.png" />
-            </a>
-        </div>
-
-
-        <div class="nav mx-10">
-            <v-btn 
-                text
-                small
-                color="#28304E"
-                height="0"
-                to="/offices"
-            >
-                Gedung
-            </v-btn>
-            <v-btn
-                text
-                small
-                color="#28304E"
-                height="0"
-                to="/payment"
-            >
-                Metode Pembayaran
-            </v-btn>
-            <v-btn 
-                text
-                small
-                color="#28304E"
-                height="0"
-                to="/aboutus"
-            >
-                Tentang Kami
-            </v-btn>
-        </div>
-
-    <v-spacer></v-spacer>
-
-        <v-text-field
-        hide-details
-        dense
-        filled
-        prepend-inner-icon="mdi-magnify"
-        placeholder="Cari gedung yang kau mau"
-        color="#28304E"
-        />
-        
-
-        <div>
-            <v-btn
-                class="ml-4"
-                color="#455392"
-                dark
-                to="/"
-            >
-                Masuk
-            </v-btn>
-
-            <v-btn
-                class="ml-4"
-                outlined
-                color="#455392"
-                to="/register"
-            >
-                Daftar
-            </v-btn>
-        </div>
-
-    </v-app-bar>
-
+    <Navbar/>
     <v-card
      flat
     >
@@ -124,19 +48,20 @@
       <v-row>
         <v-col cols="3" v-for="office in offices" :key="office.id">
           <v-card class="mx-auto" max-width="280">
-            <v-img
-              :src="office.photo_urls.url"
-              height="200px"
-            ></v-img>
-            <!-- <v-carousel hide-delimiters>
-              <v-carousel-item
-                v-for="item in photo_urls"
-                :key="item"
-                :src="item.url"
-              ></v-carousel-item>
-            </v-carousel> -->
+            <v-carousel
+            hide-delimiters
+            :show-arrows="false"
+            height="200"
+            >
+                <v-carousel-item
+                    v-for="photo in office.photo_urls"
+                    :key="photo.id"
+                    :src="photo.url"
+                >
+                    
+                </v-carousel-item>
+            </v-carousel>
             
-            <v-card-title> {{ office.photo_urls }} </v-card-title>
             <v-card-title> {{ office.name }} </v-card-title>
 
             <v-card-text>
@@ -183,9 +108,13 @@
 </template>
 
 <script>
+import Navbar from "@/components/NavBarUser.vue"
 import axios from 'axios'
 export default {
   name: "OfficesList",
+  components: {
+    Navbar
+  },
   data: () => ({
     tipeRuangan: ["Indoor", "Outdoor"],
     jenisRuangan: ["Event", "Meeting"],

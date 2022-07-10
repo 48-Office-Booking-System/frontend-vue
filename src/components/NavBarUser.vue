@@ -1,0 +1,92 @@
+<template>
+  <v-container>
+    <v-app-bar
+        app height="70" 
+        class="px-10"
+        color="#FCFDFF"
+        flat
+    >
+        <div class="logo">
+            <a href="/homepage">
+                <v-img src="../assets/kobaspace.png" />
+            </a>
+        </div>
+
+
+        <div class="nav mx-10">
+            <v-btn 
+                text
+                small
+                color="#28304E"
+                height="0"
+                to="/offices"
+            >
+                Gedung
+            </v-btn>
+            <v-btn
+                text
+                small
+                color="#28304E"
+                height="0"
+                to="/payment"
+            >
+                Metode Pembayaran
+            </v-btn>
+            <v-btn 
+                text
+                small
+                color="#28304E"
+                height="0"
+                to="/aboutus"
+            >
+                Tentang Kami
+            </v-btn>
+        </div>
+
+    <v-spacer></v-spacer>
+
+        <v-text-field
+        hide-details
+        dense
+        filled
+        prepend-inner-icon="mdi-magnify"
+        placeholder="Cari gedung yang kau mau"
+        color="#28304E"
+        />
+        
+
+        <div>
+            <v-btn
+                class="ml-4"
+                color="#455392"
+                dark
+                to="/"
+            >
+                Masuk
+            </v-btn>
+
+            <v-btn
+                class="ml-4"
+                outlined
+                color="#455392"
+                to="/register"
+            >
+                Daftar
+            </v-btn>
+        </div>
+
+    </v-app-bar>
+
+  </v-container>
+</template>
+
+<script>
+export default {
+    name: 'ComponentNavbar'
+
+}
+</script>
+
+<style>
+
+</style>

@@ -1,55 +1,6 @@
 <template>
   <v-app>
-    <!-- <SideBar/> -->
-
-    <v-navigation-drawer v-model="drawer" app permanent>
-
-    <v-list-item>
-        <v-list-item-content>
-        <div class="text-center mt-4">
-            <img src="../../assets/kobaspace.png" alt="">
-        </div>
-        </v-list-item-content>
-    </v-list-item>
-
-    <v-list-item>
-      <v-list-item-content>
-      <div class="title mt-4">
-          Menu
-      </div>
-      </v-list-item-content>
-    </v-list-item>
-
-
-    <v-list
-        nav
-    >
-        <v-list-item
-        v-for="item in itemsDrawer"
-        :key="item.title"
-        :to="item.to"
-        link
-        >
-        <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-        </v-list-item>
-    </v-list>
-    <v-list-item class="mt-4">
-      <v-list-item-content>
-        <v-btn large outlined color="red">
-          <v-icon class="mr-4">
-            mdi-logout
-          </v-icon>
-          Logout
-        </v-btn>
-      </v-list-item-content>
-    </v-list-item>
-    </v-navigation-drawer>
+    <Sidebar/>
 
 
     
@@ -125,6 +76,28 @@
                             <v-text-field
                             v-model="editedItem.name"
                             label="Office name"
+                            type="text"
+                            ></v-text-field>
+                        </v-col>
+
+                        <v-col
+                            cols="6"
+                            
+                        >
+                            <v-text-field
+                            v-model="editedItem.latitude"
+                            label="Garis Lintang"
+                            type="text"
+                            ></v-text-field>
+                        </v-col>
+
+                        <v-col
+                            cols="6"
+                            
+                        >
+                            <v-text-field
+                            v-model="editedItem.longitude"
+                            label="Garis Bujur"
                             type="text"
                             ></v-text-field>
                         </v-col>
@@ -219,7 +192,7 @@
                 
                   <v-card>
 
-                    <!-- <v-carousel
+                    <v-carousel
                      hide-delimiters
                      height="350"
                     >
@@ -230,7 +203,7 @@
                       >
                         
                       </v-carousel-item>
-                    </v-carousel> -->
+                    </v-carousel>
 
                     <v-card-title>{{ editedItem.name }}</v-card-title>
 
@@ -253,12 +226,8 @@
                         </div>
                       </v-row>
 
-                      <div class="my-4 text-subtitle-1">
-                        {{ editedItem.location }}
-                      </div>
-
-                      <div>{{ editedItem.description }}</div>
                     </v-card-text>
+                    <v-card-text>{{ editedItem.description }}</v-card-text>
 
                     <v-divider class="mx-4"></v-divider>
 
@@ -268,9 +237,9 @@
                       Capacity : {{ editedItem.chair_min }} - {{editedItem.chair_max}}
                     </v-card-text>
                     
-                    <v-card-text>
+                    <!-- <v-card-text>
                       Created by: {{ editedItem.created_by }}
-                    </v-card-text>
+                    </v-card-text> -->
 
                     <v-card-actions>
                       <v-btn
@@ -309,9 +278,9 @@
             
         </v-data-table>
 
-        <div class="mx-10 mb-6" v-for="item in offices" :key="item.id">
+        <!-- <div class="mx-10 mb-6" v-for="item in offices" :key="item.id">
             {{ item }}
-        </div>
+        </div> -->
       </v-card>
       
         </template>
@@ -323,13 +292,14 @@
 
 
 <script>
+import Sidebar from "@/components/SideBarAdmin.vue"
 import axios from 'axios'
-// import SideBar from "@/components/SideBar.vue"
+
   export default {
     name: 'DataOffices',
-    // components: {
-    //   SideBar
-    // },
+    components: {
+        Sidebar
+    },
     data: () => ({
       search: '',
       dialog: false,
@@ -345,7 +315,6 @@ import axios from 'axios'
         },
 
         { text: 'Name', value: 'name' },
-        { text: 'Location', value: 'location' },
         { text: 'Price', value: 'price' },
         { text: 'Kursi Minimum', value: 'chair_min' },
         { text: 'Kursi Maximal', value: 'chair_max' },
@@ -355,57 +324,33 @@ import axios from 'axios'
       offices: [],
       editedIndex: -1,
       editedItem: {
-        id: 0,
-        type_id: null,
-        name: "",
-        description: "",
-        latitude:"",
-        longitude: "",
+        type_id: 1,
+        name: '',
+        description: '',
+        latitude: '',
+        longitude: '',
         price: 0,
-        chair_min: 0,
-        chair_max: 0,
-        number: "",
-        photo_urls: [{
-          url: "",
-        }],
-        facilitations: [{
-          id: 1
-        }],
-        tags: [{
-          id: 1
-        }]
+        chair_min: '',
+        chair_max: '',
+        photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380",
+        id_facilitations: 1,
+        id_tags: 1
       },
       defaultItem: {
-        id: 0,
-        type_id: null,
-        name: "",
-        description: "",
-        latitude:"",
-        longitude: "",
+        type_id: 1,
+        name: '',
+        description: '',
+        latitude: '',
+        longitude: '',
         price: 0,
-        chair_min: 0,
-        chair_max: 0,
-        number: "",
-        photo_urls: [{
-          url: "",
-        }],
-        facilitations: [{
-          id: 1
-        }],
-        tags: [{
-          id: 1
-        }]
+        chair_min: '',
+        chair_max: '',
+        photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380",
+        id_facilitations: 1,
+        id_tags: 1
       },
 
-      drawer: false,
-      itemsDrawer: [
-        { title: 'Offices', icon: 'mdi-city', to:'/admin/dataoffices' },
-        { title: 'Customers', icon: 'mdi-account-multiple', to:'/admin/datacustomers' },
-        { title: 'Reviews', icon: 'mdi-pencil', to:'/admin/datareviews' },
-        { title: 'Chat', icon: 'mdi-message-text', to:'/admin/chat' },
-        { title: 'Bookings', icon: 'mdi-calendar', to:'/admin/bookings' },
-        { title: 'Transactions', icon: 'mdi-swap-horizontal', to:'/admin/datatransactions' },
-      ],
+      
 
 
 
@@ -502,7 +447,7 @@ import axios from 'axios'
       save () {
         if (this.editedIndex > -1) {
             axios.put(`http://34.207.166.213/office/`+this.editedItem.id, {
-                type_id: 1,
+                type_id: Number(this.editedItem.type_id),
                 name: this.editedItem.name,
                 description: this.editedItem.description,
                 latitude: this.editedItem.latitude,
@@ -511,13 +456,13 @@ import axios from 'axios'
                 chair_min: Number(this.editedItem.chair_min),
                 chair_max: Number(this.editedItem.chair_max),
                 photo_urls: [{
-                  url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380",
+                  url: this.editedItem.photo_url,
                 }],
                 facilitations: [{
-                  id: 1
+                  id: Number(this.editedItem.id_facilitations)
                 }],
                 tags: [{
-                  id: 1
+                  id: Number(this.editedItem.id_tags)
                 }]
             }).then(response=>{
                 console.log(response)
@@ -526,7 +471,7 @@ import axios from 'axios'
           Object.assign(this.offices[this.editedIndex], this.editedItem)
         } else {
             axios.post(`http://34.207.166.213/office`, {
-                type_id: 1,
+                type_id: Number(this.editedItem.type_id),
                 name: this.editedItem.name,
                 description: this.editedItem.description,
                 latitude: this.editedItem.latitude,
@@ -535,13 +480,13 @@ import axios from 'axios'
                 chair_min: Number(this.editedItem.chair_min),
                 chair_max: Number(this.editedItem.chair_max),
                 photo_urls: [{
-                  url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380",
+                  url: this.editedItem.photo_url,
                 }],
                 facilitations: [{
-                  id: 1
+                  id: Number(this.editedItem.id_facilitations)
                 }],
                 tags: [{
-                  id: 1
+                  id: Number(this.editedItem.id_tags)
                 }]
             }).then(response=>{
                 console.log(response)

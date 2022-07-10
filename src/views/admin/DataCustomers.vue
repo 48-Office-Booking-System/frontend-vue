@@ -1,53 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" app permanent>
-
-    <v-list-item>
-        <v-list-item-content>
-        <div class="text-center mt-4">
-            <img src="../../assets/kobaspace.png" alt="">
-        </div>
-        </v-list-item-content>
-    </v-list-item>
-
-    <v-list-item>
-      <v-list-item-content>
-      <div class="title mt-4">
-          Menu
-      </div>
-      </v-list-item-content>
-    </v-list-item>
-
-
-    <v-list
-        nav
-    >
-        <v-list-item
-        v-for="item in itemsDrawer"
-        :key="item.title"
-        :to="item.to"
-        link
-        >
-        <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-        </v-list-item>
-    </v-list>
-    <v-list-item class="mt-4">
-      <v-list-item-content>
-        <v-btn large outlined color="red">
-          <v-icon class="mr-4">
-            mdi-logout
-          </v-icon>
-          Logout
-        </v-btn>
-      </v-list-item-content>
-    </v-list-item>
-    </v-navigation-drawer>
+    <Sidebar/>
 
     <v-card width="75%" class="ml-auto mr-10 mb-4" flat>
       <v-card-title class="headline font-weight-bold">
@@ -100,8 +53,7 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
-                  hidden
-                  disabled
+                 
                 >
                   New Customer
                 </v-btn>
@@ -210,20 +162,16 @@
 </template>
 
 <script>
+import Sidebar from "@/components/SideBarAdmin.vue"
 import axios from 'axios'
 export default {
     name: 'DataCustomers',
+    components: {
+        Sidebar
+    },
     data() {
         return {
-          drawer: false,
-          itemsDrawer: [
-              { title: 'Offices', icon: 'mdi-city', to:'/admin/dataoffices' },
-              { title: 'Customers', icon: 'mdi-account-multiple', to:'/admin/datacustomers' },
-              { title: 'Reviews', icon: 'mdi-pencil', to:'/admin/datareviews' },
-              { title: 'Chat', icon: 'mdi-message-text', to:'/admin/chat' },
-              { title: 'Bookings', icon: 'mdi-calendar', to:'/admin/bookings' },
-              { title: 'Transactions', icon: 'mdi-swap-horizontal', to:'/admin/datatransactions' },
-          ],
+          
           search: '',
           dialog: false,
           dialogDelete: false,
@@ -276,9 +224,8 @@ export default {
     },
     methods: {
       async loadDataCustomers() {
-        const response = await axios.get(`http://34.207.166.213/user/all`)
+        const response = await axios.get(`http://34.207.166.213/user/all?role_id=1`)
         this.customers = response.data.data
-        // console.log(response.data.data)
       },
       initialize () {
         this.loadDataCustomers()
@@ -298,7 +245,7 @@ export default {
 
       deleteItemConfirm () {
         this.customers.splice(this.editedIndex, 1)
-        axios.delete(`http://localhost:3000/customers/`+this.editedItem.id
+        axios.delete(`http://34.207.166.213/user/`+this.editedItem.id
         ).then(response=>{
           console.log(response)
         })
@@ -320,11 +267,12 @@ export default {
           this.editedItem = Object.assign({}, this.defaultItem)
           this.editedIndex = -1
         })
+        this.initialize()
       },
 
       save () {
         if (this.editedIndex > -1) {
-          axios.put(`http://localhost:3000/customers/`+this.editedItem.id, {
+          axios.put(`http://34.207.166.213/user/`+this.editedItem.id, {
             name: this.editedItem.name,
             email: this.editedItem.email,
             number: this.editedItem.number,
@@ -334,10 +282,11 @@ export default {
           })
           Object.assign(this.customers[this.editedIndex], this.editedItem)
         } else {
-          axios.post(`http://localhost:3000/customers`, {
+          axios.post(`http://34.207.166.213/user`, {
             name: this.editedItem.name,
             email: this.editedItem.email,
             number: this.editedItem.number,
+            role_id: 1
           }).then(response=>{
             console.log(response)
           })
