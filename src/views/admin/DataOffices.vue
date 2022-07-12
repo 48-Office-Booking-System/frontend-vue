@@ -58,20 +58,6 @@
       <v-card-title class="headline font-weight-bold">
           Manage Offices
           <v-spacer></v-spacer>
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
-            filled
-            rounded
-          ></v-text-field>
-          <v-divider
-          class="mx-4"
-          inset
-          vertical
-          ></v-divider>
           <v-avatar color="orange darken-3">
             <v-icon dark>
               mdi-account
@@ -96,10 +82,20 @@
             <v-toolbar
                 flat
             >
+                <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search Office"
+                single-line
+                hide-details
+                dense
+                filled
+                ></v-text-field>
+                <v-spacer></v-spacer>
                 <v-spacer></v-spacer>
                 <v-dialog
                 v-model="dialog"
-                max-width="1000px"
+                max-width="700px"
                 >
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn
@@ -113,9 +109,9 @@
                     Add Office
                     </v-btn>
                 </template>
-                <v-card>
+                <v-card class="pa-4">
                     <v-card-title>
-                    <span class="text-h5">{{ formTitle }}</span>
+                    <span class="text-h5 font-weight-bold">{{ formTitle }}</span>
                     
                     </v-card-title>
 
@@ -124,8 +120,7 @@
                         <v-row>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.name"
@@ -134,8 +129,7 @@
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.location"
@@ -144,8 +138,7 @@
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
                             v-model="editedItem.price"
@@ -154,22 +147,20 @@
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
-                            v-model="editedItem.kursi_min"
-                            label="Min capacity"
+                            v-model="editedItem.chair_min"
+                            label="Kursi Minimum"
                             ></v-text-field>
                         </v-col>
                         <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
+                            
                         >
                             <v-text-field
-                            v-model="editedItem.kursi_max"
-                            label="Max capacity"
+                            v-model="editedItem.chair_max"
+                            label="Kursi Maximal"
                             ></v-text-field>
                         </v-col>
                         <v-col
@@ -188,19 +179,23 @@
                     <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                        color="blue darken-1"
-                        text
-                        @click="close"
+                      color="#121950"
+                      outlined
+                      @click="close"
+                      width="150"
+                      class="mr-4"
                     >
-                        Cancel
+                    Cancel
                     </v-btn>
                     <v-btn
-                        color="blue darken-1"
-                        text
-                        @click="save"
+                      color="#121950"
+                      dark
+                      @click="save"
+                      width="150"
                     >
-                        Save
+                      Save
                     </v-btn>
+                    <v-spacer></v-spacer>
                     </v-card-actions>
                 </v-card>
                 </v-dialog>
@@ -227,10 +222,19 @@
                 <v-dialog v-model="dialogView" max-width="800px">
                 
                   <v-card>
-                    <v-img
-                      height="350"
-                      :src="editedItem.photo"
-                    ></v-img>
+
+                    <v-carousel
+                     hide-delimiters
+                     height="350"
+                    >
+                      <v-carousel-item
+                        v-for="photo in editedItem.photo_urls"
+                        :key="photo.id"
+                        :src="photo.url"
+                      >
+                        
+                      </v-carousel-item>
+                    </v-carousel>
 
                     <v-card-title>{{ editedItem.name }}</v-card-title>
 
@@ -262,14 +266,14 @@
 
                     <v-divider class="mx-4"></v-divider>
 
-                    <v-card-title>Rp. {{ editedItem.price }},-</v-card-title>
+                    <v-card-title>Rp. {{ editedItem.price }},- / Jam</v-card-title>
 
                     <v-card-text>
-                      Capacity : {{ editedItem.kursi_min }} - {{editedItem.kursi_max}}
+                      Capacity : {{ editedItem.chair_min }} - {{editedItem.chair_max}}
                     </v-card-text>
                     
                     <v-card-text>
-                      Created by: {{ createdBy }}
+                      Created by: {{ editedItem.created_by.name }}
                     </v-card-text>
 
                     <v-card-actions>
@@ -288,17 +292,20 @@
             <template v-slot:[`item.actions`]="{ item }">
               <v-icon
                @click="viewDetail(item)"
+               color="#E59B3A"
               >
                 mdi-information
               </v-icon>
               <v-icon
                class="mx-2"
                @click="editItem(item)"
+               color="primary"
               >
                   mdi-pencil-circle
               </v-icon>
               <v-icon
                @click="deleteItem(item)"
+               color="red"
               >
                   mdi-delete-circle
               </v-icon>
@@ -337,37 +344,38 @@ import axios from 'axios'
         { text: 'Name', value: 'name' },
         { text: 'Location', value: 'location' },
         { text: 'Price', value: 'price' },
-        { text: 'Kursi Minimum', value: 'kursi_min' },
-        { text: 'Kursi Maximal', value: 'kursi_max' },
+        { text: 'Kursi Minimum', value: 'chair_min' },
+        { text: 'Kursi Maximal', value: 'chair_max' },
 
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       offices: [],
-      users: [],
-      createdBy: null,
       editedIndex: -1,
       editedItem: {
         id: 0,
-        created_by: 0,
-        name: '',
-        description: '',
-        location: '',
+        created_by: 1,
+        name: "",
+        description: "",
+        location: "",
+        view_count: 0,
         price: 0,
-        kursi_min: 0,
-        kursi_max: 0,
-        photo: ''
-
+        chair_min: 0,
+        chair_max: 0,
+        number: "",
+        photo_url: ""
       },
       defaultItem: {
         id: 0,
-        created_by: 0,
-        name: '',
-        description: '',
-        location: '',
+        created_by: 1,
+        name: "",
+        description: "",
+        location: "",
+        view_count: 0,
         price: 0,
-        kursi_min: 0,
-        kursi_max: 0,
-        photo: ''
+        chair_min: 0,
+        chair_max: 0,
+        number: "",
+        photo_url: ""
       },
 
       drawer: false,
@@ -386,7 +394,7 @@ import axios from 'axios'
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Office' : 'Edit Office'
+        return this.editedIndex === -1 ? 'Add Office' : 'Edit Office'
       },
     },
 
@@ -410,14 +418,10 @@ import axios from 'axios'
         async loadDataOffices() {
             const response = await axios.get(`http://localhost:3000/offices`)
             this.offices = response.data
+            console.log(this.offices)
         },
-        async loadDataUsers() {
-              const response = await axios.get(`http://localhost:3000/users`)
-              this.users = response.data
-        },
-
+       
       initialize () {
-        this.loadDataUsers()
         this.loadDataOffices()
         
       },
@@ -426,7 +430,6 @@ import axios from 'axios'
         this.editedIndex = this.offices.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogView = true
-        this.createdBy =  this.users[item.created_by-1].name
       },
 
       editItem (item) {
@@ -483,14 +486,14 @@ import axios from 'axios'
                 name: this.editedItem.name,
                 location:this.editedItem.location,
                 price: this.editedItem.price,
-                kursi_min: this.editedItem.kursi_min,
-                kursi_max: this.editedItem.kursi_max,
+                chair_min: this.editedItem.chair_min,
+                chair_max: this.editedItem.chair_max,
                 description: this.editedItem.description,
-
                 created_by: 1,
-                photo: 'https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603'
+                view_count: 0,
+                number: "083333333",
+                photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271624_B_-tK4ECP.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437151"
                 
-
             }).then(response=>{
                 console.log(response)
             })
@@ -501,14 +504,14 @@ import axios from 'axios'
                 name: this.editedItem.name,
                 location:this.editedItem.location,
                 price: this.editedItem.price,
-                kursi_min: this.editedItem.kursi_min,
-                kursi_max: this.editedItem.kursi_max,
+                chair_min: this.editedItem.chair_min,
+                chair_max: this.editedItem.chair_max,
                 description: this.editedItem.description,
-
-
                 created_by: 1,
-                photo: 'https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603'
-                
+                view_count: 0,
+                number: "083333333",
+                photo_url: "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271624_B_-tK4ECP.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437151"                
+
             }).then(response=>{
                 console.log(response)
             })

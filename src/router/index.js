@@ -5,24 +5,33 @@ import VueRouter from 'vue-router'
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
+<<<<<<< HEAD
 import BookingDetail from '../views/user/BookingDetail.vue'
 import BookingView from '../views/user/Booking.vue'
 import AboutUsView from '../views/user/AboutUs.vue'
 import SlipPayment from '../views/user/SlipPayment.vue'
+=======
+import OfficeDetail from '../views/user/OfficeDetail.vue'
+import OfficesList from '../views/user/OfficesList.vue'
+import PaymentMethod from '../views/user/PaymentMethod.vue'
+import AboutUs from '../views/user/AboutUs.vue'
+>>>>>>> develop
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
 import DataOffice from '../views/admin/DataOffices.vue'
 import DataTransactions from '../views/admin/DataTransactions.vue'
-import Bookings from '../views/admin/Bookings.vue'
+import Bookings from '../views/admin/DataBookings.vue'
 import DataReviews from '../views/admin/DataReviews.vue'
 import Chat from '../views/admin/Chat.vue'
 import DataCustomers from '../views/admin/DataCustomers.vue'
 
 
+
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/',
     name: 'login',
@@ -39,14 +48,19 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/bookingdetail',
-    name: 'Booking Detail',
-    component: BookingDetail
+    path: '/officedetail/:id',
+    name: 'Office Detail',
+    component: OfficeDetail
   },
   {
-    path: '/booking',
-    name: 'booking',
-    component: BookingView
+    path: '/offices',
+    name: 'Offices List',
+    component: OfficesList
+  },
+  {
+    path: '/payment',
+    name: 'Payment Method',
+    component: PaymentMethod
   },
   {
     path: '/slippayment',
@@ -55,8 +69,8 @@ const routes = [
   },
   {
     path: '/aboutus',
-    name: 'aboutus',
-    component: AboutUsView
+    name: 'About Us',
+    component: AboutUs
   },
 
   // Admin
@@ -95,7 +109,6 @@ const routes = [
     name: 'Data Transactions',
     component: DataTransactions
   }
-  
 ]
 
 const router = new VueRouter({
