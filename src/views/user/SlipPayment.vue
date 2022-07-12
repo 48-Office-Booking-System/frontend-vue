@@ -24,8 +24,8 @@
     </v-app-bar>
 
     <div class="table-1 px-16">
-      <!-- <v-row>
-        <v-col> -->
+      <v-row>
+        <v-col>
           <v-simple-table fixed-header height="300px">
             <template v-slot:default>
               <thead>
@@ -46,8 +46,8 @@
               </tbody>
             </template>
           </v-simple-table>
-        <!-- </v-col>
-      </v-row> -->
+        </v-col>
+      </v-row>
     </div>
 
     <v-footer color="#121950" class="mt-5 py-3" padless>
@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style scoped>
-.dropdown {
-  margin-top: 90px;
+.table-1 {
+  margin-top: 100px;
 }
 </style>
