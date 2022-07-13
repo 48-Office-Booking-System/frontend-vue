@@ -7,7 +7,6 @@ import TestApi from '../views/TestApi.vue'
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
 import HomePage from '../views/user/HomePage.vue'
-import SlipPayment from '../views/user/SlipPayment.vue'
 import OfficeDetail from '../views/user/OfficeDetail.vue'
 import OfficesList from '../views/user/OfficesList.vue'
 import PaymentMethod from '../views/user/PaymentMethod.vue'
@@ -15,6 +14,7 @@ import AboutUs from '../views/user/AboutUs.vue'
 import BillsPage from '../views/user/BillsPage.vue'
 import Invoice from '../views/user/Invoice.vue'
 import ReviewPage from '../views/user/ReviewPage.vue'
+import FavPage from '../views/user/FavPage.vue'
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
@@ -67,11 +67,6 @@ const routes = [
     component: PaymentMethod
   },
   {
-    path: '/slippayment',
-    name: 'Slip Payment',
-    component: SlipPayment
-  },
-  {
     path: '/aboutus',
     name: 'About Us',
     component: AboutUs
@@ -90,6 +85,11 @@ const routes = [
     path: '/review',
     name: 'Review Page',
     component: ReviewPage
+  },
+  {
+    path: '/fav',
+    name: 'Fav',
+    component: FavPage
   },
 
   // Admin
