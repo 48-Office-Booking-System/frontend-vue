@@ -13,6 +13,7 @@ import PaymentMethod from '../views/user/PaymentMethod.vue'
 import AboutUs from '../views/user/AboutUs.vue'
 import BillsPage from '../views/user/BillsPage.vue'
 import Invoice from '../views/user/Invoice.vue'
+import ReviewPage from '../views/user/ReviewPage.vue'
 import FavPage from '../views/user/FavPage.vue'
 
 // Admin
@@ -79,6 +80,11 @@ const routes = [
     path: '/invoice',
     name: 'Invoice',
     component: Invoice
+  },
+  {
+    path: '/review',
+    name: 'Review Page',
+    component: ReviewPage
   },
   {
     path: '/fav',
