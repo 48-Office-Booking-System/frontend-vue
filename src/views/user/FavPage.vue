@@ -23,32 +23,11 @@
       />
     </v-app-bar>
 
-    <div class="table-1 px-16">
-      <v-row>
-        <v-col>
-          <v-simple-table fixed-header height="300px">
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-left">Info Gedung</th>
-                  <th class="text-left">Tanggal Pemesanan</th>
-                  <th class="text-left">Waktu Penggunaan</th>
-                  <th class="text-left">Total Harga</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="office in offices" :key="office.info">
-                  <td><strong>{{ office.info }}</strong></td>
-                  <td><strong>{{ office.tanggal }}</strong></td>
-                  <td><strong>{{ office.waktu }}</strong></td>
-                  <td><strong>{{ office.totalHarga }}</strong></td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-        </v-col>
-      </v-row>
-    </div>
+    <v-row>
+      <v-col class="fav">
+                <v-img height="100%" src="../../assets/FavPage/fav.png"/>
+            </v-col>
+    </v-row>
 
     <v-footer color="#121950" class="mt-5 py-3" padless>
       <v-col class="text-center" cols="12">
@@ -84,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-.table-1 {
+.fav {
   margin-top: 100px;
 }
 </style>
