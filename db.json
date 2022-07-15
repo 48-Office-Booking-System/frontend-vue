@@ -1,0 +1,401 @@
+{
+  "offices": [
+    {
+      "id": 1,
+      "created_by": {
+        "id": 1,
+        "role": {
+          "id": 1,
+          "name": "Admin"
+        },
+        "name": "M Yudha Pamungkas",
+        "email": "yudha@gmail.com",
+        "password": "123",
+        "photo_url": "string",
+        "number": "083833735915",
+        "bookings": [
+          {
+            "id": 1,
+            "user": "Gisel",
+            "office": "Eduaction",
+            "status": {
+              "id": 1,
+              "name": "Tersedia"
+            },
+            "start": "10-09-2022",
+            "end": "12-09-2022",
+            "invoice_url": "https://ik.imagekit.io/yudha/practice_admin/struk_TFT6VK8Ob.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656509813259"
+          }
+        ]
+      },
+      "type": {
+        "id": 1,
+        "name": "Indoor"
+      },
+      "name": "Eduaction",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam soluta ea suscipit, est, inventore, ab corrupti similique itaque quod ducimus iusto? Soluta, quod. Quasi nulla magni, dolore fuga at consequatur!",
+      "location": "Bandung",
+      "view_count": 0,
+      "price": 80000,
+      "chair_min": 10,
+      "chair_max": 15,
+      "number": "08388880000",
+      "photo_urls": [
+        {
+          "office_id": 1,
+          "url": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380"
+        }
+      ],
+      "facilitations": [
+        {
+          "id": 0,
+          "name": "string"
+        }
+      ],
+      "tags": [
+        {
+          "id": 0,
+          "name": "string"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "created_by": {
+        "id": 1,
+        "role": {
+          "id": 1,
+          "name": "Admin"
+        },
+        "name": "M Yudha Pamungkas",
+        "email": "yudha@gmail.com",
+        "password": "123",
+        "photo_url": "string",
+        "number": "083833735915",
+        "bookings": [
+          {
+            "id": 2,
+            "user": "Gisel",
+            "office": "Infinity",
+            "status": {
+              "id": 1,
+              "name": "Tersedia"
+            },
+            "start": "",
+            "end": "",
+            "invoice_url": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
+          }
+        ]
+      },
+      "type": {
+        "id": 1,
+        "name": "Indoor"
+      },
+      "name": "Infinity",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam soluta ea suscipit, est, inventore, ab corrupti similique itaque quod ducimus iusto? Soluta, quod. Quasi nulla magni, dolore fuga at consequatur!",
+      "location": "Jombang",
+      "view_count": 0,
+      "price": 100000,
+      "chair_min": 20,
+      "chair_max": 25,
+      "number": "08388880000",
+      "photo_urls": [
+        {
+          "office_id": 1,
+          "url": "https://ik.imagekit.io/yudha/practice_admin/pexels-medhat-ayad-439227_bHwaQszFh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304541967"
+        }
+      ],
+      "facilitations": [
+        {
+          "id": 0,
+          "name": "string"
+        }
+      ],
+      "tags": [
+        {
+          "id": 0,
+          "name": "string"
+        }
+      ]
+    },
+    {
+      "name": "Brawijaya Office",
+      "location": "Malang",
+      "price": "100000",
+      "chair_min": "35",
+      "chair_max": "40",
+      "description": "Ini adalah office milik Universitas Brawijaya Malang",
+      "created_by": 1,
+      "view_count": 0,
+      "number": "083333333",
+      "photo_url": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271624_B_-tK4ECP.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437151",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "role_id": 1,
+      "name": "M Yudha Pamungkas",
+      "email": "yudha@gmail.com",
+      "password": "12345",
+      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+      "number": "083833735915"
+    },
+    {
+      "id": 2,
+      "role_id": 1,
+      "name": "Syafiuddin",
+      "email": "syafik@gmail.com",
+      "password": "12345",
+      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+      "number": "083833735915"
+    },
+    {
+      "id": 3,
+      "role_id": 0,
+      "name": "kobauser",
+      "email": "kobauser@gmail.com",
+      "password": "123",
+      "photo": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+      "number": "083833735915"
+    }
+  ],
+  "customers": [
+    {
+      "name": "customer 1",
+      "email": "customer1@gmail.com",
+      "number": "083833735915",
+      "id": 1
+    },
+    {
+      "name": "customer 2",
+      "email": "customer2@gmail.com",
+      "number": "083833735915",
+      "id": 2
+    },
+    {
+      "name": "customer 3",
+      "email": "customer3@gmail.com",
+      "number": "083833735915",
+      "id": 3
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "User"
+    }
+  ],
+  "officesRec": [
+    {
+      "id": 1,
+      "created_by": 1,
+      "name": "Infinite Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
+    },
+    {
+      "id": 2,
+      "created_by": 2,
+      "name": "Eduaction Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-jean-van-der-meulen-1457842_B3mV2pKrA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304437296"
+    },
+    {
+      "id": 3,
+      "created_by": 2,
+      "name": "Desapa Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "David A. Williams",
+      "id_office": "Eduaction",
+      "rating": 4.5,
+      "review": "This platform so great, I found room instant for meeting !",
+      "id": 1
+    },
+    {
+      "name": "Matthew F. Henderson",
+      "id_office": "Infinite",
+      "rating": 3,
+      "review": "Brings new experience for us. Thanks helping our’s event",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Nicholas C. Benson",
+      "review": "This platform so great, I found room instant for meeting !",
+      "rating": 4.5,
+      "id_office": "Infinite"
+    },
+    {
+      "id": 5,
+      "name": "Angelina",
+      "review": "Not bad for urgently meeting, they can handle, Good !",
+      "rating": 4,
+      "id_office": "Classic"
+    },
+    {
+      "id": 6,
+      "name": "Jack Ripper",
+      "id_office": "Eduaction",
+      "rating": 3.5,
+      "review": "Brings new experience for us. Thanks helping our’s event"
+    },
+    {
+      "id": 8,
+      "name": "Gigis Gisela",
+      "review": "Not bad for urgently meeting, they can handle, Good !",
+      "rating": 4,
+      "id_office": "Infinite"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "user": {
+        "id": 3,
+        "role": {
+          "id": 2,
+          "name": "User"
+        },
+        "name": "koba user",
+        "email": "kobauser@gmail.com",
+        "password": "123",
+        "photo_url": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+        "number": "083833735915",
+        "bookings": [
+          "string"
+        ]
+      },
+      "office": {
+        "id": 3,
+        "created_by": {
+          "id": 1,
+          "role": {
+            "id": 1,
+            "name": "Admin"
+          },
+          "name": "M Yudha Pamungkas",
+          "email": "yudha@gmail.com",
+          "password": "12345",
+          "photo_url": "https://ik.imagekit.io/yudha/sample_profile_Ty2X4hKUd?ik-sdk-version=javascript-1.4.3&updatedAt=1654843599803",
+          "number": "083833735915",
+          "bookings": [
+            "string"
+          ]
+        },
+        "type": {
+          "id": 1,
+          "name": "Outdoor"
+        },
+        "name": "Office Name id 3",
+        "description": "Lorem ipsum dolor sit amet",
+        "location": "Bandung",
+        "view_count": 0,
+        "price": 80000,
+        "chair_min": 10,
+        "chair_max": 15,
+        "number": "string",
+        "photo_urls": [
+          {
+            "office_id": 3,
+            "url": "https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-259962_1aAAC35tO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304522029"
+          }
+        ],
+        "facilitations": [
+          {
+            "id": 1,
+            "name": "tempat tidur"
+          }
+        ],
+        "tags": [
+          {
+            "id": 1,
+            "name": "santai"
+          }
+        ]
+      },
+      "status": {
+        "id": 1,
+        "name": "Tersedia"
+      },
+      "start": "10-09-2022",
+      "end": "11-09-2022",
+      "invoice_url": "https://ik.imagekit.io/yudha/practice_admin/struk_TFT6VK8Ob.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656509813259"
+    }
+  ],
+  "transactions": [
+    {
+      "name": "The Rock",
+      "price": "100000",
+      "method": "BRI",
+      "date": "2022-07-07",
+      "status": "Success",
+      "id": 1
+    },
+    {
+      "name": "Synyster Gates",
+      "id_office": 2,
+      "price": 100000,
+      "method": "CIMB",
+      "date": "2022-07-05",
+      "status": "Pending",
+      "id": 2
+    },
+    {
+      "name": "Bon Jovi",
+      "price": "100000",
+      "method": "CIMB",
+      "date": "2022-07-27",
+      "status": "Failed",
+      "id": 3
+    },
+    {
+      "name": "M Yudha Pamungkas",
+      "id_office": 1,
+      "price": 80000,
+      "method": "BRI",
+      "date": "2022-07-06",
+      "status": "Pending",
+      "id": 4
+    },
+    {
+      "name": "M Yudha Pamungkas",
+      "price": 80000,
+      "method": "BCA",
+      "date": "2022-07-05",
+      "status": "Success",
+      "id": 5
+    },
+    {
+      "name": "M Yudha Pamungkas",
+      "id_office": 2,
+      "price": 100000,
+      "method": "BNI",
+      "date": "2022-07-06",
+      "status": "Pending",
+      "id": 6
+    }
+  ]
+}
