@@ -284,9 +284,9 @@
                     style="width: 640px; height: 360px; margin: 32px auto;"
                 ></GmapMap> -->
                 
-                <l-map style="height: 300px" :zoom="zoom" :center="[-7.9599877452, 112.608745374]">
+                <l-map style="height: 300px" :zoom="zoom" :center="[latitude, longitude]">
                     <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-                    <l-marker :lat-lng="[-7.9599877452, 112.608745374]"></l-marker>
+                    <l-marker :lat-lng="[latitude, longitude]"></l-marker>
                 </l-map>
 
 
@@ -334,11 +334,13 @@ export default {
         
         user_id: 1,
         office: [],
+        latitude: 0,
+        longitude:0,
 
         // Maps
         url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         attribution: '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        zoom: 17,
+        zoom: 16,
       }
     },
     async mounted() {
@@ -348,6 +350,8 @@ export default {
         async loadDataOffices() {
         const response = await axios.get(`http://34.207.166.213/office/${this.$route.params.id}`)
         this.office = response.data.data
+        this.latitude = Number(response.data.data.latitude)
+        this.longitude = Number(response.data.data.longitude)
         console.log(this.office)
         },
 
