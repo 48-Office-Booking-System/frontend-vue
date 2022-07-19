@@ -229,7 +229,7 @@ export default {
 
 <style scoped>
     .banner-iklan {
-        margin-top: 70px;
+        margin-top: 46px;
     }
     
     .heading-1 {

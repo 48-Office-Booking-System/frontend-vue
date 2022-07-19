@@ -4,7 +4,7 @@
         app height="70" 
         class="px-10"
         color="#FCFDFF"
-        flat
+        elevation="0"
     >
         <div class="logo">
             <a href="/homepage">

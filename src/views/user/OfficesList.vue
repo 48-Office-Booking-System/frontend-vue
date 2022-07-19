@@ -151,6 +151,6 @@ export default {
 
 <style scoped>
 .filter {
-  margin-top: 70px;
+  margin-top: 46px;
 }
 </style>

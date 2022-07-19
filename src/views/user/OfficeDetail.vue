@@ -38,38 +38,40 @@
 
                     <v-row class="px-0">
                         <!-- Tanggal -->
+
                         <v-col cols="6">
                             <v-menu
-                                ref="menu"
-                                v-model="menu"
-                                :close-on-content-click="false"
-                                :return-value.sync="date"
-                                transition="scale-transition"
-                                offset-y
-                                min-width="auto"
-                                                            >
+                             ref="menuDateStart"
+                             v-model="menuDateStart"
+                             :close-on-content-click="false"
+                             :return-value.sync="start_date"
+                             transition="scale-transition"
+                             offset-y
+                             max-width="290px"
+                             min-width="290px"
+                            >
                                 <template v-slot:activator="{ on, attrs }">
-                                <v-text-field
-                                    v-model="date"
-                                    label="Pilih Tanggal"
-                                    readonly
-                                    v-bind="attrs"
-                                    v-on="on"
-                                    solo
-                                    dark
-                                    background-color="#28304E"
-                                ></v-text-field>
+                                    <v-text-field
+                                        v-model="start_date"
+                                        label="Pilih Awal Tanggal"
+                                        readonly
+                                        v-bind="attrs"
+                                        v-on="on"
+                                        solo
+                                        dark
+                                        background-color="#28304E"
+                                    ></v-text-field>
                                 </template>
                                 <v-date-picker
-                                v-model="date"
-                                no-title
-                                scrollable
+                                v-if="menuDateStart"
+                                v-model="start_date"
+                                
                                 >
                                 <v-spacer></v-spacer>
                                 <v-btn
                                     text
                                     color="primary"
-                                    @click="menu = false"
+                                    @click="menuDateStart = false"
 
                                 >
                                     Cancel
@@ -77,20 +79,67 @@
                                 <v-btn
                                     text
                                     color="primary"
-                                    @click="$refs.menu.save(date)"
+                                    @click="$refs.menuDateStart.save(start_date)"
                                 >
                                     OK
                                 </v-btn>
                                 </v-date-picker>
                             </v-menu>
                         </v-col>
-                        <v-col cols="3">
+                        <v-col cols="6">
+                            <v-menu
+                             ref="menuDateEnd"
+                             v-model="menuDateEnd"
+                             :close-on-content-click="false"
+                             :return-value.sync="end_date"
+                             transition="scale-transition"
+                             offset-y
+                             max-width="290px"
+                             min-width="290px"
+                            >
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-text-field
+                                        v-model="end_date"
+                                        label="Pilih Akhir Tanggal"
+                                        readonly
+                                        v-bind="attrs"
+                                        v-on="on"
+                                        solo
+                                        dark
+                                        background-color="#28304E"
+                                    ></v-text-field>
+                                </template>
+                                <v-date-picker
+                                v-if="menuDateEnd"
+                                v-model="end_date"
+                                
+                                >
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    text
+                                    color="primary"
+                                    @click="menuDateEnd = false"
+
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    text
+                                    color="primary"
+                                    @click="$refs.menuDateEnd.save(end_date)"
+                                >
+                                    OK
+                                </v-btn>
+                                </v-date-picker>
+                            </v-menu>
+                        </v-col>
+                        <v-col cols="6">
                             <v-menu
                                 ref="menuStart"
                                 v-model="menuStart"
                                 :close-on-content-click="false"
                                 :nudge-right="40"
-                                :return-value.sync="start"
+                                :return-value.sync="start_time"
                                 transition="scale-transition"
                                 offset-y
                                 max-width="290px"
@@ -98,7 +147,7 @@
                             >
                                 <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
-                                    v-model="start"
+                                    v-model="start_time"
                                     label="Start"
                                     readonly
                                     v-bind="attrs"
@@ -110,22 +159,22 @@
                                 </template>
                                 <v-time-picker
                                 v-if="menuStart"
-                                v-model="start"
-                                :max="end"
+                                v-model="start_time"
+                                :max="end_time"
                                 format="24hr"
                                 full-width
-                                @click:minute="$refs.menuStart.save(start)"
+                                @click:minute="$refs.menuStart.save(start_time)"
                                 ></v-time-picker>
                                 
                             </v-menu>
                         </v-col>
-                        <v-col cols="3">
+                        <v-col cols="6">
                             <v-menu
                                 ref="menuEnd"
                                 v-model="menuEnd"
                                 :close-on-content-click="false"
                                 :nudge-right="40"
-                                :return-value.sync="end"
+                                :return-value.sync="end_time"
                                 transition="scale-transition"
                                 offset-y
                                 max-width="290px"
@@ -133,7 +182,7 @@
                             >
                                 <template v-slot:activator="{ on, attrs }">
                                 <v-text-field
-                                    v-model="end"
+                                    v-model="end_time"
                                     label="End"
                                     readonly
                                     v-bind="attrs"
@@ -145,11 +194,11 @@
                                 </template>
                                 <v-time-picker
                                 v-if="menuEnd"
-                                v-model="end"
-                                :min="start"
+                                v-model="end_time"
+                                :min="start_time"
                                 format="24hr"
                                 full-width
-                                @click:minute="$refs.menuEnd.save(end)"
+                                @click:minute="$refs.menuEnd.save(end_time)"
                                 ></v-time-picker>
                                 
                             </v-menu>
@@ -163,6 +212,8 @@
                     <div class="body-2 my-2">
                         1 Jam x Rp. {{ office.price }}
                     </div>
+
+                    
 
                     <v-divider></v-divider>
 
@@ -292,8 +343,10 @@
 
             </v-col>
         </v-row>
-
+        <h6>{{ start }}</h6>
     </div>
+    
+    
 
     <v-footer color="#121950" class="mt-10 py-3" padless>
       <v-col class="text-center" cols="12">
@@ -321,18 +374,23 @@ export default {
     data () {
       return {
         // Tanggal
-        date: '',
+        menuDateStart: false,
+        menuDateEnd: false,
+        start_date: '',
+        end_date: '',
+
+        
 
         paymentMethod: '',
 
         // Jam
-        start: null,
-        end: null,
+        start_time: null,
+        end_time: null,
         menuStart: false,
         menuEnd: false,
         menu: false,
         
-        user_id: 1,
+        user_id: 13,
         office: [],
         latitude: 0,
         longitude:0,
@@ -360,23 +418,35 @@ export default {
             console.log(response.data.data)
         },
 
+        async loadDataUser() {
+            const response = await axios.get(`http://34.207.166.213/user/13`)
+            console.log(response.data.data)
+        },
+
         initialize() {
         this.loadDataOffices()
         this.loadDataBookings()
+        this.loadDataUser()
         },
 
-        makeTransaction(id) {
-            axios.post(`ttp://34.207.166.213/booking`, {
-                office_id: id,
-                user_id: Number(this.user_id),
-                method: this.paymentMethod,
-                date: this.date,
-                status_id: 12
-            }).then(response=>{
-                console.log(response)
-            })
-            // this.$router.push({name:"Bills Page"})
-        }
+        // makeTransaction(id) {
+        //     axios.post(`http://34.207.166.213/booking`, {
+        //         // office_id: id,
+        //         // user_id: Number(this.user_id),
+        //         // method: this.paymentMethod,
+        //         // date: this.date,
+        //         // status_id: 12
+
+        //         office_id: Number(id),
+        //         user_id: Number(this.user_id),
+        //         start_date: this.dateStart
+
+
+        //     }).then(response=>{
+        //         console.log(response)
+        //     })
+        //     // this.$router.push({name:"Bills Page"})
+        // }
     }
 
 

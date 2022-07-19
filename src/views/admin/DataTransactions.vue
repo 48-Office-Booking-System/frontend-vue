@@ -242,10 +242,10 @@ export default {
                 filterable: false,
                 value: 'id',
               },
-              { text: 'Name', value: 'name', sortable: false },
-              { text: 'Price', value: 'price', sortable: false },
-              { text: 'Method', value: 'method' },
-              { text: 'Date', value: 'date', sortable: false },
+              { text: 'Name', value: 'user.name', sortable: false },
+              { text: 'Price', value: 'total_price', sortable: false },
+              { text: 'Method', value: 'payment_method' },
+              { text: 'Date', value: 'payment_date', sortable: false },
               { text: 'Status', value: 'status', sortable: false },
               { text: 'Actions', value: 'actions', sortable: false },
             ],
@@ -294,8 +294,10 @@ export default {
     },
     methods: {
       async loadDataTransactions() {
-        const response = await axios.get(`http://localhost:3000/transactions`)
-        this.transactions = response.data
+        const response = await axios.get(`http://34.207.166.213/booking/all`)
+        // const response = await axios.get(`http://localhost:3000/booking/all?status_id=1`)
+        this.transactions = response.data.data
+        console.log(this.transactions)
       },
       initialize () {
         this.loadDataTransactions()
