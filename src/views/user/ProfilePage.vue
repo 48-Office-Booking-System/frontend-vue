@@ -53,6 +53,7 @@
             prepend-inner-icon="mdi-magnify"
             placeholder="Cari gedung yang kau mau"
             color="#28304E"
+            rounded
             />
             
 
@@ -83,30 +84,140 @@
           padless
         >
              <v-card
-                 class="mx-auto"
+                 class="profile mx-auto"
                  color="#121950"
-                 max-width="120"
-                 max-height="152"
+                 width="175"
+                 height="162"
             >
               <div 
                  class="text-center"     
             >
                 <v-img
-                  src="../../assets/no-account.png"
-                  max-width="90"
-                  max-height="90"
+                  src="../../assets/kobaspace.png"
+                  class="photo-profile"
                 ></v-img>
               </div>
-             <v-card-actions>
+             <!-- <v-card-actions>
                  <v-btn
                      text
                      block
                      color="Black"
+                     class="button-ubah"
                      >
                     Ubah
                 </v-btn>
-            </v-card-actions>
+            </v-card-actions> -->
+                <div class="button-ubah">
+                    <v-btn
+                        block
+                        color="#edeff3"
+                    >
+                        Ubah
+                    </v-btn>
+                </div>
           </v-card>
+
+          <div class="profile-bio">
+            <v-row no-gutters>
+                <v-col
+                    cols="6"
+                    md="6"
+                    class="profile-user"
+                >
+                  <v-text-field
+                        label="name"
+                        prepend-inner-icon="mdi-account"
+                        color="#121950"
+                    >
+                  </v-text-field>
+
+                  <v-spacer></v-spacer>
+
+                  <v-text-field
+                        label="email"
+                        prepend-inner-icon="mdi-email"
+                        color="#121950"
+                  >
+                  </v-text-field>
+
+                <v-spacer></v-spacer>
+
+                <v-text-field
+                    label="password"
+                    prepend-inner-icon="mdi-lock"
+                    color="#121950"
+                >
+                </v-text-field>
+
+                <v-spacer></v-spacer>
+
+                <v-text-field
+                    label="numberPhone"
+                    prepend-inner-icon="mdi-phone"
+                    color="#121950"
+                >
+                </v-text-field>
+                </v-col>
+
+                <v-col
+                    cols="4"
+                    md="4"
+                    class="profile-set"
+                >
+                <v-text-field
+                    value="Edit Profile"
+                    prepend-inner-icon="mdi-cog"
+                    append-icon="mdi-chevron-right"
+                    color="#121950"
+                >
+                </v-text-field>
+
+                <v-spacer></v-spacer>
+
+                <v-text-field
+                    value="Review"
+                    prepend-inner-icon="mdi-message-draw"
+                    append-icon="mdi-chevron-right"
+                    color="#121950"
+                >
+                </v-text-field>
+
+                <v-spacer></v-spacer>
+
+                <v-text-field
+                    value="Riwayat Booking"
+                    prepend-inner-icon="mdi-calendar-today"
+                    append-icon="mdi-chevron-right"
+                    color="#121950"
+                >
+                </v-text-field>
+
+                <v-spacer></v-spacer>
+
+                <v-text-field
+                    value="Favorite"
+                    prepend-inner-icon="mdi-heart"
+                    append-icon="mdi-chevron-right"
+                    color="#121950"
+                >
+                </v-text-field>
+
+                <v-spacer></v-spacer>
+                </v-col>
+            </v-row>
+          </div>
+        </div>
+
+        <div class="logout">
+            <v-btn
+                class="button-logout ma-2"
+                outlined
+                color="#FF4956"
+                to="/"
+            >
+                <v-icon>mdi mdi-logout</v-icon>
+                <v-text>Keluar</v-text>
+            </v-btn>
         </div>
 
         <v-footer color="#121950" class="mt-auto py-3" padless>
@@ -192,9 +303,49 @@ export default {
 .ftr {
     margin-top: 138px;
 }
-.v-btn {
-    background-color: #edeff3;
-    margin: 0px;
+.button-ubah {
+    width: 175px;
+    margin: -1px;
     padding: 0px;
+}
+
+.profile {
+    padding: 1px;
+    padding-right: 30px;
+    margin: 0;
+}
+
+.photo-profile {
+    border-radius: 5px;
+    margin: 15px;
+    width: 100%;
+    height: 100px;
+}
+
+.profile-bio {
+    margin-top: 40px;
+}
+
+.profile-user {
+    margin-left: 341px;
+    margin-right: 32px;
+    max-width: 391px;
+}
+
+.profile-set {
+    margin-left: 42px;
+    max-width: 340px;
+}
+
+.logout {
+    padding-top: 48px;
+    padding-left: 640px;
+    padding-bottom: 42px;
+}
+
+.button-logout {
+    background-color: white !important;
+    width: 240px;
+    margin: 5px;
 }
 </style>
