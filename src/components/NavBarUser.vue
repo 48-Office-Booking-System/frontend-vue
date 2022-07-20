@@ -56,7 +56,7 @@
         
 
         <div>
-            <!-- <v-btn
+            <v-btn
                 class="ml-4"
                 color="#455392"
                 dark
@@ -72,15 +72,6 @@
                 to="/register"
             >
                 Daftar
-            </v-btn> -->
-            <v-btn 
-             icon
-             large
-             class="ml-4"
-            >
-                <v-icon x-large>
-                    mdi-account-circle
-                </v-icon>
             </v-btn>
         </div>
 
