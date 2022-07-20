@@ -66,7 +66,6 @@
                                 <v-date-picker
                                 v-if="menuDateStart"
                                  v-model="start_date"
-                                 :min="date_now"
                                 >
                                 <v-spacer></v-spacer>
                                 <v-btn
@@ -87,8 +86,8 @@
                                 </v-date-picker>
                             </v-menu>
                         </v-col>
-                        <v-col cols="6">
-                            <!-- <v-menu
+                        <!-- <v-col cols="6">
+                            <v-menu
                              ref="menuDateEnd"
                              v-model="menuDateEnd"
                              :close-on-content-click="false"
@@ -132,9 +131,9 @@
                                     OK
                                 </v-btn>
                                 </v-date-picker>
-                            </v-menu> -->
-                        </v-col>
-                        <v-col cols="6">
+                            </v-menu>
+                        </v-col> -->
+                        <v-col cols="3">
                             <v-menu
                                 ref="menuStart"
                                 v-model="menuStart"
@@ -170,7 +169,7 @@
                                 
                             </v-menu>
                         </v-col>
-                        <v-col cols="6">
+                        <v-col cols="3">
                             <v-menu
                                 ref="menuEnd"
                                 v-model="menuEnd"
@@ -433,17 +432,6 @@ export default {
 
         makeTransaction(id) {
             axios.post(`http://34.207.166.213/booking`, {
-                
-                // office_id: Number(id),
-                // user_id: Number(this.user_id),
-                // status_id: 1,
-                // bukti_pembayaran: "",
-                // end_date: this.end_date,
-                // end_hour: this.end_time,
-                // start_date: this.start_date,
-                // start_hour: this.start_time,
-                // total_price: Number(this.office.price)
-                
                 user_id: 13,
                 office_id: Number(id),
                 status_id: 1,
@@ -457,7 +445,8 @@ export default {
             }).then(response=>{
                 console.log(response)
             })
-            // this.$router.push({name:"Bills Page"})
+            this.$router.push({name:"History Page"})
+            
         }
     }
 

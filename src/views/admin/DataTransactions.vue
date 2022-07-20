@@ -54,8 +54,7 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
-                  hidden
-                  disabled
+                  
                 >
                   New Transactions
                 </v-btn>
@@ -346,7 +345,7 @@ export default {
 
       deleteItemConfirm () {
         this.transactions.splice(this.editedIndex, 1)
-        axios.delete(`http://localhost:3000/transactions/`+this.editedItem.id
+        axios.delete(`http://34.207.166.213/booking/`+this.editedItem.id
         ).then(response=>{
           console.log(response)
         })

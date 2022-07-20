@@ -17,28 +17,28 @@
               Agent: KOBAS-Felik
             </v-card-title>
             <v-card-text>
-              Metode Pembayaran:
+              Metode Pembayaran: ??
             </v-card-text>
           </v-card>
         </v-col>
         
         <v-col class="text-center">
-          <div class="exp mt-16">Bayar sebelum 17 Juli 2022, 15:15 WIB</div>
+          <div class="exp mt-16">Bayar sebelum ??</div>
         </v-col>
 
         <v-col>
           <v-card flat>
             <v-card-title>
-              ID: 1
+              ID Booking: {{ infoBooking.id }}
             </v-card-title>
             <v-card-text class="py-0">
               DIBERIKAN KEPADA
             </v-card-text>
             <v-card-title class="py-0 mb-4">
-              Pemesan: Yazmin Raniah
+              Pemesan: {{ infoBooking.user.name }}
             </v-card-title>
             <v-card-text>
-              Tanggal Pemesanan: Kamis, 1 Juni 2022
+              Tanggal Pemesanan: ??? 
             </v-card-text>
           </v-card>
           
@@ -66,14 +66,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="item in infoBooking"
-                  :key="item.name"
-                >
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.orderDate }}</td>
-                  <td>{{ item.usageTime }}</td>
-                  <td>{{ item.totalPrice }}</td>
+                <tr>
+                  <td>{{ infoBooking.office.name }}</td>
+                  <td> - </td>
+                  <td>{{ infoBooking.start_date }}</td>
+                  <td>Rp. {{ infoBooking.total_price }},-</td>
                 </tr>
               </tbody>
             </template>
@@ -82,7 +79,12 @@
       </template>
 
       <div class="text-center">
-        <v-btn dark color="primary">
+        <v-btn
+         dark
+         color="primary"
+         :href="'https://api.whatsapp.com/send?phone=62895401010022&text=Halo Koba-min^^ ~ %0ASaya mau mengkonfirmasi pembayaran,%0AID Booking: '+this.infoBooking.id+'%0ANama Gedung: '+this.infoBooking.office.name+'%0ATotal Harga: '+this.infoBooking.total_price"
+         target="_blank"
+        >
           KONFIRMASI PEMBAYARAN
         </v-btn>
       </div>
@@ -100,6 +102,7 @@
 </template>
 
 <script>
+import axios from "axios"
 import Navbar from "@/components/NavBarUser.vue"
 import Chat from "@/components/Chat.vue"
 export default {
@@ -110,16 +113,23 @@ export default {
   },
   data () {
     return {
-      infoBooking: [
-        {
-          name: 'Infinite Office',
-          orderDate: "Kamis, 1 Juni 2022",
-          usageTime: "13:00 - 17:00",
-          totalPrice: "Rp. 350.000,00"
-        }
-      ]
+      infoBooking: []
     }
   },
+  async mounted() {
+    this.initialize()
+    },
+    methods: {
+        async loadDataBooking() {
+        const response = await axios.get(`http://34.207.166.213/booking/${this.$route.params.id}`)
+        this.infoBooking = response.data.data
+        console.log(this.infoBooking)
+        },
+        initialize() {
+        this.loadDataBooking()
+        },
+    }
+
   
 
 

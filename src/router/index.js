@@ -14,6 +14,7 @@ import AboutUs from '../views/user/AboutUs.vue'
 import BillsPage from '../views/user/BillsPage.vue'
 import Invoice from '../views/user/Invoice.vue'
 import ReviewPage from '../views/user/ReviewPage.vue'
+import History from '../views/user/TransactionHistory.vue'
 
 // Admin
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
@@ -71,7 +72,7 @@ const routes = [
     component: AboutUs
   },
   {
-    path: '/bills',
+    path: '/bills/:id',
     name: 'Bills Page',
     component: BillsPage
   },
@@ -84,6 +85,11 @@ const routes = [
     path: '/review',
     name: 'Review Page',
     component: ReviewPage
+  },
+  {
+    path: '/history',
+    name: 'History Page',
+    component: History
   },
 
   // Admin

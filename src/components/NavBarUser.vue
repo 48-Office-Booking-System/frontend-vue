@@ -41,6 +41,15 @@
             >
                 Tentang Kami
             </v-btn>
+            <v-btn 
+                text
+                small
+                color="#28304E"
+                height="0"
+                to="/history"
+            >
+                Riwayat Transaksi
+            </v-btn>
         </div>
 
     <v-spacer></v-spacer>
@@ -56,23 +65,6 @@
         
 
         <div>
-            <!-- <v-btn
-                class="ml-4"
-                color="#455392"
-                dark
-                to="/"
-            >
-                Masuk
-            </v-btn>
-
-            <v-btn
-                class="ml-4"
-                outlined
-                color="#455392"
-                to="/register"
-            >
-                Daftar
-            </v-btn> -->
             <v-btn 
              icon
              large
