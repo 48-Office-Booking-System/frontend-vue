@@ -2,7 +2,6 @@
   <v-app>
 
     <Navbar/>
-    <Chat />
 
     <div class="content-1 px-16">
         <v-row>
@@ -65,8 +64,8 @@
                                 </template>
                                 <v-date-picker
                                 v-if="menuDateStart"
-                                 v-model="start_date"
-                                 :min="date_now"
+                                v-model="start_date"
+                                
                                 >
                                 <v-spacer></v-spacer>
                                 <v-btn
@@ -88,7 +87,7 @@
                             </v-menu>
                         </v-col>
                         <v-col cols="6">
-                            <!-- <v-menu
+                            <v-menu
                              ref="menuDateEnd"
                              v-model="menuDateEnd"
                              :close-on-content-click="false"
@@ -113,7 +112,7 @@
                                 <v-date-picker
                                 v-if="menuDateEnd"
                                 v-model="end_date"
-                                :min="start_date"
+                                
                                 >
                                 <v-spacer></v-spacer>
                                 <v-btn
@@ -132,7 +131,7 @@
                                     OK
                                 </v-btn>
                                 </v-date-picker>
-                            </v-menu> -->
+                            </v-menu>
                         </v-col>
                         <v-col cols="6">
                             <v-menu
@@ -163,9 +162,8 @@
                                 v-model="start_time"
                                 :max="end_time"
                                 format="24hr"
-                                use-seconds
                                 full-width
-                                @click:second="$refs.menuStart.save(start_time)"
+                                @click:minute="$refs.menuStart.save(start_time)"
                                 ></v-time-picker>
                                 
                             </v-menu>
@@ -199,9 +197,8 @@
                                 v-model="end_time"
                                 :min="start_time"
                                 format="24hr"
-                                use-seconds
                                 full-width
-                                @click:second="$refs.menuEnd.save(end_time)"
+                                @click:minute="$refs.menuEnd.save(end_time)"
                                 ></v-time-picker>
                                 
                             </v-menu>
@@ -334,9 +331,13 @@
                    <b>Ini adalah alamat lengkap . . . </b>
                 </div>
 
+                <!-- <GmapMap
+                    :center="{lat: Number(office.latitude), lng: Number(office.longitude)}"
+                    :zoom="19"
+                    style="width: 640px; height: 360px; margin: 32px auto;"
+                ></GmapMap> -->
                 
-                
-                <l-map style="height: 300px; position: sticky; " :zoom="zoom" :center="[latitude, longitude]">
+                <l-map style="height: 300px" :zoom="zoom" :center="[latitude, longitude]">
                     <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
                     <l-marker :lat-lng="[latitude, longitude]"></l-marker>
                 </l-map>
@@ -344,22 +345,7 @@
 
             </v-col>
         </v-row>
-
-        <h6>
-            {{ start_date }}
-        </h6>
-        <h6>
-            {{ end_date }}
-        </h6>
-        <h6>
-            {{ start_time }}
-        </h6>
-        <h6>
-            {{ end_time }}
-        </h6>
-            
-        
-        
+        <h6>{{ start }}</h6>
     </div>
     
     
@@ -377,7 +363,6 @@
 
 <script>
 import Navbar from "@/components/NavBarUser.vue"
-import Chat from "@/components/Chat.vue"
 import axios from 'axios'
 import {LMap, LTileLayer, LMarker} from 'vue2-leaflet'
 export default {
@@ -386,13 +371,11 @@ export default {
         LMap,
         LTileLayer,
         LMarker,
-        Navbar,
-        Chat
+        Navbar
     },
     data () {
       return {
         // Tanggal
-        date_now: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
         menuDateStart: false,
         menuDateEnd: false,
         start_date: '',
@@ -432,7 +415,10 @@ export default {
         console.log(this.office)
         },
 
-        
+        async loadDataBookings() {
+            const response = await axios.get(`http://34.207.166.213/booking/all`)
+            console.log(response.data.data)
+        },
 
         async loadDataUser() {
             const response = await axios.get(`http://34.207.166.213/user/13`)
@@ -441,42 +427,28 @@ export default {
 
         initialize() {
         this.loadDataOffices()
+        this.loadDataBookings()
         this.loadDataUser()
         },
 
-        makeTransaction(id) {
-            axios.post(`http://34.207.166.213/booking`, {
-                // office_id: id,
-                // user_id: Number(this.user_id),
-                // method: this.paymentMethod,
-                // date: this.date,
-                // status_id: 12
+        // makeTransaction(id) {
+        //     axios.post(`http://34.207.166.213/booking`, {
+        //         // office_id: id,
+        //         // user_id: Number(this.user_id),
+        //         // method: this.paymentMethod,
+        //         // date: this.date,
+        //         // status_id: 12
 
-                // office_id: Number(id),
-                // user_id: Number(this.user_id),
-                // status_id: 1,
-                // bukti_pembayaran: "",
-                // end_date: this.end_date,
-                // end_hour: this.end_time,
-                // start_date: this.start_date,
-                // start_hour: this.start_time,
-                // total_price: Number(this.office.price)
-                
-                user_id: 13,
-                office_id: Number(id),
-                status_id: 1,
-                start_date: this.start_date+" 00:00:00 WIB",
-                end_date: this.start_date+" 00:00:00 WIB",
-                start_hour: this.start_date+" " + this.start_time+ " WIB",
-                end_hour: this.start_date+" " + this.end_time+ " WIB"
+        //         office_id: Number(id),
+        //         user_id: Number(this.user_id),
+        //         start_date: this.dateStart
 
 
-
-            }).then(response=>{
-                console.log(response)
-            })
-            // this.$router.push({name:"Bills Page"})
-        }
+        //     }).then(response=>{
+        //         console.log(response)
+        //     })
+        //     // this.$router.push({name:"Bills Page"})
+        // }
     }
 
 

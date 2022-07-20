@@ -1,7 +1,6 @@
 <template>
     <v-app>
         <Navbar/>
-        <Chat />
 
         <div class="banner-iklan">
             <v-img src="../../assets/home/banner.png" width="100%" alt="">
@@ -136,19 +135,7 @@
                     width="365"
                     >
                 
-                    <v-carousel
-                    hide-delimiters
-                    :show-arrows="false"
-                    height="200"
-                    >
-                        <v-carousel-item
-                            v-for="photo in review.office.photo_urls"
-                            :key="photo.id"
-                            :src="photo.url"
-                        >
-                            
-                        </v-carousel-item>
-                    </v-carousel>
+                    <img :src="review.office.photo_urls" height="200" alt="">
 
                     <v-rating
                     :value="review.star"
@@ -200,13 +187,11 @@
 
 <script>
 import Navbar from "@/components/NavBarUser.vue"
-import Chat from "@/components/Chat.vue"
 import axios from 'axios'
 export default {
     name: 'HomePage',
     components: {
-        Navbar,
-        Chat
+        Navbar
     },
     data() {
         return {

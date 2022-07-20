@@ -53,7 +53,8 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
-                 
+                  hidden
+                  disabled
                 >
                   New Review
                 </v-btn>
@@ -203,26 +204,20 @@
           </v-btn>
         </template>
 
-        <template v-slot:[`item.status`]="{ item }">
-          <v-btn
-           v-if="item.hidden == 1"
-           outlined
-           small
-           color="green"
-           @click="changeStatusToHidden(item.id)"
+        <template v-slot:[`item.actions`]="{ item }">
+          <v-icon
+            class="mx-2"
+            @click="editItem(item)"
+            color="primary"
           >
-            Publish
-          </v-btn>
-          <v-btn
-           v-else
-           outlined
-           small
-           color="red"
-           @click="changeStatusToPublish(item.id)"
+              mdi-pencil-circle
+          </v-icon>
+          <v-icon
+            @click="deleteItem(item)"
+            color="red"
           >
-            Hide
-          </v-btn>
-
+              mdi-delete-circle
+          </v-icon>
         </template>
       </v-data-table>
     </v-card>  
@@ -259,7 +254,7 @@ export default {
               { text: 'Building', value: 'office.name', sortable: false },
               { text: 'Rating', value: 'star' },
               { text: 'Review', value: 'text', sortable: false },
-              { text: 'Status', value: 'status', sortable: false },
+              { text: 'Actions', value: 'actions', sortable: false },
             ],
             reviews: [],
             offices: [],
@@ -321,22 +316,6 @@ export default {
         this.detailStar = item.star
         this.dialogReview = true
       },
-      changeStatusToHidden(idReview) {
-        axios.put(`http://34.207.166.213/review/`+idReview, {
-          hidden: 2
-        }).then(response=>{
-          console.log(response)
-        })
-        this.initialize()
-      },
-      changeStatusToPublish(idReview) {
-        axios.put(`http://34.207.166.213/review/`+idReview, {
-          hidden: 1
-        }).then(response=>{
-          console.log(response)
-        })
-        this.initialize()
-      },
       deleteItem (item) {
         this.editedIndex = this.reviews.indexOf(item)
         this.editedItem = Object.assign({}, item)
@@ -380,7 +359,7 @@ export default {
       save () {
         if (this.editedIndex > -1) {
           axios.put(`http://34.207.166.213/review/`+this.editedItem.id, {
-            star: Number(this.editedItem.star),
+            star: this.editedItem.star,
             text: this.editedItem.text
 
           }).then(response=>{
@@ -389,10 +368,7 @@ export default {
           Object.assign(this.reviews[this.editedIndex], this.editedItem)
         } else {
           axios.post(`http://34.207.166.213/review`, {
-            hidden: 0,
-            office_id: 55,
-            user_id: 13,
-            star: Number(this.editedItem.star),
+            star: this.editedItem.star,
             text: this.editedItem.text
           }).then(response=>{
             console.log(response)

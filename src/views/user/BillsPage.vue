@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <Navbar/>
-    <Chat />
 
     <div style="margin-top: 100px;" class="px-16">
       <v-row>
@@ -148,12 +147,10 @@
 
 <script>
 import Navbar from "@/components/NavBarUser.vue"
-import Chat from "@/components/Chat.vue"
 export default {
   name: 'BillsPage',
   components: {
-    Navbar,
-    Chat
+    Navbar
   },
   data () {
     return {
