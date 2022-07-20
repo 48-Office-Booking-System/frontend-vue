@@ -2,6 +2,7 @@
     <v-app>
 
         <Navbar/>
+        <Chat />
 
         <div class="content" padless>
             <v-col
@@ -39,10 +40,12 @@
 
 <script>
 import Navbar from "@/components/NavBarUser.vue"
+import Chat from "@/components/Chat.vue"
 export default {
     name: "AboutUsPage",
     components: {
-        Navbar
+        Navbar,
+        Chat
     }
     
 }

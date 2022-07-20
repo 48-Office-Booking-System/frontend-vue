@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Navbar/>
+    <Chat />
     <v-card
      flat
     >
@@ -109,11 +110,13 @@
 
 <script>
 import Navbar from "@/components/NavBarUser.vue"
+import Chat from "@/components/Chat.vue"
 import axios from 'axios'
 export default {
   name: "OfficesList",
   components: {
-    Navbar
+    Navbar,
+    Chat
   },
   data: () => ({
     tipeRuangan: ["Indoor", "Outdoor"],

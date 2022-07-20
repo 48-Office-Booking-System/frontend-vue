@@ -192,6 +192,34 @@
           </div>
         </template>
 
+        <template v-slot:[`item.status_id`]="{ item }">
+          <v-btn
+           v-if="item.status_id == 1"
+           outlined
+           small
+           color="green"
+          >
+            Pending
+          </v-btn>
+          <v-btn
+           v-else-if="item.status_id == 2"
+           outlined
+           small
+           color="red"
+          >
+            Success
+          </v-btn>
+          <v-btn
+           v-else
+           outlined
+           small
+           color="red"
+          >
+            Fail
+          </v-btn>
+
+        </template>
+
         <template v-slot:[`item.actions`]="{ item }">
           <v-icon
             @click="SendItem(item)"
@@ -246,7 +274,7 @@ export default {
               { text: 'Price', value: 'total_price', sortable: false },
               { text: 'Method', value: 'payment_method' },
               { text: 'Date', value: 'payment_date', sortable: false },
-              { text: 'Status', value: 'status', sortable: false },
+              { text: 'Status', value: 'status_id', sortable: false },
               { text: 'Actions', value: 'actions', sortable: false },
             ],
             transactions: [],

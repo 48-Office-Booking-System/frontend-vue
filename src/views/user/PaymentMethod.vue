@@ -2,6 +2,7 @@
     <v-app>
 
         <Navbar/>
+        <Chat />
         
         <v-main>
         <v-list>
@@ -360,10 +361,12 @@
 
 <script>
 import Navbar from "@/components/NavBarUser.vue"
+import Chat from "@/components/Chat.vue"
 export default {
     name: "PaymentMethod",
     components: {
-      Navbar
+      Navbar,
+      Chat
     },
     data() {
         return{
