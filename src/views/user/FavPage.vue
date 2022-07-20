@@ -1,8 +1,5 @@
 <template>
   <v-app>
-    <div class="headline font-weight-bold">
-        Kirim Ulasan Anda
-    </div>
     <v-app-bar app height="70" class="px-10" color="#FCFDFF" flat>
       <div class="logo">
         <v-img src="../../assets/kobaspace.png" />
@@ -28,7 +25,7 @@
 
     <v-row>
       <v-col class="fav">
-                <v-img height="100%" src="../../assets/ReviewPage/review.png"/>
+                <v-img height="100%" src="../../assets/FavPage/fav.png"/>
             </v-col>
     </v-row>
 
@@ -44,18 +41,7 @@
 
 <script>
 export default {
-    name: 'ReviewPage',
-    data() {
-        return {
-
-        }
-    }
-
-}
-</script>
-
-<style>
-  name: "ReviewPage",
+  name: "FavPage",
    data() {
     return {
       offices: [],
