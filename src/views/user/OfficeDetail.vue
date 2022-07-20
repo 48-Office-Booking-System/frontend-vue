@@ -295,6 +295,8 @@
                          large
                          block
                          @click="makeTransaction(office.id)"
+                         @click="makeTransaction(office.id, office.price)"
+                         to="/bills"
                         > 
                             Pesan Sekarang
                         </v-btn>
