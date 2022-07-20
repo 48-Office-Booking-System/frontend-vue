@@ -58,7 +58,7 @@
             
 
             <div>
-                <v-btn
+                <!-- <v-btn
                     class="ml-4"
                     color="#455392"
                     dark
@@ -74,6 +74,17 @@
                     to="/register"
                 >
                     Daftar
+                </v-btn> -->
+                <v-btn
+                  large
+                  icon
+                  class="ml-14"
+                  color="#455392"
+                  to="/profile"
+                >
+                    <v-icon x-large>
+                        mdi-account-circle
+                    </v-icon>
                 </v-btn>
             </div>
 
@@ -93,20 +104,10 @@
                  class="text-center"     
             >
                 <v-img
-                  src="../../assets/kobaspace.png"
+                  src="../../assets/no-account.png"
                   class="photo-profile"
                 ></v-img>
               </div>
-             <!-- <v-card-actions>
-                 <v-btn
-                     text
-                     block
-                     color="Black"
-                     class="button-ubah"
-                     >
-                    Ubah
-                </v-btn>
-            </v-card-actions> -->
                 <div class="button-ubah">
                     <v-btn
                         block
@@ -152,7 +153,7 @@
                 <v-spacer></v-spacer>
 
                 <v-text-field
-                    label="numberPhone"
+                    label="No. Phone"
                     prepend-inner-icon="mdi-phone"
                     color="#121950"
                 >
@@ -164,13 +165,93 @@
                     md="4"
                     class="profile-set"
                 >
-                <v-text-field
-                    value="Edit Profile"
-                    prepend-inner-icon="mdi-cog"
-                    append-icon="mdi-chevron-right"
-                    color="#121950"
+                <v-dialog
+                v-model="dialog"
+                persistent
+                max-width="600px"
                 >
-                </v-text-field>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                        value="Edit Profile"
+                        prepend-inner-icon="mdi-cog"
+                        append-icon="mdi-chevron-right"
+                        color="#121950"
+                        v-bind="attrs"
+                        v-on="on"
+                    >
+                    </v-text-field>
+                </template>
+                <v-card>
+                    <v-card-title>
+                    <span class="text-h5">Ubah Profile</span>
+                    </v-card-title>
+                    <v-card-text>
+                    <v-container>
+                        <v-row>
+                        <v-col cols="12">
+                            <v-text-field
+                            label="Nama"
+                            required
+                            ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-text-field
+                            label="Email"
+                            required
+                            ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-text-field
+                            label="Password Lama"
+                            type="password"
+                            required
+                            ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-text-field
+                            label="Password Baru"
+                            type="password"
+                            required
+                            ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-text-field
+                            label="No. Telepon"
+                            required
+                            ></v-text-field>
+                        </v-col>
+                        </v-row>
+                    </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-row justify="center">
+                        <v-col
+                            cols="6"
+                        >
+                            <v-btn
+                                color="#121950"
+                                @click="dialog = false"
+                                class="button-popup"
+                            >
+                                Tutup
+                            </v-btn>
+                        </v-col>
+                        <v-col
+                            cols="6"
+                        >
+                            <v-btn
+                                color="#121950"
+                                @click="dialog = false"
+                                class="button-popup"
+                            >
+                                Simpan
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                    </v-card-actions>
+                </v-card>
+                </v-dialog>
 
                 <v-spacer></v-spacer>
 
@@ -234,6 +315,9 @@
 <script>
 export default {
     name: "AboutUsPage",
+    data: () => ({
+        dialog: false,
+    })
     
 }
 </script>
@@ -347,5 +431,10 @@ export default {
     background-color: white !important;
     width: 240px;
     margin: 5px;
+}
+
+.button-popup {
+    color: white !important;
+    width: 240px;
 }
 </style>
