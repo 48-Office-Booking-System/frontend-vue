@@ -343,18 +343,7 @@
             </v-col>
         </v-row>
 
-        <h6>
-            {{ start_date }}
-        </h6>
-        <h6>
-            {{ end_date }}
-        </h6>
-        <h6>
-            {{ start_time }}
-        </h6>
-        <h6>
-            {{ end_time }}
-        </h6>
+        
             
         
         
@@ -444,12 +433,7 @@ export default {
 
         makeTransaction(id) {
             axios.post(`http://34.207.166.213/booking`, {
-                // office_id: id,
-                // user_id: Number(this.user_id),
-                // method: this.paymentMethod,
-                // date: this.date,
-                // status_id: 12
-
+                
                 // office_id: Number(id),
                 // user_id: Number(this.user_id),
                 // status_id: 1,
