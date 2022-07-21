@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import TestApi from '../views/TestApi.vue'
-
 // User
 import LoginView from '../views/user/Login.vue'
 import RegisterView from '../views/user/Register.vue'
@@ -13,7 +11,6 @@ import PaymentMethod from '../views/user/PaymentMethod.vue'
 import AboutUs from '../views/user/AboutUs.vue'
 import BillsPage from '../views/user/BillsPage.vue'
 import Invoice from '../views/user/Invoice.vue'
-import ReviewPage from '../views/user/ReviewPage.vue'
 import History from '../views/user/TransactionHistory.vue'
 
 // Admin
@@ -31,11 +28,6 @@ Vue.use(VueRouter)
 
 const routes = [
 
-  {
-    path: '/testapi',
-    name: 'Test Api',
-    component: TestApi
-  },
   {
     path: '/',
     name: 'login',
@@ -80,11 +72,6 @@ const routes = [
     path: '/invoice',
     name: 'Invoice',
     component: Invoice
-  },
-  {
-    path: '/review',
-    name: 'Review Page',
-    component: ReviewPage
   },
   {
     path: '/history',
