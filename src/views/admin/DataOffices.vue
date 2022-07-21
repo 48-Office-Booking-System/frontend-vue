@@ -382,7 +382,6 @@ import axios from 'axios'
         async loadDataOffices() {
             const response = await axios.get(`http://34.207.166.213/office/all`)
             this.offices = response.data.data
-            console.log(this.offices)
         },
        
       initialize () {
@@ -479,9 +478,11 @@ import axios from 'axios'
                 price: Number(this.editedItem.price),
                 chair_min: Number(this.editedItem.chair_min),
                 chair_max: Number(this.editedItem.chair_max),
-                photo_urls: [{
+                photo_urls: [
+                  {
                   url: this.editedItem.photo_url,
-                }],
+                  }
+                ],
                 facilitations: [{
                   id: Number(this.editedItem.id_facilitations)
                 }],

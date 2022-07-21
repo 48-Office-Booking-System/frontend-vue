@@ -53,7 +53,8 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
-                 
+                  hidden
+                  disabled
                 >
                   New Customer
                 </v-btn>
@@ -222,7 +223,7 @@ export default {
     async mounted() {
       this.initialize()
     },
-    methods: {
+    methods: {  
       async loadDataCustomers() {
         const response = await axios.get(`http://34.207.166.213/user/all?role_id=1`)
         this.customers = response.data.data
@@ -276,7 +277,7 @@ export default {
             name: this.editedItem.name,
             email: this.editedItem.email,
             number: this.editedItem.number,
-
+            
           }).then(response=>{
             console.log(response)
           })

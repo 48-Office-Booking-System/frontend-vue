@@ -42,94 +42,6 @@
             <v-spacer></v-spacer>
             <v-spacer></v-spacer>
             <v-spacer></v-spacer>
-            
-            <v-dialog
-              v-model="dialog"
-              max-width="600px"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="primary"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-                 
-                >
-                  New Review
-                </v-btn>
-              </template>
-              <v-card class="pa-4">
-                <v-card-title>
-                  <span class="headline font-weight-medium">{{ formTitle }}</span>
-                </v-card-title>
-
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col
-                        cols="12"
-                      >
-                        <v-text-field
-                          v-model="customerName"
-                          label="Customer name"
-                          disabled
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                        cols="12"
-                      >
-                        <v-text-field
-                          v-model="officeName"
-                          label="Building"
-                          disabled
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                        cols="12"
-                      >
-                        <v-text-field
-                          v-model="editedItem.star"
-                          label="Rating"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                        cols="12"
-                      >
-                        <v-textarea
-                          outlined
-                          height="120"
-                          label="Review"
-                          v-model="editedItem.text"
-                        ></v-textarea>
-                      </v-col>
-                      
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                    <v-btn
-                      color="#121950"
-                      outlined
-                      @click="close"
-                      width="150"
-                      class="mr-4"
-                    >
-                    Cancel
-                    </v-btn>
-                    <v-btn
-                      color="#121950"
-                      dark
-                      @click="save"
-                      width="150"
-                    >
-                      Save
-                    </v-btn>
-                    <v-spacer></v-spacer>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
 
             <v-dialog v-model="dialogReview" max-width="500px">
               <v-card
@@ -389,8 +301,8 @@ export default {
           Object.assign(this.reviews[this.editedIndex], this.editedItem)
         } else {
           axios.post(`http://34.207.166.213/review`, {
-            hidden: 0,
-            office_id: 55,
+            hidden: 1,
+            office_id: 68,
             user_id: 13,
             star: Number(this.editedItem.star),
             text: this.editedItem.text

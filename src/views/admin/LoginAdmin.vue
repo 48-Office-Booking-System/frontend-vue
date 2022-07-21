@@ -96,24 +96,22 @@ export default {
         }),
 
         methods: {
-            async submit() {
-                let result = await axios.get(`http://localhost:3000/users?email=${this.email}&password=${this.password}`)
-                console.warn(result)
-                if(result.status==200 && result.data.length>0 && result.data[0].role_id==1) {
-                    localStorage.setItem("admin-info", JSON.stringify(result.data[0]))
-                    this.$router.push({name:"Data Offices"})
-                    this.showError = false
-                } else {
-                    this.showError = true
+           async submit() {
+                const response = await axios.get(`http://34.207.166.213/user/all?role_id=2`)
+                console.log(response.data.data)
+                for (let index = 0; index < response.data.data.length; index++) {
+                    if (response.data.data[index].email == this.email) {
+                        if (response.data.data[index].password == this.password) {
+                            index = response.data.data.length-1
+                            this.$router.push({name:"Data Offices"})
+                        }
+                    }else {
+                        this.showError = true
+                    }
                 }
             }
         },
-        // mounted() {
-        //     let admin = localStorage.getItem('admin-info')
-        //     if(admin) {
-        //         this.$router.push({name: 'Data Offices'})
-        //     }
-        // }
+        
     
 }
 </script>

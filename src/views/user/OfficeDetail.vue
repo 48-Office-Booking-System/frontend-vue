@@ -5,6 +5,7 @@
     <Chat />
 
     <div class="content-1 px-16">
+
         <v-row>
             <v-col cols="5">
                 <v-card class="pa-4">
@@ -54,7 +55,7 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <v-text-field
                                         v-model="start_date"
-                                        label="Pilih Awal Tanggal"
+                                        label="Pilih Tanggal"
                                         readonly
                                         v-bind="attrs"
                                         v-on="on"
@@ -395,7 +396,7 @@ export default {
         menuEnd: false,
         menu: false,
         
-        user_id: 13,
+        user_id: this.$store.state.userId,
         office: [],
         latitude: 0,
         longitude:0,
@@ -432,7 +433,7 @@ export default {
 
         makeTransaction(id) {
             axios.post(`http://34.207.166.213/booking`, {
-                user_id: 13,
+                user_id: Number(this.user_id),
                 office_id: Number(id),
                 status_id: 1,
                 start_date: this.start_date+" 00:00:00 WIB",

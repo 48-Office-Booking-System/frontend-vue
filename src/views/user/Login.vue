@@ -100,24 +100,24 @@ export default {
         }
     },
     methods: {
+        
         async submit() {
-            let result = await axios.get(`http://localhost:3000/users?email=${this.email}&password=${this.password}`)
-            console.warn(result)
-            if(result.status==200 && result.data.length>0 && result.data[0].role_id==0) {
-                localStorage.setItem("user-info", JSON.stringify(result.data[0]))
-                this.$router.push({name:"Home Page"})
-                this.showError = false
-            } else {
-                this.showError = true
+            const response = await axios.get(`http://34.207.166.213/user/all?role_id=1`)
+            for (let index = 0; index < response.data.data.length; index++) {
+                if (response.data.data[index].email == this.email) {
+                    if (response.data.data[index].password == this.password) {
+                        this.$store.dispatch("changeUserIdValue", response.data.data[index].id)
+                        console.log(this.$store.state.userId)
+                        index = response.data.data.length-1
+                        this.$router.push({name:"Home Page"})
+                    }
+                }else {
+                    this.showError = true
+                }
             }
         }
     },
-    // mounted() {
-    //     let user = localStorage.getItem('user-info')
-    //     if(user) {
-    //         this.$router.push({name: 'Home Page'})
-    //     }
-    // }
+
 }
 </script>
 

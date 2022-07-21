@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <Sidebar/>
-
-        <v-card width="75%" class="ml-auto mr-10 mb-4" flat>
+    
+    <v-card width="75%" class="ml-auto mr-10 mb-4" flat>
       <v-card-title class="headline font-weight-bold">
           Manage Transactions
           <v-spacer></v-spacer>
@@ -43,22 +43,201 @@
             <v-spacer></v-spacer>
             <v-spacer></v-spacer>
             <v-spacer></v-spacer>
+
+            <template>
+              <v-row justify="center">
+                <v-dialog
+                  v-model="dialogNewTransaction"
+                  persistent
+                  max-width="600px"
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      New Transaction
+                    </v-btn>
+                  </template>
+                  <v-card>
+                    <v-card-title>
+                      <span class="text-h5">New Transaction</span>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-container>
+                        <v-row>
+                          <v-col
+                            cols="6" 
+                          >
+                            <v-text-field
+                              v-model="user_id"
+                              label="Id User"
+                              required
+                              type="number"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col
+                            cols="6" 
+                          >
+                            <v-text-field
+                              v-model="office_id"
+                              label="Id Office"
+                              required
+                              type="number"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col cols="6">
+                            <v-menu
+                             ref="menuDateStart"
+                             v-model="menuDateStart"
+                             :close-on-content-click="false"
+                             :return-value.sync="start_date"
+                             transition="scale-transition"
+                             offset-y
+                             max-width="290px"
+                             min-width="290px"
+                            >
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-text-field
+                                        v-model="start_date"
+                                        label="Pilih Tanggal"
+                                        readonly
+                                        v-bind="attrs"
+                                        v-on="on"
+                                        solo
+                                        dark
+                                        background-color="#28304E"
+                                    ></v-text-field>
+                                </template>
+                                <v-date-picker
+                                v-if="menuDateStart"
+                                 v-model="start_date"
+                                >
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    text
+                                    color="primary"
+                                    @click="menuDateStart = false"
+
+                                >
+                                    Cancel
+                                </v-btn>
+                                <v-btn
+                                    text
+                                    color="primary"
+                                    @click="$refs.menuDateStart.save(start_date)"
+                                >
+                                    OK
+                                </v-btn>
+                                </v-date-picker>
+                            </v-menu>
+                        </v-col>
+                        
+                        <v-col cols="3">
+                            <v-menu
+                                ref="menuStart"
+                                v-model="menuStart"
+                                :close-on-content-click="false"
+                                :nudge-right="40"
+                                :return-value.sync="start_time"
+                                transition="scale-transition"
+                                offset-y
+                                max-width="290px"
+                                min-width="290px"
+                            >
+                                <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="start_time"
+                                    label="Start"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    solo
+                                    dark
+                                    background-color="#28304E"
+                                ></v-text-field>
+                                </template>
+                                <v-time-picker
+                                v-if="menuStart"
+                                v-model="start_time"
+                                :max="end_time"
+                                format="24hr"
+                                use-seconds
+                                full-width
+                                @click:second="$refs.menuStart.save(start_time)"
+                                ></v-time-picker>
+                                
+                            </v-menu>
+                        </v-col>
+                        <v-col cols="3">
+                            <v-menu
+                                ref="menuEnd"
+                                v-model="menuEnd"
+                                :close-on-content-click="false"
+                                :nudge-right="40"
+                                :return-value.sync="end_time"
+                                transition="scale-transition"
+                                offset-y
+                                max-width="290px"
+                                min-width="290px"
+                            >
+                                <template v-slot:activator="{ on, attrs }">
+                                <v-text-field
+                                    v-model="end_time"
+                                    label="End"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                                    solo
+                                    dark
+                                    background-color="#28304E"
+                                ></v-text-field>
+                                </template>
+                                <v-time-picker
+                                v-if="menuEnd"
+                                v-model="end_time"
+                                :min="start_time"
+                                format="24hr"
+                                use-seconds
+                                full-width
+                                @click:second="$refs.menuEnd.save(end_time)"
+                                ></v-time-picker>
+                                
+                            </v-menu>
+                        </v-col>
+                        </v-row>
+                      </v-container>
+                      
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        color="blue darken-1"
+                        text
+                        @click="dialogNewTransaction = false"
+                      >
+                        Close
+                      </v-btn>
+                      <v-btn
+                        color="blue darken-1"
+                        text
+                        @click="updateTransaction()"
+                      >
+                        Save
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-row>
+            </template>
             
             <v-dialog
               v-model="dialog"
               max-width="600px"
             >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="primary"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-                  
-                >
-                  New Transactions
-                </v-btn>
-              </template>
+              
               <v-card class="pa-4">
                 <v-card-title>
                   <span class="headline font-weight-medium">{{ formTitle }}</span>
@@ -71,49 +250,28 @@
                         cols="12"
                       >
                         <v-text-field
-                          v-model="editedItem.name"
+                          v-model="user_name"
                           label="Customer name"
-                          
+                          disabled
                         ></v-text-field>
                       </v-col>
                       <v-col
                         cols="12"
                       >
                         <v-text-field
-                          v-model="editedItem.price"
-                          label="Price"
-                          
+                          v-model="total_price"
+                          label="Total Price"
+                          disabled
                         ></v-text-field>
                       </v-col>
                       
-                      <v-col
-                        cols="12"
-                      >
-                        <v-select
-                          v-model="editedItem.method"
-                          :items="itemMethod"
-                          :label="editedItem.method"
-                          solo
-                          dark
-                          background-color="primary"
-                        >
-                        </v-select>
-                      </v-col>
-                      <v-col
-                        cols="12"
-                      >
-                        <v-text-field
-                          v-model="editedItem.date"
-                          label="Date"
-                        ></v-text-field>
-                      </v-col>
                       <v-col
                         cols="6"
                       >
                         <v-select
                           v-model="editedItem.status"
                           :items="itemStatus"
-                          :label="editedItem.status"
+                          label="Status"
                           solo
                           dark
                           background-color="primary"
@@ -196,7 +354,8 @@
            v-if="item.status_id == 1"
            outlined
            small
-           color="green"
+           width="90"
+           color="yellow"
           >
             Pending
           </v-btn>
@@ -204,7 +363,8 @@
            v-else-if="item.status_id == 2"
            outlined
            small
-           color="red"
+           width="90"
+           color="green"
           >
             Success
           </v-btn>
@@ -213,6 +373,7 @@
            outlined
            small
            color="red"
+           width="90"
           >
             Fail
           </v-btn>
@@ -220,25 +381,40 @@
         </template>
 
         <template v-slot:[`item.actions`]="{ item }">
-          <v-icon
-            @click="SendItem(item)"
-            color="green"
+          <v-btn
+           icon
+           :href="'https://api.whatsapp.com/send?phone='+item.user.number+'&text=Halo '+item.user.name+'^^%0ABerikut merupakan invoice atas penyewaan '+item.office.name+', dengan total harga '+item.total_price+'%0ATerima Kasih'"
+           target="_blank"
           >
-              mdi-send-circle
-          </v-icon>
-          <v-icon
-            class="mx-2"
-            @click="editItem(item)"
-            color="primary"
+            <v-icon
+              color="green"
+            >
+                mdi-send-circle
+            </v-icon>
+          </v-btn>
+          
+          <v-btn
+           icon
           >
-              mdi-pencil-circle
-          </v-icon>
-          <v-icon
-            @click="deleteItem(item)"
-            color="red"
+            <v-icon
+              @click="editItem(item)"
+              color="primary"
+            >
+                mdi-pencil-circle
+            </v-icon>
+          </v-btn>
+          
+          <v-btn
+           icon
           >
-              mdi-delete-circle
-          </v-icon>
+            <v-icon
+              @click="deleteItem(item)"
+              color="red"
+            >
+                mdi-delete-circle
+            </v-icon>
+          </v-btn>
+          
           
         </template>
       </v-data-table>
@@ -257,7 +433,26 @@ export default {
     },
     data() {
         return {
+
+            user_name: "",
+            total_price: "",
+
+            // Tanggal
+            date_now: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+            menuDateStart: false,
+            menuStart: false,
+            menuEnd: false,
+            menu: false,
             
+
+            // Input new transaction
+            dialogNewTransaction: false,
+            user_id: 0,
+            office_id: 0,
+            start_date: "",
+            start_time:"",
+            end_time:"",
+
             search: '',
             dialog: false,
             dialogDelete: false,
@@ -271,8 +466,9 @@ export default {
               },
               { text: 'Name', value: 'user.name', sortable: false },
               { text: 'Price', value: 'total_price', sortable: false },
-              { text: 'Method', value: 'payment_method' },
-              { text: 'Date', value: 'payment_date', sortable: false },
+              // { text: 'Method', value: 'payment_method' },
+              { text: 'Nama Gedung', value: 'office.name', sortable: false },
+              { text: 'Date', value: 'start_hour', sortable: false },
               { text: 'Status', value: 'status_id', sortable: false },
               { text: 'Actions', value: 'actions', sortable: false },
             ],
@@ -282,19 +478,11 @@ export default {
             editedIndex: -1,
             editedItem: {
               id: 0,
-              name: '',
-              price: 0,
-              method: '',
-              date: '',
-              status: ''
+              status_id: ''
             },
             defaultItem: {
               id: 0,
-              name: '',
-              price: 0,
-              method: '',
-              date: '',
-              status: ''
+              status_id: ''
             },
         }
     },
@@ -322,9 +510,7 @@ export default {
     methods: {
       async loadDataTransactions() {
         const response = await axios.get(`http://34.207.166.213/booking/all`)
-        // const response = await axios.get(`http://localhost:3000/booking/all?status_id=1`)
         this.transactions = response.data.data
-        console.log(this.transactions)
       },
       initialize () {
         this.loadDataTransactions()
@@ -334,6 +520,8 @@ export default {
       editItem (item) {
         this.editedIndex = this.transactions.indexOf(item)
         this.editedItem = Object.assign({}, item)
+        this.user_name =  item.user.name
+        this.total_price = item.total_price
         this.dialog = true
       },
       
@@ -369,35 +557,50 @@ export default {
         })
         this.initialize()
       },
-      closeDetailReview () {
-        this.dialogReview = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
+      
+      updateTransaction() {
+            axios.post(`http://34.207.166.213/booking`, {
+                user_id: Number(this.user_id),
+                office_id: Number(this.office_id),
+                status_id: 1,
+                start_date: this.start_date+" 00:00:00 WIB",
+                end_date: this.start_date+" 00:00:00 WIB",
+                start_hour: this.start_date+" " + this.start_time+ " WIB",
+                end_hour: this.start_date+" " + this.end_time+ " WIB"
+            }).then(response=>{
+                console.log(response)
+            })
+            this.dialogNewTransaction = false
+            this.initialize()
+        },
 
 
       save () {
         if (this.editedIndex > -1) {
-          axios.put(`http://localhost:3000/transactions/`+this.editedItem.id, {
-            name: this.editedItem.name,
-            price: this.editedItem.price,
-            method: this.editedItem.method,
-            date: this.editedItem.date,
-            status: this.editedItem.status
-
-          }).then(response=>{
-            console.log(response)
-          })
+          if (this.editedItem.status == 'Pending') {
+              axios.put(`http://34.207.166.213/booking/`+this.editedItem.id, {
+                status_id: 1
+              }).then(response=>{
+                console.log(response)
+              })    
+          } if (this.editedItem.status == 'Success') {
+              axios.put(`http://34.207.166.213/booking/`+this.editedItem.id, {
+                status_id: 2
+              }).then(response=>{
+                console.log(response)
+              })
+          } else {
+              axios.put(`http://34.207.166.213/booking/`+this.editedItem.id, {
+                status_id: 3
+              }).then(response=>{
+                console.log(response)
+              })
+          }
+          
           Object.assign(this.transactions[this.editedIndex], this.editedItem)
         } else {
-          axios.post(`http://localhost:3000/transactions`, {
-            name: this.editedItem.name,
-            price: this.editedItem.price,
-            method: this.editedItem.method,
-            date: this.editedItem.date,
-            status: this.editedItem.status
+          axios.post(`http://34.207.166.213/booking`, {
+            
           }).then(response=>{
             console.log(response)
           })

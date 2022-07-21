@@ -85,7 +85,7 @@
          :href="'https://api.whatsapp.com/send?phone=62895401010022&text=Halo Koba-min^^ ~ %0ASaya mau mengkonfirmasi pembayaran,%0AID Booking: '+this.infoBooking.id+'%0ANama Gedung: '+this.infoBooking.office.name+'%0ATotal Harga: '+this.infoBooking.total_price"
          target="_blank"
         >
-          KONFIRMASI PEMBAYARAN
+          KIRIM BUKTI PEMBAYARAN
         </v-btn>
       </div>
       

@@ -4,6 +4,7 @@
         <Chat />
 
         <div class="banner-iklan">
+            
             <v-img src="../../assets/home/banner.png" width="100%" alt="">
                 <v-row class="ma-0 fill-height" align="center">
                     <v-col>

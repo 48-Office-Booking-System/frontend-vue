@@ -39,7 +39,7 @@
     </v-list>
     <v-list-item class="mt-4">
       <v-list-item-content>
-        <v-btn large outlined color="red">
+        <v-btn large outlined color="red" :to="'/admin'">
           <v-icon class="mr-4">
             mdi-logout
           </v-icon>
