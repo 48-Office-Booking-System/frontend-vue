@@ -17,13 +17,13 @@
               Agent: KOBAS-Felik
             </v-card-title>
             <v-card-text>
-              Metode Pembayaran: ??
+              Metode Pembayaran: BCA
             </v-card-text>
           </v-card>
         </v-col>
         
         <v-col class="text-center">
-          <div class="exp mt-16">Bayar sebelum ??</div>
+          <div class="exp mt-16">Bayar sebelum tanggal 22 July 2022</div>
         </v-col>
 
         <v-col>
@@ -38,7 +38,7 @@
               Pemesan: {{ infoBooking.user.name }}
             </v-card-title>
             <v-card-text>
-              Tanggal Pemesanan: ??? 
+              Tanggal Pemesanan: 21 July 2022 
             </v-card-text>
           </v-card>
           
@@ -68,7 +68,7 @@
               <tbody>
                 <tr>
                   <td>{{ infoBooking.office.name }}</td>
-                  <td> - </td>
+                  <td> 21 July 2022 </td>
                   <td>{{ infoBooking.start_date }}</td>
                   <td>Rp. {{ infoBooking.total_price }},-</td>
                 </tr>

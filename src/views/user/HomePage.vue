@@ -137,7 +137,7 @@
                     width="365"
                     >
                 
-                    <v-carousel
+                    <!-- <v-carousel
                     hide-delimiters
                     :show-arrows="false"
                     height="200"
@@ -149,7 +149,9 @@
                         >
                             
                         </v-carousel-item>
-                    </v-carousel>
+                    </v-carousel> -->
+
+                    <img width="100%" :src="'https://ik.imagekit.io/yudha/practice_admin/pexels-pixabay-271816_2b2Y2LzQ1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656304427380'" alt="">
 
                     <v-rating
                     :value="review.star"

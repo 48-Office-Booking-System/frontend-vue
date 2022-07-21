@@ -441,8 +441,6 @@ export default {
                 start_hour: this.start_date+" " + this.start_time+ " WIB",
                 end_hour: this.start_date+" " + this.end_time+ " WIB"
 
-
-
             }).then(response=>{
                 console.log(response)
             })
